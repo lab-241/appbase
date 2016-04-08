@@ -1,0 +1,52 @@
+{
+  "name": "shop",
+  "plural": "shops",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "desc": {
+      "type": "string"
+    },
+    "location": {
+      "type": "geopoint"
+    },
+    "phone": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "city": {
+      "type": "belongsTo",
+      "model": "city"
+    },
+    "manager": {
+      "type": "belongsTo",
+      "model": "user"
+    },
+    "reviews": {
+      "type": "hasMany",
+      "model": "review"
+    },
+    "followers": {
+      "type": "hasMany",
+      "model": "user"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

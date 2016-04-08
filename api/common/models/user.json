@@ -1,0 +1,24 @@
+{
+  "name": "user",
+  "plural": "users",
+  "base": "User",
+  "idInjection": true,
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "favorites": {
+      "type": "hasAndBelongsToMany",
+      "model": "shop"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "*"
+    }
+  ],
+  "methods": {}
+}
