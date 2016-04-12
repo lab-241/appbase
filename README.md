@@ -2,9 +2,15 @@
 
 A production ready mobile app foundation.
 
+What's [App Base](http://appbase.ga) ? `AB = LOOPBACK + IONIC`
+
 ![](logo.jpg)
 
-[TOC]
+## Table of content
+
+1. [Features](#features)
+1. [Road map](#raod-map)
+1. [Getting started](#getting-started)
 
 ## Features
 
@@ -17,27 +23,19 @@ A production ready mobile app foundation.
 * Rating and comments items
 * Sharing items
 
-## Shocase apps
-
-* www.leguide.ga [Loisirs, Services, Events]
-
 ## Road map
 
-* Filters : type, tags ...
+* Deploy documentation (manual + docker)
+* Dev with docker
+* Basic ittems filters : type, tags ...
 * Dedicated "ionicview" app
 * User account managment
-* Item images upload on mobile (ex :for restaurant, or shop)
 * Xamarin based mobile client (ios, android, windows) 
-* [Pro] Organisation with multiples items and prices (services, articles)
-* [Pro] Organisation private admin board (items, publish ...) 
-
 ...
 
 ## Getting started
 
 Actually, App Base (v1.0) is a fullstack js ecosystem :
-
-### Tech stack
 
 * REST API : [LoopBack Framework](https://strongloop.com/node-js/loopback-framework)
 * Mobile App : [Ionic Framework](http://ionicframework.com/)
@@ -47,17 +45,17 @@ Actually, App Base (v1.0) is a fullstack js ecosystem :
 
 __Prerequites__
 
-* Node Js
+* [NodeJs & NPM](https://nodejs.org)
 
-__Install manually__
+__Install dev tools__
+
+App base use ionic (who use cordova) and strongloop
 
 ```
-npm install -g strongloop
-npm install -g cordova
-npm install -g ionic
+npm install -g cordova ionic strongloop
 ```
 
-Start app
+__Start app components__
 
 ```
 $ git clone git@git.mikangali.com:lab-241/appbase
@@ -68,7 +66,7 @@ $ cd api
 $ grunt
 
 # start ionic mobile app
-$ cd mobile
+$ cd ../mobile
 $ ionic serv --lab
 ```
 
@@ -86,20 +84,6 @@ $ ionic serv --lab
 
 ## Links
 
-* https://slides.com/mikamboo/app-base/edit
-* http://startbootstrap.com/template-overviews/stylish-portfolio/
-
-
-TODO : 
-================
-
-* build => ionic.io (+ notifications) 
-* icône personnalisé => mettre les images dans le dossier res/drawable
-* Présentation slides.com
-
-
-IDEAS
-================
-
-* Modules market
-* 
+* [Project website](http://appbase.ga)
+* [Github repo](https://github.com/lab-241/appbase)
+* [slideshow](https://slides.com/mikamboo/app-base/edit)

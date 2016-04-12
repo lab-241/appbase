@@ -21,7 +21,6 @@ DOCUMENTATION
 ### API
 
 * Grunt tasks (serve, test, generate-ng-sdk)
-* Generate angular sdk
 
 ### MOBILE
 
