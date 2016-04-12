@@ -1,0 +1,21 @@
+<ion-view view-title="Shops">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="shop in shops" href="#/app/shops/{{shop.id}}">
+        <p class="item-icon-left">
+          <i class="icon ion-bag"></i>
+          {{shop.name}}
+          <span class="badge badge-assertive">0</span>
+        </p>
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll 
+        ng-if="hasMore"
+        on-infinite="loadMore()" 
+        distance="5%">
+    </ion-infinite-scroll>
+    <div class="text-center empty" ng-hide="shops.length">
+      Aucun résultat
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,15 +1,12 @@
-// Ionic AppBase App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'appbase' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
+/*
+ * App : application main module
+ * @Author Michael
+ */
 angular.module('appbase', [
   'ionic', 
   'appbase.conf', 
   'appbase.libs',
   'appbase.auth',
-  
-  //-- The sample "Shop" module
   'appbase.shop'
 ])
 

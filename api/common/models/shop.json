@@ -17,6 +17,9 @@
     "location": {
       "type": "geopoint"
     },
+    "image": {
+      "type": "string"
+    },
     "phone": {
       "type": "string"
     }

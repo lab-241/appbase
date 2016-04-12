@@ -15,24 +15,25 @@
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     
-    <!-- other angularjs js libs -->
+    <!-- Other angularjs js libs -->
+    <!-- LbServices require angular-resource -->    
+    <script src="app/libs/LbServices.js"></script>
     <script src="lib/angular-resource/angular-resource.min.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
-    <!-- your app's js -->
-    <script src="modules/app.js"></script>
-    <script src="modules/libs/Libs.js"></script>
-    <script src="modules/libs/LbServices.js"></script>
-    <script src="modules/conf/Conf.js"></script>
-    <script src="modules/conf/ConfRoutes.js"></script>
-    <!--<script src="modules/menu/Menu.js"></script>
-    <script src="modules/menu/MenuController.js"></script>-->
-    <script src="modules/auth/Auth.js"></script>
-    <script src="modules/auth/AuthController.js"></script>
-    <script src="modules/shop/Shop.js"></script>
-    <script src="modules/shop/ShopController.js"></script>
+    <!-- Loading modules -->  
+    <script src="app/app.js"></script>
+    <script src="app/libs/Libs.js"></script>
+    <script src="app/conf/Conf.js"></script>
+    <script src="app/conf/ConfRoutes.js"></script>
+    <script src="app/auth/Auth.js"></script>
+    <script src="app/auth/AuthService.js"></script>
+    <script src="app/layout/AppController.js"></script>
+    <script src="app/shop/Shop.js"></script>
+    <script src="app/shop/ShopService.js"></script>
+    <script src="app/shop/ShopController.js"></script>
   </head>
 
   <body ng-app="appbase">

@@ -1,12 +1,13 @@
 angular
   .module('appbase.conf')
   .config(function($stateProvider, $urlRouterProvider) {
+  
   $stateProvider
 
   .state('app', {
     url: '/app',
     abstract: true,
-    templateUrl: 'modules/menu/views/menu.html',
+    templateUrl: 'app/layout/views/shell.html',
     controller: 'AppCtrl'
   })
   
@@ -14,7 +15,7 @@ angular
     url: '/shops',
     views: {
       'menuContent': {
-        templateUrl: 'modules/shop/views/shop-list.html',
+        templateUrl: 'app/shop/views/shop-list.html',
         controller: 'ShopListCtrl'
       }
     }
@@ -24,7 +25,7 @@ angular
     url: '/shops/:shopId',
     views: {
       'menuContent': {
-        templateUrl: 'modules/shop/views/shop.html',
+        templateUrl: 'app/shop/views/shop.html',
         controller: 'ShopItemCtrl'
       }
     }

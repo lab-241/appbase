@@ -1,6 +1,6 @@
 angular
-  .module('appbase.auth')
-  .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+  .module('appbase')
+  .controller('AppCtrl', function($scope, $ionicModal, AuthService) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -13,7 +13,7 @@ angular
   $scope.loginData = {};
 
   // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('modules/auth/views/login.html', {
+  $ionicModal.fromTemplateUrl('app/auth/views/login.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
@@ -33,10 +33,11 @@ angular
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
 
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
+    // Login user
+    AuthService
+      .login($scope.loginData.username, $scope.loginData.password)
+      .then(null, function(err){
+        console.log(err);
+      });
   };
 });

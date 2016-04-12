@@ -21,8 +21,15 @@ module.exports = function(app) {
   function createShops() {
     Shop.create([
         {
-            name: 'App Base Shop', 
-            desc: 'Boutique Hi-Tech', 
+            name: 'Techo shop 3000', 
+            desc: 'Boutique Hi-Tech. Lorem ipsum dolor sit amet', 
+            cityId:1, 
+            managerId:1, 
+            location: {lat: 0.3924100, lng: 9.4535600}
+        },
+        {
+            name: 'Africa fashion', 
+            desc: 'La moode afro à petit prix. Lorem ipsum dolor sit amet', 
             cityId:1, 
             managerId:1, 
             location: {lat: 0.3924100, lng: 9.4535600}
@@ -75,9 +82,9 @@ module.exports = function(app) {
       
   //-- Create users & roles
   User.create([
-    {username: 'John', email: 'john@appbase.com', password: 'opensesame'},
-    {username: 'Jane', email: 'jane@appbase.com', password: 'opensesame'},
-    {username: 'Mike', email: 'mike@appbase.com', password: 'opensesame'}
+    {username: 'John', email: 'john@appbase.ga', password: 'appbase'},
+    {username: 'Jane', email: 'jane@appbase.ga', password: 'appbase'},
+    {username: 'Toto', email: 'toto@appbase.ga', password: 'appbase'}
   ], function(err, users) {
     if (err) return console.log('%j', err);
     

@@ -1,10 +1,10 @@
 /**
  * Authentication service
- * AuthService based on lb-services.js generated from Loopback REST API project  
+ * AuthService based on ng-sdk generated from Loopback REST API project  
  */
 angular
   .module('appbase.auth')
-  .factory('AuthService', ['Reviewer', '$q', '$rootScope', function(User, $q,
+  .factory('AuthService', ['User', '$q', '$rootScope', function(User, $q,
       $rootScope) {
     
     /**
@@ -15,6 +15,7 @@ angular
         .login({email: email, password: password})
         .$promise
         .then(function(response) {
+          console.log(response);
           $rootScope.currentUser = {
             id: response.user.id,
             tokenId: response.id,
