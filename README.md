@@ -2,6 +2,8 @@
 
 A production ready mobile app foundation.
 
+[![Build Status](https://travis-ci.org/lab-241/appbase.svg?branch=master)](https://travis-ci.org/lab-241/appbase)
+
 What's [App Base](https://github.com/lab-241/appbase) ? `AB = LOOPBACK + IONIC`
 
 ![](logo.jpg)
