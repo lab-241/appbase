@@ -2,7 +2,7 @@
 
 A production ready mobile app foundation.
 
-What's [App Base](http://appbase.ga) ? `AB = LOOPBACK + IONIC`
+What's [App Base](https://github.com/lab-241/appbase) ? `AB = LOOPBACK + IONIC`
 
 ![](logo.jpg)
 
@@ -45,11 +45,11 @@ Actually, App Base (v1.0) is a fullstack js ecosystem :
 
 __Prerequites__
 
-* [NodeJs & NPM](https://nodejs.org)
+* [NodeJs](https://nodejs.org/en/download/package-manager)
 
 __Install dev tools__
 
-App base use ionic (who use cordova) and strongloop
+App base is built on top of ionic (who use cordova) and strongloop
 
 ```
 npm install -g cordova ionic strongloop

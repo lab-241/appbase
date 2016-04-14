@@ -1,15 +1,15 @@
 /**
  * Authentication service
- * AuthService based on ng-sdk generated from Loopback REST API project  
+ * AuthService based on ng-sdk generated from Loopback REST API project
  */
 angular
   .module('appbase.auth')
   .factory('AuthService', ['User', '$q', '$rootScope', function(User, $q,
       $rootScope) {
-    
+
     /**
      * Login user
-     * */    
+     * */
     function login(email, password) {
       return User
         .login({email: email, password: password})
@@ -26,7 +26,7 @@ angular
 
     /**
      * Logout User
-     * */    
+     * */
     function logout() {
       return User
        .logout()
@@ -35,15 +35,16 @@ angular
          $rootScope.currentUser = null;
        });
     }
-    
+
     /**
      * register User
-     * */    
+     * */
     function register(email, password) {
       return User
         .create({
-         email: email,
-         password: password
+          realm: 'user',
+          email: email,
+          password: password
        })
        .$promise;
     }

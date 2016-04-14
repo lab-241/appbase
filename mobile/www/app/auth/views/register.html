@@ -1,0 +1,27 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-calm">
+    <h1 class="title">Register</h1>
+    <div class="buttons">
+      <button class="button icon ion-close" ng-click="closeRegister()"></button>
+    </div>
+  </ion-header-bar>
+  <ion-content  class="padding auth">
+    <form ng-submit="doRegister()">
+        <div class="list list-inset">
+          <label class="item item-input">
+              <input type="text" placeholder="Email" ng-model="credentials.email">
+          </label>
+          <label class="item item-input">
+              <input type="text" placeholder="Username" ng-model="credentials.username">
+          </label>
+          <label class="item item-input">
+              <input type="password" placeholder="Password" ng-model="credentials.password">
+          </label>
+          <label class="item">
+            <button class="button button-block button-calm" type="submit">Register</button>
+          </label>
+        </div>
+    </form>
+    <p class="link-txt" ng-click="login()">Already have an account ?</p>
+  </ion-content>
+</ion-modal-view>

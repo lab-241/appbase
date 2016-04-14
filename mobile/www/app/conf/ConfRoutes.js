@@ -1,7 +1,7 @@
 angular
   .module('appbase.conf')
   .config(function($stateProvider, $urlRouterProvider) {
-  
+
   $stateProvider
 
   .state('app', {
@@ -10,7 +10,7 @@ angular
     templateUrl: 'app/layout/views/shell.html',
     controller: 'AppCtrl'
   })
-  
+
   .state('app.shop-list', {
     url: '/shops',
     views: {
@@ -29,7 +29,24 @@ angular
         controller: 'ShopItemCtrl'
       }
     }
+  })
+
+  //--------------------
+  // Authentication
+  //--------------------
+  .state('app.login', {
+    url: '/login',
+    views: {
+      'menuContent': {
+        templateUrl: 'app/auth/views/login.html'
+      }
+    }
+  })
+  .state('app.register', {
+    url: '/register',
+    templateUrl: 'app/auth/views/register.html'
   });
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/shops');
 });

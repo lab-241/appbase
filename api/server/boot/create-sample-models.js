@@ -6,6 +6,11 @@ module.exports = function(app) {
   var City = app.models.city;
   var Shop = app.models.shop;
   var Review = app.models.review;
+
+  var lorem = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. ' +
+	'Nisi sit ducimus veritatis ab perferendis nulla numquam, similique ' +
+	'cupiditate incidunt. Porro explicabo sed at architecto exercitationem ' +
+	'cum optio, dolor cupiditate aspernatur.';
   
   //-- Create cities
   City.create([
@@ -22,14 +27,21 @@ module.exports = function(app) {
     Shop.create([
         {
             name: 'Techo shop 3000', 
-            desc: 'Boutique Hi-Tech. Lorem ipsum dolor sit amet', 
+            desc: 'Le 100% hi-Tech. ' + lorem, 
             cityId:1, 
             managerId:1, 
             location: {lat: 0.3924100, lng: 9.4535600}
         },
         {
             name: 'Africa fashion', 
-            desc: 'La moode afro à petit prix. Lorem ipsum dolor sit amet', 
+            desc: 'La mode afro à petit prix. ' + lorem, 
+            cityId:1, 
+            managerId:1, 
+            location: {lat: 0.3924100, lng: 9.4535600}
+        },
+        {
+            name: 'Le temple du cuir', 
+            desc: 'Le meilleur tout simplement. ' + lorem, 
             cityId:1, 
             managerId:1, 
             location: {lat: 0.3924100, lng: 9.4535600}

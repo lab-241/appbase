@@ -1,11 +1,11 @@
 angular.module('appbase.shop')
 
 .controller('ShopListCtrl', function($scope, ShopService) {
-  
+
   $scope.shops    = [];
   $scope.page     = 0;
   $scope.hasMore  = true;
-  
+
   /**
    * Infinite scroll shops loader
    */
@@ -24,7 +24,7 @@ angular.module('appbase.shop')
 })
 
 .controller('ShopItemCtrl', function($scope, $stateParams, ShopService) {
-  
+
   /**
    * Get one shop by id param
    */
@@ -35,5 +35,5 @@ angular.module('appbase.shop')
     }, function(err){
       console.log(err);
     });
-    
+
 });

@@ -1,6 +1,6 @@
 <ion-side-menus enable-menu-with-back-views="false">
   <ion-side-menu-content>
-    <ion-nav-bar class="bar-assertive">
+    <ion-nav-bar class="bar-calm">
       <ion-nav-back-button>
       </ion-nav-back-button>
 
@@ -14,28 +14,20 @@
 
   <ion-side-menu side="left">
     <ion-header-bar class="bar-stable">
-      <h1 class="title">Left</h1>
+      <h1 class="title">App base</h1>
     </ion-header-bar>
     <ion-content>
         <div class="padding">
             <img src="img/ionic.png" width="100"/>
-            <div>
-                <button class="button button-small icon-left ion-unlocked"
-                    ng-click="session.login()">{{'actionLogin'}}</button>
-
-                <button class="button button-small icon-left ion-locked"
-                    ng-click="session.logout()">{{'actionLogout'}}</button>
-            </div>
         </div>
       <ion-list>
         <ion-item menu-close ng-click="login()">
-          Login
+            <i class="icon-left ion-unlocked"></i>
+            Login
         </ion-item>
-        <ion-item menu-close href="#/app/search">
-          Search
-        </ion-item>
-        <ion-item menu-close href="#/app/shops">
-          Browse
+        <ion-item menu-close ng-click="about()">
+          <i class="icon-left ion-information-circled"></i>
+          About
         </ion-item>
       </ion-list>
     </ion-content>

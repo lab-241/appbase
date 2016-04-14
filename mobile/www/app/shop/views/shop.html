@@ -1,15 +1,18 @@
 <ion-view view-title="Shop">
   <ion-content>
-    <div class="padding">
-      <h4>{{shop.name}}</h4> 
-      <img src="img/logo.jpg" style="width:100%"/>
-      <div class="button-bar">
-          <button class="button button-assertive button-outline icon-left ion-share" style="font-size:12px;">Partager</button>
-          <button class="button button-assertive button-outline icon-left ion-ios-chatboxes-outline" style="font-size:12px;">Commenter</button>
-          <button class="button button-assertive button-outline icon-left ion-android-favorite-outline" style="font-size:12px;">Favoris</button>
-      </div>   
-      <p>{{shop.desc | limitTo : 300 }}</p>
+    <div class="shop">
+      <p class="display"><i class="icon ion-bag"></i></p>
+      <div class="padding">
+        <h4>{{shop.name}}</h4>
+        <div class="button-bar">
+          <button class="button button-outline button-calm button-small icon ion-ios-chatboxes-outline"></button>
+          <button class="button button-outline button-calm button-small icon ion-android-favorite-outline"></button>
+        </div>
+        <p class="desc">{{shop.desc | limitTo : 300 }}</p>
+      </div>
     </div>
-    
+    <div class="bar bar-footer">
+      <button class="button button-calm icon-left ion-share"></button>
+    </div>
   </ion-content>
 </ion-view>

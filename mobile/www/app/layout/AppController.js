@@ -1,6 +1,6 @@
 angular
   .module('appbase')
-  .controller('AppCtrl', function($scope, $ionicModal, AuthService) {
+  .controller('AppCtrl', function($scope, $ionicModal, $ionicPopup, AuthService) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -9,35 +9,76 @@ angular
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
-  // Form data for the login modal
-  $scope.loginData = {};
+  //-- Credentials
+  $scope.credentials = {};
 
-  // Create the login modal that we will use later
+  //-- Create modals that we will use later
   $ionicModal.fromTemplateUrl('app/auth/views/login.html', {
     scope: $scope
   }).then(function(modal) {
-    $scope.modal = modal;
+    $scope.loginModal = modal;
+  });
+  $ionicModal.fromTemplateUrl('app/auth/views/register.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.registerModal = modal;
   });
 
-  // Triggered in the login modal to close it
   $scope.closeLogin = function() {
-    $scope.modal.hide();
+    $scope.loginModal.hide();
+  };
+  $scope.closeRegister = function() {
+    $scope.registerModal.hide();
   };
 
-  // Open the login modal
+  //-- Open modals
   $scope.login = function() {
-    $scope.modal.show();
+    if($scope.registerModal.isShown()) $scope.closeRegister();
+    $scope.loginModal.show();
+  };
+  $scope.register = function() {
+    if($scope.loginModal.isShown()) $scope.closeLogin();
+    $scope.registerModal.show();
   };
 
-  // Perform the login action when the user submits the login form
+  //-- Perform the login action when the user submits the login form
   $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
+    console.log('Doing login', $scope.credentials);
 
-    // Login user
     AuthService
-      .login($scope.loginData.username, $scope.loginData.password)
-      .then(null, function(err){
-        console.log(err);
+      .login($scope.credentials.username, $scope.credentials.password)
+      .then(function(){
+        $scope.closeLogin();
+      }, function(err){
+        var alertPopup = $ionicPopup.alert({
+            title: 'Login failed!',
+            template: 'Please check your credentials!'
+        });
       });
   };
+
+  //-- Perform the register action when the user submits the login form
+  $scope.doRegister = function() {
+    console.log('Doing register', $scope.credentials);
+
+    AuthService
+      .register($scope.credentials.username, $scope.credentials.password)
+      .then(function(){
+        $scope.closeRegister();
+      }, function(err){
+        var alertPopup = $ionicPopup.alert({
+            title: 'Register failed!',
+            template: 'Error occurs during registering process'
+        });
+      });
+  };
+
+  //-- On click to about button
+  $scope.about = function(){
+    $ionicPopup.alert({
+        title: '<b>APP BASE</b>',
+        template: '<b>Version</b> v1.0.0<br><br>&copy; Lab-241 2016'
+    });
+  };
+
 });
