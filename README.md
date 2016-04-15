@@ -6,7 +6,7 @@ A production ready mobile app foundation.
 
 What's [App Base](https://github.com/lab-241/appbase) ? `AB = LOOPBACK + IONIC`
 
-![](splash_framed_small.png)
+![](doc/Loopback_Ionic.png)
 
 ## Table of content
 
