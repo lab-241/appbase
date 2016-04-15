@@ -1,7 +1,7 @@
 {
-  "name": "app-base",
+  "name": "App Base",
   "version": "1.1.1",
-  "description": "App Base: An Ionic project",
+  "description": "App Base: mobile app",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",

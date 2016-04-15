@@ -11,8 +11,6 @@ angular
 
     //-- Perform the login action when the user submits the login form
     $scope.doLogin = function() {
-      console.log('Doing login', $scope.credentials);
-
       AuthService
         .login($scope.credentials.email, $scope.credentials.password)
         .then(function(){
@@ -27,8 +25,6 @@ angular
 
     //-- Perform the register action when the user submits the login form
     $scope.doRegister = function() {
-      console.log('Doing register', $scope.credentials);
-
       AuthService
         .register($scope.credentials.email, $scope.credentials.password,
           $scope.credentials.username)

@@ -1,6 +1,8 @@
 # App base ionic project
 
-[Ionic](http://ionicframework.com) based mobile part of App Base ecosystem.
+[Ionic](http://ionicframework.com) based mobile part of **App Base** ecosystem.
+
+![](ionic-angular.png)
 
 ### TIP : Common Ionic commands
 

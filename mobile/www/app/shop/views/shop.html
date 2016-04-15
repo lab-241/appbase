@@ -5,15 +5,22 @@
       <div class="padding">
         <h4>{{shop.name}}</h4>
         <div class="button-bar">
-          <button class="button button-outline button-calm button-small icon ion-ios-chatboxes-outline"></button>
+          <button class="button button-outline button-calm button-small icon ion-ios-chatboxes-outline" ng-click="reviewShop()"></button>
           <button class="button button-outline button-calm button-small icon ion-android-favorite-outline"></button>
         </div>
         <p class="desc">{{shop.desc | limitTo : 255 }}</p>
-        <div ng-include="'app/shop/views/review-form.html'"></div>
+        <!-- <div ng-include="'app/shop/views/review-form.html'"></div> -->
       </div>
     </div>
-    <div class="bar bar-footer">
+    <!-- <div class="bar bar-footer">
       <button class="button button-calm icon-left ion-share"></button>
-    </div>
+    </div> -->
+    <!-- <div class="list reviews">
+      <a class="item item-avatar" href="#">
+        <img src="venkman.jpg">
+        <h2>Venkman</h2>
+        <p>Back off, man. I'm a scientist.</p>
+      </a>
+    </div> -->
   </ion-content>
 </ion-view>

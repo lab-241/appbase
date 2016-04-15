@@ -1,34 +1,16 @@
-<section>
-  <form name="form" ng-submit="submitForm()">
-    <fieldset>
-      <legend>{{action}} review form</legend>
-
-      <div class="form-group">
-        <label>Coffee shop name</label>
-        <select
-            ng-disabled="isDisabled"
-            ng-model="selectedShop"
-            ng-options="shop as shop.name for shop in coffeeShops"></select>
+<section class="shop-review">
+  <div>
+      <div class="rating button-bar">
+        <a class="button button-icon icon ion-star" ng-class="{true: 'energized', false: 'dark'}[review.rating>0]" ng-click="review.rating = 1"></a>
+        <a class="button button-icon icon ion-star" ng-class="{true: 'energized', false: 'dark'}[review.rating>1]" ng-click="review.rating = 2"></a>
+        <a class="button button-icon icon ion-star" ng-class="{true: 'energized', false: 'dark'}[review.rating>2]" ng-click="review.rating = 3"></a>
+        <a class="button button-icon icon ion-star" ng-class="{true: 'energized', false: 'dark'}[review.rating>3]" ng-click="review.rating = 4"></a>
+        <a class="button button-icon icon ion-star" ng-class="{true: 'energized', false: 'dark'}[review.rating>4]" ng-click="review.rating = 5"></a>
       </div>
 
-      <div class="form-group">
-        <label>Rating</label>
-        <input type="radio" ng-model="review.rating" value="1">1&#9733;
-        <input type="radio" ng-model="review.rating" value="2">2&#9733;
-        <input type="radio" ng-model="review.rating" value="3">3&#9733;
-        <input type="radio" ng-model="review.rating" value="4">4&#9733;
-        <input type="radio" ng-model="review.rating" value="5">5&#9733;
-      </div>
-
-      <div class="form-group">
+      <div class="comments">
         <label>Comments</label>
-        <textarea ng-model="review.comments"></textarea>
+        <textarea rows="4" ng-model="review.comments"></textarea>
       </div>
-
-      <div class="actions">
-        <label></label>
-        <button>{{action}} review</button>
-      </div>
-    </fieldset>
-  </form>
+  </div>
 <section>
