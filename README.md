@@ -40,14 +40,12 @@ What's [App Base](https://github.com/lab-241/appbase) ? `AB = LOOPBACK + IONIC`
 
 Actually, App Base (v1.0) is a fullstack js ecosystem :
 
+| Need |Solution|
 |---|---|
 |REST API|[LoopBack Framework](https://strongloop.com/node-js/loopback-framework)|
 |Mobile App|[Ionic Framework](http://ionicframework.com/)|
-|Dashboard|[NG-admin](https://github.com/marmelab/ng-admin)|
+|Admin Dashboard|[NG-admin](https://github.com/marmelab/ng-admin)|
 
-* REST API : [LoopBack Framework](https://strongloop.com/node-js/loopback-framework)
-* Mobile App : [Ionic Framework](http://ionicframework.com/)
-* Dashboard [NG-admin](https://github.com/marmelab/ng-admin)
 
 ### Install dev stack
 
