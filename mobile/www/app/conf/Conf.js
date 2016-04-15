@@ -1,4 +1,4 @@
-angular.module('appbase.conf', [])
+angular.module('appbase.conf', ['pascalprecht.translate'])
 
 /**
  * Constants : Loopback configuration

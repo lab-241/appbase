@@ -23,6 +23,11 @@ $ ionic run android
 
 ```
 sudo apt-get install android-tools-adb
+
+# Usage examples
+$ adb devices
+$ adb shell /system/bin/screencap -p /sdcard/screenshot.png
+$ adb pull /sdcard/screenshot.png screenshot.png
 ```
 
 * How to persist $ANDROID_HOME : 

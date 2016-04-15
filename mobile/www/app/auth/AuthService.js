@@ -15,7 +15,6 @@ angular
         .login({email: email, password: password})
         .$promise
         .then(function(response) {
-          console.log(response);
           $rootScope.currentUser = {
             id: response.user.id,
             token: response.id,

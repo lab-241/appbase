@@ -20,11 +20,12 @@ DOCUMENTATION
 
 ### API
 
-* Grunt tasks (serve, test, generate-ng-sdk)
+* Grunt tasks (serve, test, generate-ng-sdk, doc)
 
 ### MOBILE
 
 * Use angular sdk [prerequistes: ng-resources (bower install ng-resources --save-dev)]
+* Translations
 
 
 

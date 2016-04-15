@@ -6,7 +6,7 @@ A production ready mobile app foundation.
 
 What's [App Base](https://github.com/lab-241/appbase) ? `AB = LOOPBACK + IONIC`
 
-![](splash_framed.png)
+![](splash_framed_small.png)
 
 ## Table of content
 
@@ -23,10 +23,11 @@ What's [App Base](https://github.com/lab-241/appbase) ? `AB = LOOPBACK + IONIC`
 * Manage favorites items list
 * Admin dashboard items manager
 * Rating and comments items
-* Sharing items
+* Internationalization
 
 ## Road map
 
+* Sharing items
 * Deploy documentation (manual + docker)
 * Dev with docker
 * Basic ittems filters : type, tags ...
@@ -59,7 +60,7 @@ __Install dev tools__
 App base is built on top of ionic (who use cordova) and strongloop
 
 ```
-npm install -g cordova ionic strongloop
+npm install -g cordova ionic strongloop grunt-cli
 ```
 
 __Start app components__
@@ -70,7 +71,7 @@ $ cd appbase
 
 # start loopback api
 $ cd api
-$ grunt
+$ node .
 
 # start ionic mobile app
 $ cd ../mobile
@@ -83,3 +84,4 @@ $ ionic serv --lab
 * [Github repo](https://github.com/lab-241/appbase)
 * [Build status](https://travis-ci.org/lab-241/appbase)
 * [Slides show](https://slides.com/mikamboo/app-base/edit)
+
