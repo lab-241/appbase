@@ -18,7 +18,7 @@ angular
           console.log(response);
           $rootScope.currentUser = {
             id: response.user.id,
-            tokenId: response.id,
+            token: response.id,
             email: email
           };
         });
@@ -39,12 +39,13 @@ angular
     /**
      * register User
      * */
-    function register(email, password) {
+    function register(email, password, username) {
       return User
         .create({
           realm: 'user',
           email: email,
-          password: password
+          password: password,
+          username: username
        })
        .$promise;
     }

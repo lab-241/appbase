@@ -9,19 +9,18 @@ angular
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
-  //-- Credentials
-  $scope.credentials = {};
-
-  //-- Create modals that we will use later
-  $ionicModal.fromTemplateUrl('app/auth/views/login.html', {
+  //-- Create login modal that we will use later
+  var url = '\'app/auth/views/login.html\'';
+  var tmpl = '<div ng-controller="AuthCtrl" ng-include="'+url+'"></div>';
+  $scope.loginModal = $ionicModal.fromTemplate(tmpl, {
     scope: $scope
-  }).then(function(modal) {
-    $scope.loginModal = modal;
   });
-  $ionicModal.fromTemplateUrl('app/auth/views/register.html', {
+
+  //-- Create register modal that we will use later
+  var url = '\'app/auth/views/register.html\'';
+  var tmpl = '<div ng-controller="AuthCtrl" ng-include="'+url+'"></div>';
+  $scope.registerModal = $ionicModal.fromTemplate(tmpl, {
     scope: $scope
-  }).then(function(modal) {
-    $scope.registerModal = modal;
   });
 
   $scope.closeLogin = function() {
@@ -31,46 +30,18 @@ angular
     $scope.registerModal.hide();
   };
 
-  //-- Open modals
   $scope.login = function() {
     if($scope.registerModal.isShown()) $scope.closeRegister();
     $scope.loginModal.show();
   };
+
+  $scope.logout = function() {
+    AuthService.logout();
+  };
+
   $scope.register = function() {
     if($scope.loginModal.isShown()) $scope.closeLogin();
     $scope.registerModal.show();
-  };
-
-  //-- Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.credentials);
-
-    AuthService
-      .login($scope.credentials.username, $scope.credentials.password)
-      .then(function(){
-        $scope.closeLogin();
-      }, function(err){
-        var alertPopup = $ionicPopup.alert({
-            title: 'Login failed!',
-            template: 'Please check your credentials!'
-        });
-      });
-  };
-
-  //-- Perform the register action when the user submits the login form
-  $scope.doRegister = function() {
-    console.log('Doing register', $scope.credentials);
-
-    AuthService
-      .register($scope.credentials.username, $scope.credentials.password)
-      .then(function(){
-        $scope.closeRegister();
-      }, function(err){
-        var alertPopup = $ionicPopup.alert({
-            title: 'Register failed!',
-            template: 'Error occurs during registering process'
-        });
-      });
   };
 
   //-- On click to about button

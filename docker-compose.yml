@@ -1,26 +1,34 @@
+db:
+  image: mongo
+  ports:
+   - "27017:27017"
+  container_name: appbase-data
+
 api:
   image: mikamboo/devbox
   volumes:
-   - .:/app
+   - ./api:/app
   links:
    - db:db
   ports:
    - "3000:3000"
    - "35729:35729"
-db:
-  image: mongo
-  ports:
-   - "27017:27017"
+  command: grunt
+  working_dir: /app
+  container_name: appbase-api
 
-ionic:
+mobile:
   image: mikamboo/ionic-box
   privileged: true
   working_dir: /app
   volumes: 
-    - /home/mikamboo/box/lpdj/lpdj-mobile-public:/app 
+    - ./mobile:/app 
     - /dev/bus/usb:/dev/bus/usb
   ports: 
     - 9222:9222
     - 8100:8100 
     - 35730:35729 
+  command: ionic serve --lab
+  working_dir: /app
+  container_name: appbase-mobile
 

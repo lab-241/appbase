@@ -12,23 +12,28 @@
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
 
-  <ion-side-menu side="left">
-    <ion-header-bar class="bar-stable">
+  <ion-side-menu side="left" class="menu-sdie">
+    <!-- <ion-header-bar class="bar-stable">
       <h1 class="title">App base</h1>
-    </ion-header-bar>
+    </ion-header-bar> -->
     <ion-content>
-        <div class="padding">
-            <img src="img/ionic.png" width="100"/>
-        </div>
+      <p class="hero"><i class="icon ion-bag"></i></p>
       <ion-list>
-        <ion-item menu-close ng-click="login()">
+        <ion-item menu-close ng-hide="currentUser" ng-click="login()">
             <i class="icon-left ion-unlocked"></i>
             Login
+        </ion-item>
+        <ion-item menu-close ng-show="currentUser" ng-click="logout()">
+            <i class="icon-left ion-locked"></i>
+            Logout
+        </ion-item>
+        <ion-item menu-close ng-show="currentUser" ui-sref="app.favorites">
+          <i class="icon-left ion-heart"></i>
+          Favorites
         </ion-item>
         <ion-item menu-close ng-click="about()">
           <i class="icon-left ion-information-circled"></i>
           About
-        </ion-item>
       </ion-list>
     </ion-content>
   </ion-side-menu>

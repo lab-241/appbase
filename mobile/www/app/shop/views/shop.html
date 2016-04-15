@@ -8,7 +8,8 @@
           <button class="button button-outline button-calm button-small icon ion-ios-chatboxes-outline"></button>
           <button class="button button-outline button-calm button-small icon ion-android-favorite-outline"></button>
         </div>
-        <p class="desc">{{shop.desc | limitTo : 300 }}</p>
+        <p class="desc">{{shop.desc | limitTo : 255 }}</p>
+        <div ng-include="'app/shop/views/review-form.html'"></div>
       </div>
     </div>
     <div class="bar bar-footer">
