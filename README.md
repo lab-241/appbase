@@ -4,7 +4,11 @@ A production ready mobile app foundation.
 
 [![Build Status](https://travis-ci.org/lab-241/appbase.svg?branch=master)](https://travis-ci.org/lab-241/appbase)
 
-What's [App Base](https://github.com/lab-241/appbase) ? `AB = LOOPBACK + IONIC`
+## What's [App Base](https://github.com/lab-241/appbase) ? 
+
+A simple, robust fullstack js base for creating real life apps !
+
+__AB__ = [LOOPBACK](http://loopback.io) __+__ [IONIC](http://ionicframework.com/)
 
 ![](doc/Loopback_Ionic.png)
 
@@ -13,6 +17,7 @@ What's [App Base](https://github.com/lab-241/appbase) ? `AB = LOOPBACK + IONIC`
 1. [Features](#features)
 1. [Road map](#raod-map)
 1. [Getting started](#getting-started)
+1. [Links](#links)
 
 ## Features
 
@@ -47,7 +52,7 @@ Actually, App Base (v1.0) is a fullstack js ecosystem :
 |Admin Dashboard|[NG-admin](https://github.com/marmelab/ng-admin)|
 
 
-### Install dev stack
+### Development quick start
 
 __Prerequites__
 
@@ -67,17 +72,22 @@ __Start app components__
 $ git clone git@git.mikangali.com:lab-241/appbase
 $ cd appbase
 
-# start loopback api
+# Start loopback api
 
 $ cd api
 $ npm install
 $ grunt
 
-# start ionic mobile app
+# Start ionic mobile app
 
 $ cd ../mobile
 $ bower install
-$ ionic serv --lab
+$ ionic serve --lab
+
+# Run ionic app on android 
+
+$ ionic platform android
+$ ionic run android --livereload
 ```
 
 ## Links
