@@ -6,7 +6,7 @@ A production ready mobile app foundation.
 
 What's [App Base](https://github.com/lab-241/appbase) ? `AB = LOOPBACK + IONIC`
 
-![](logo.jpg)
+![](splash_framed.png)
 
 ## Table of content
 
@@ -38,6 +38,11 @@ What's [App Base](https://github.com/lab-241/appbase) ? `AB = LOOPBACK + IONIC`
 ## Getting started
 
 Actually, App Base (v1.0) is a fullstack js ecosystem :
+
+|---|---|
+|REST API|[LoopBack Framework](https://strongloop.com/node-js/loopback-framework)|
+|Mobile App|[Ionic Framework](http://ionicframework.com/)|
+|Dashboard|[NG-admin](https://github.com/marmelab/ng-admin)|
 
 * REST API : [LoopBack Framework](https://strongloop.com/node-js/loopback-framework)
 * Mobile App : [Ionic Framework](http://ionicframework.com/)
