@@ -58,7 +58,7 @@ __Install dev tools__
 App base is built on top of ionic (who use cordova) and strongloop
 
 ```
-npm install -g cordova ionic strongloop grunt-cli
+npm install -g cordova ionic strongloop grunt-cli bower
 ```
 
 __Start app components__
@@ -68,11 +68,15 @@ $ git clone git@git.mikangali.com:lab-241/appbase
 $ cd appbase
 
 # start loopback api
+
 $ cd api
-$ node .
+$ npm install
+$ grunt
 
 # start ionic mobile app
+
 $ cd ../mobile
+$ bower install
 $ ionic serv --lab
 ```
 
