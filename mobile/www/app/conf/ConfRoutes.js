@@ -23,8 +23,8 @@ angular
     url: '/shops/:shopId',
     views: {
       'menuContent': {
-        templateUrl: 'app/shop/views/shop.html',
-        controller: 'ShopItemCtrl'
+        templateUrl: 'app/shop/views/shop-detail.html',
+        controller: 'ShopDetailCtrl'
       }
     }
   })
