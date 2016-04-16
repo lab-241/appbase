@@ -4,7 +4,7 @@ A production ready mobile app foundation.
 
 [![Build Status](https://travis-ci.org/lab-241/appbase.svg?branch=master)](https://travis-ci.org/lab-241/appbase)
 
-## What's [App Base](https://github.com/lab-241/appbase) ? 
+## What's [App Base](http://appbase.ga) ?
 
 A simple, robust fullstack js base for creating real life apps !
 
@@ -38,7 +38,7 @@ __AB__ = [LOOPBACK](http://loopback.io) __+__ [IONIC](http://ionicframework.com/
 * Basic ittems filters : type, tags ...
 * Dedicated "ionicview" app
 * User account managment
-* Xamarin based mobile client (ios, android, windows) 
+* Xamarin based mobile client (ios, android, windows)
 ...
 
 ## Getting started
@@ -60,10 +60,11 @@ __Prerequites__
 
 __Install dev tools__
 
-App base is built on top of ionic (who use cordova) and strongloop
+App base is built on top of ionic (who use cordova) and strongloop.
+Some others automation tools (like gulp) are required.
 
 ```
-npm install -g cordova ionic strongloop grunt-cli bower
+npm install -g cordova ionic strongloop grunt-cli gulp bower
 ```
 
 __Start app components__
@@ -84,7 +85,7 @@ $ cd ../mobile
 $ bower install
 $ ionic serve --lab
 
-# Run ionic app on android 
+# Run ionic app on android
 
 $ ionic platform android
 $ ionic run android --livereload
@@ -96,4 +97,3 @@ $ ionic run android --livereload
 * [Github repo](https://github.com/lab-241/appbase)
 * [Build status](https://travis-ci.org/lab-241/appbase)
 * [Slides show](https://slides.com/mikamboo/app-base/edit)
-
