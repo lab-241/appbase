@@ -9739,13 +9739,21 @@ a.button {
   font-size: 5em;
   color: #fff; }
 
+.menu-sdie .item {
+  border: none; }
+
 .auth p.link-txt {
   margin-top: 10px;
   text-align: center;
   cursor: pointer;
   color: #387ef5; }
 
-.shop p.display {
+.auth .logo {
+  text-align: center; }
+  .auth .logo img {
+    width: 35%; }
+
+.shop p.hero {
   height: 130px;
   background: #047aaa;
   text-align: center;
@@ -9757,6 +9765,11 @@ a.button {
   margin-top: 10px;
   text-align: justify; }
 
+.shop .subtitle {
+  padding: 0 0 0 10px;
+  font-size: 1.2em;
+  margin: 0; }
+
 .shop-review .rating {
   margin-left: -7px; }
   .shop-review .rating .button:hover {
@@ -9764,3 +9777,25 @@ a.button {
 
 .shop-review .comments label {
   color: #777; }
+
+.shop-review-list a.item {
+  padding: 1px;
+  margin-top: 4px;
+  border-top: none;
+  border-right: none;
+  border-left: none; }
+  .shop-review-list a.item .head {
+    margin: 0;
+    padding: 0;
+    line-height: 5px; }
+    .shop-review-list a.item .head .icon.chat {
+      color: #047aaa;
+      font-size: 1.5em;
+      position: absolute;
+      top: 0; }
+    .shop-review-list a.item .head h4 {
+      position: absolute;
+      left: 30px;
+      top: 5px; }
+  .shop-review-list a.item p.comments {
+    padding: 0 5px 0 5px; }

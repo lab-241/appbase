@@ -3,10 +3,11 @@
  * @Author Michael
  */
 angular.module('appbase', [
-  'ionic', 
-  'appbase.conf', 
+  'ionic',
+  'appbase.conf',
   'appbase.libs',
   'appbase.auth',
+  'appbase.utils',
   'appbase.shop'
 ])
 

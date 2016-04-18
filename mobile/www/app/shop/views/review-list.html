@@ -1,0 +1,20 @@
+<ion-view view-title="Reviews">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="review in reviews" href="#">
+        <p class="item-icon-left">
+          <i class="icon ion-chatbubble"></i>
+          {{review.comments}}
+        </p>
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll
+        ng-if="hasMore"
+        on-infinite="loadMore()"
+        distance="5%">
+    </ion-infinite-scroll>
+    <div class="text-center empty" ng-hide="reviews.length">
+      Aucun résultat
+    </div>
+  </ion-content>
+</ion-view>

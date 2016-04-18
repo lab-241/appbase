@@ -6,20 +6,33 @@
     </div>
   </ion-header-bar>
   <ion-content  class="padding auth">
+    <div class="logo">
+      <img src="img/logo.png" class="logo">
+    </div>
     <form ng-submit="doRegister()">
         <div class="list list-inset">
           <label class="item item-input">
-              <input type="text" placeholder="Email" ng-model="credentials.email">
+            <i class="icon ion-email placeholder-icon"></i>
+            <input type="text" placeholder="Email" ng-model="credentials.email">
           </label>
           <label class="item item-input">
-              <input type="text" placeholder="Username" ng-model="credentials.username">
+            <i class="icon ion-person placeholder-icon"></i>
+            <input type="text" placeholder="Username" ng-model="credentials.username">
           </label>
           <label class="item item-input">
-              <input type="password" placeholder="Password" ng-model="credentials.password">
+            <i class="icon ion-locked placeholder-icon"></i>
+            <input type="password" placeholder="Password" ng-model="credentials.password">
           </label>
-          <label class="item">
-            <button class="button button-block button-calm" type="submit">Register</button>
+          <label class="item item-toggle">
+            Subscribe to newsletter
+            <label class="toggle toggle-calm">
+              <input type="checkbox" ng-model="credentials.newsletter">
+              <div class="track">
+                <div class="handle"></div>
+              </div>
+            </label>
           </label>
+          <button class="button button-block button-calm" type="submit">Register</button>
         </div>
     </form>
     <p class="link-txt" ng-click="login()">Already have an account ?</p>

@@ -1,7 +1,7 @@
 
 
 .shop{
-  p.display {
+  p.hero {
     height: 130px;
     background: $calm;
     text-align: center;
@@ -13,6 +13,12 @@
   p.desc {
     margin-top: 10px;
     text-align: justify;
+  }
+
+  .subtitle{
+    padding: 0 0 0 10px;
+    font-size: 1.2em;
+    margin:0;
   }
 }
 
@@ -28,6 +34,38 @@
   .comments {
     label{
       color: #777;
+    }
+  }
+}
+
+.shop-review-list {
+  a.item {
+    padding:1px;
+    margin-top: 4px;
+    border-top:none;
+    border-right:none;
+    border-left:none;
+
+    .head{
+      margin:0;
+      padding:0;
+      line-height: 5px;
+
+      .icon.chat{
+        color:$calm;
+        font-size:1.5em;
+        position: absolute;
+        top:0;
+      }
+      h4{
+        position: absolute;
+        left: 30px;
+        top: 5px;
+      }
+    }
+
+    p.comments{
+      padding:0 5px 0 5px;
     }
   }
 }

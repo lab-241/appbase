@@ -1,7 +1,8 @@
 angular
 .module('appbase.shop')
 .controller('ShopDetailCtrl',
-  function($scope, $stateParams, $ionicPopup, ShopService) {
+  function($scope, $stateParams, $ionicPopup, ShopService, AuthService,
+  LoaderService, MessageService){
 
   //-- Current shop Id (from navigation)
   $scope.shopId = $stateParams.shopId;
@@ -13,11 +14,34 @@ angular
     .findById($scope.shopId)
     .then(function (item){
       $scope.shop = item;
+      getReviews();
     }, function(err){
-      console.log(err);
+      console.debug(err);
+      //TODO: Manage Error
     });
 
+  /**
+   * Update current shop reviews
+   */
+  function getReviews(){
+    ShopService
+      .findReviews($scope.shopId, 3)
+      .then(function(reviews){
+        $scope.reviews = reviews;
+        console.log(reviews);
+      }, function(err){
+        console.debug(err);
+        //TODO: Manage Error
+      });
+  }
+
   $scope.reviewShop = function(){
+
+    if(!AuthService.hasSession()){
+      LoaderService.toast(MessageService.get('AUTH_REUQUIRED'));
+      return;
+    }
+
     $scope.review = {
       rating : 0,
       comments : ''
@@ -39,7 +63,7 @@ angular
           type: 'button-balanced',
           onTap: function(e) {
             if (!$scope.review.rating) {
-              //don't allow the user to close unless he enters review
+              LoaderService.toast(MessageService.get('REVIEW_REUQUIRED'));
               e.preventDefault();
             } else {
               return $scope.review;
@@ -53,12 +77,13 @@ angular
       console.log('Tapped!', res);
       if(res){
         ShopService
-        .review($scope.review.rating, $scope.review.comments, $scope.shopId)
+        .addReview($scope.review.rating, $scope.review.comments, $scope.shopId)
         .then(function() {
+          getReviews()
           reviewPopup.close();
-          //TODO: Display toast message
+          LoaderService.toast(MessageService.get('REVIEW_ADDED_SUCCESSFULLY'));
         }, function(err) {
-          console.log(err);
+          console.debug(err);
         });
       }
     });

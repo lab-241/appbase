@@ -10,7 +10,7 @@ angular
     templateUrl: 'app/layout/views/shell.html',
     controller: 'AppCtrl'
   })
-  .state('app.shop-list', {
+  .state('app.shops', {
     url: '/shops',
     views: {
       'menuContent': {
@@ -19,12 +19,21 @@ angular
       }
     }
   })
-  .state('app.shop-item', {
+  .state('app.shop', {
     url: '/shops/:shopId',
     views: {
       'menuContent': {
         templateUrl: 'app/shop/views/shop-detail.html',
         controller: 'ShopDetailCtrl'
+      }
+    }
+  })
+  .state('app.reviews', {
+    url: '/shops/:shopId/reviews',
+    views: {
+      'menuContent': {
+        templateUrl: 'app/shop/views/review-list.html',
+        controller: 'ShopReviewListCtrl'
       }
     }
   })

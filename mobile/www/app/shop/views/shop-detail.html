@@ -1,26 +1,34 @@
 <ion-view view-title="Shop">
-  <ion-content>
-    <div class="shop">
-      <p class="display"><i class="icon ion-bag"></i></p>
-      <div class="padding">
-        <h4>{{shop.name}}</h4>
-        <div class="button-bar">
-          <button class="button button-outline button-calm button-small icon ion-ios-chatboxes-outline" ng-click="reviewShop()"></button>
-          <button class="button button-outline button-calm button-small icon ion-android-favorite-outline"></button>
-        </div>
-        <p class="desc">{{shop.desc | limitTo : 255 }}</p>
-        <!-- <div ng-include="'app/shop/views/review-form.html'"></div> -->
+  <ion-content class="shop">
+    <p class="hero"><i class="icon ion-bag"></i></p>
+    <div class="padding">
+      <h4>{{shop.name}}</h4>
+      <div class="button-bar">
+        <button class="button button-outline button-calm button-small icon ion-ios-chatboxes-outline" ng-click="reviewShop()"></button>
+        <button class="button button-outline button-calm button-small icon ion-android-favorite-outline"></button>
       </div>
+      <p class="desc">{{shop.desc | limitTo : 255 }}</p>
     </div>
-    <!-- <div class="bar bar-footer">
-      <button class="button button-calm icon-left ion-share"></button>
-    </div> -->
-    <!-- <div class="list reviews">
-      <a class="item item-avatar" href="#">
-        <img src="venkman.jpg">
-        <h2>Venkman</h2>
-        <p>Back off, man. I'm a scientist.</p>
+
+    <h5 class="subtitle">Last reviews</h5>
+    <div class="list list-inset shop-review-list">
+      <a class="item" ng-repeat="review in reviews" href="#">
+        <div class="row head">
+          <p class="col col-75">
+            <i class="icon ion-chatbubble-working chat"></i>
+            <h4 class="text-calm">{{review.date|date:'dd/MM/yyyy'}} - {{review.reviewer.username}}</h4>
+          </p>
+          <p class="col" ng-include="'app/shop/views/review-rate-tpl.html'"></p>
+        </div>
+        <p class="comments">{{review.comments}}</p>
       </a>
-    </div> -->
+    </div>
+
+    <div class="padding">
+      <a class="button button-small button-outline button-calm" href="#/app/shops/{{shopId}}/reviews">
+        {{'MORE_REVIEWS' | translate}}
+      </a>
+    </div>
+
   </ion-content>
 </ion-view>

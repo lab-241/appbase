@@ -6,7 +6,8 @@ angular
     $scope.credentials = {
       username : 'toto',
       email : 'toto@appbase.ga',
-      password : 'appbase'
+      password : 'appbase',
+      newsletter : true
     };
 
     //-- Perform the login action when the user submits the login form
@@ -35,6 +36,7 @@ angular
               title: 'Register failed!',
               template: 'Error occurs during registering process'
           });
+          //TODO: Specific case error message (eg: existing user)
         });
     };
 

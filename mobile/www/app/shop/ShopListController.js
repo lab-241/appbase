@@ -1,5 +1,5 @@
-angular.module('appbase.shop')
-
+angular
+.module('appbase.shop')
 .controller('ShopListCtrl', function($scope, ShopService, Review) {
 
   $scope.shops    = [];

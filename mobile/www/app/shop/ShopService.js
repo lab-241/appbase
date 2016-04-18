@@ -16,6 +16,7 @@ angular
     var limit = 10;
     return Shop.find({
       filter: {
+        order: 'date DESC',
         limit: limit,
         skip: page * limit
       }
@@ -39,7 +40,7 @@ angular
    * Required : autehntication
    * @returns : $promise
    */
-  service.review = function(rating, comments, shopId){
+  service.addReview = function(rating, comments, shopId){
     //-- NB: "PublisherId" and "date" fields are
     // auto setted by api Review model.
     // @see api/common/review.js Review.beforeRemote('create')
@@ -47,6 +48,28 @@ angular
       rating: rating,
       comments: comments,
       shopId: shopId
+    }).$promise;
+  };
+
+  /**
+   * [function description]
+   * @param  {int} id the shop Id
+   * @param  {int} limit max results number
+   * @return $promise
+   */
+  service.findReviews = function(id, limit, page){
+    var L = limit || 10,
+        P = page || 0;
+    return Review.find({
+      filter: {
+        limit: L,
+        order: 'date DESC',
+        skip: P * L,
+        where: {
+          shopId: id
+        },
+        include: ['reviewer']
+      }
     }).$promise;
   };
 

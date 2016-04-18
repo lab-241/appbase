@@ -6,17 +6,20 @@
     </div>
   </ion-header-bar>
   <ion-content class="padding auth">
+    <div class="logo">
+      <img src="img/logo.png" class="logo">
+    </div>
     <form ng-submit="doLogin()">
       <div class="list list-inset">
           <label class="item item-input">
-              <input type="text" placeholder="Email" ng-model="credentials.email">
+            <i class="icon ion-email placeholder-icon"></i>
+            <input type="text" placeholder="Email" ng-model="credentials.email">
           </label>
           <label class="item item-input">
-              <input type="password" placeholder="Password" ng-model="credentials.password">
+            <i class="icon ion-locked placeholder-icon"></i>
+            <input type="password" placeholder="Password" ng-model="credentials.password">
           </label>
-          <label class="item">
-            <button class="button button-block button-calm" type="submit">Login</button>
-          </label>
+          <button class="button button-block button-calm" type="submit">Login</button>
       </div>
     </form>
     <p class="link-txt" ng-click="register()">Create an account ?</p>

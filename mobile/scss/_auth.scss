@@ -5,4 +5,11 @@
     cursor: pointer;
     color: $positive;
   }
+
+  .logo{
+    text-align: center;
+    img {
+      width: 35%;
+    }
+  }
 }

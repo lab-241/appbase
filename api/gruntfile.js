@@ -12,34 +12,56 @@ module.exports = function (grunt) {
 
 	//-- Project config
 	grunt.initConfig({
-        //-- Server Tests
-        mochaTest: {
-            test: {
-                options: {
-                    reporter: 'spec',
-                    clearRequireCache: false,
-                },
-                src: files.tests
-            },
-            //-- unit-test report
-            results: {
-                options: {
-                quiet: true,
-                reporter: 'xunit',
-                        captureFile: 'unit-test-results.xml'
-                },
-                src: files.tests
-            },
-            //-- code coverage
-            coverage: {
-                options: {
-                    quiet: true,
-                    reporter: 'html-cov',
-                    captureFile: 'unit-test-coverage.html'
-                },
-                src: files.tests,
-            }
-        },
+
+		loopback_sdk_angular: {
+			options: {
+				input: 'server/server.js',
+				output: 'client/lb-services.js',
+				ngModuleName: 'lbServices',
+			},
+			docular: {
+		    groups: [{
+	        groupTitle: 'LoopBack',
+	        groupId: 'loopback',
+	        sections: [
+	          {
+	            id: 'lbServices',
+	            title: 'LoopBack Services',
+	            scripts: [ 'client/lb-services.js' ]
+	          }
+	        ]
+	      }]
+		  }
+		},
+
+    //-- Server Tests
+    mochaTest: {
+      test: {
+          options: {
+              reporter: 'spec',
+              clearRequireCache: false,
+          },
+          src: files.tests
+      },
+      //-- unit-test report
+      results: {
+          options: {
+          quiet: true,
+          reporter: 'xunit',
+                  captureFile: 'unit-test-results.xml'
+          },
+          src: files.tests
+      },
+      //-- code coverage
+      coverage: {
+          options: {
+              quiet: true,
+              reporter: 'html-cov',
+              captureFile: 'unit-test-coverage.html'
+          },
+          src: files.tests,
+      }
+    },
 		watch: {
 			serverJs: {
 				files: files.serverJs,
@@ -50,6 +72,7 @@ module.exports = function (grunt) {
 			},
 			serverJson: {
 				files: files.serverJson,
+				tasks: ['loopback_sdk_angular'],
 				options: {
 					livereload: true
 				}
@@ -66,14 +89,16 @@ module.exports = function (grunt) {
 		},
 		jshint: {
 			all: {
-				src: files.sources,
-				options: {
-					jshintrc: true,
-					reporter: require('jshint-stylish')
+				src: files.serverJs,
+				globals: {
+					options: {
+						jshintrc: true,
+						reporter: require('jshint-stylish')
+					}
 				}
 			},
 			out: {
-				src: files.sources,
+				src: files.serverJs,
 				options: {
 					jshintrc: true,
 					reporter: 'checkstyle',
@@ -98,10 +123,7 @@ module.exports = function (grunt) {
 	grunt.option('force', true);
 
     //-- Default task
-	grunt.registerTask('default', ['serve']);
-
-	//-- Lint task(s).
-	grunt.registerTask('lint', ['jshint']);
+	grunt.registerTask('default', ['jshint', 'loopback_sdk_angular', 'docular']);
 
 	//-- Test tasks
 	grunt.registerTask('test', ['lint', 'test:console']);
@@ -112,6 +134,6 @@ module.exports = function (grunt) {
 
 	//-- Serve task
 	grunt.registerTask('serve', 'Start the app server', function (target) {
-		grunt.task.run(['lint', 'concurrent:default']);
+		grunt.task.run(['jshint', 'concurrent:default']);
 	});
 };

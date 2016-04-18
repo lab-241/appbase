@@ -24,6 +24,16 @@ angular
     }
 
     /**
+     * Check if user is logged in.
+     */
+    function hasSession(){
+      if($rootScope.currentUser){
+        return true;
+      }
+      return false;
+    };
+
+    /**
      * Logout User
      * */
     function logout() {
@@ -52,6 +62,7 @@ angular
     return {
       login: login,
       logout: logout,
-      register: register
+      register: register,
+      hasSession : hasSession
     };
 }]);
