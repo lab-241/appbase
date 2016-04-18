@@ -1,6 +1,10 @@
 angular
   .module('appbase')
-  .controller('AppCtrl', function($scope, $ionicModal, $ionicPopup, AuthService) {
+  .controller('AppCtrl',
+  function($scope, $rootScope, $ionicModal, $ionicPopup, AuthService, LocalStorage) {
+
+    //-- Init user session
+    $rootScope.session = LocalStorage.getObject('session');
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.

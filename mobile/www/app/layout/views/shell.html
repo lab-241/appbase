@@ -19,15 +19,15 @@
     <ion-content>
       <p class="hero"><i class="icon ion-bag"></i></p>
       <ion-list>
-        <ion-item menu-close ng-hide="currentUser" ng-click="login()">
+        <ion-item menu-close ng-hide="session.token" ng-click="login()">
             <i class="icon-left ion-unlocked"></i>
             Login
         </ion-item>
-        <ion-item menu-close ng-show="currentUser" ng-click="logout()">
+        <ion-item menu-close ng-show="session.token" ng-click="logout()">
             <i class="icon-left ion-locked"></i>
             Logout
         </ion-item>
-        <ion-item menu-close ng-show="currentUser" ui-sref="app.splash">
+        <ion-item menu-close ng-show="session.token" ui-sref="app.splash">
           <i class="icon-left ion-heart"></i>
           Favorites
         </ion-item>

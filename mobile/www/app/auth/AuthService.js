@@ -4,9 +4,15 @@
  */
 angular
   .module('appbase.auth')
-  .factory('AuthService', ['User', '$q', '$rootScope', function(User, $q,
-      $rootScope) {
+  .factory('AuthService', function(User, $q, $rootScope, LocalStorage) {
 
+    /**
+     * Set sessin helper
+     */
+    function _setSession(session){
+      LocalStorage.setObject('session', session);
+      $rootScope.session = session;
+    }
     /**
      * Login user
      * */
@@ -15,11 +21,11 @@ angular
         .login({email: email, password: password})
         .$promise
         .then(function(response) {
-          $rootScope.currentUser = {
-            id: response.user.id,
-            token: response.id,
-            email: email
+          var session = {
+            token : response.id,
+            user : response.user
           };
+          _setSession(session);
         });
     }
 
@@ -27,7 +33,7 @@ angular
      * Check if user is logged in.
      */
     function hasSession(){
-      if($rootScope.currentUser){
+      if(LocalStorage.getObject('session').token){
         return true;
       }
       return false;
@@ -40,9 +46,11 @@ angular
       return User
        .logout()
        .$promise
-       .then(function() {
-         $rootScope.currentUser = null;
-       });
+       .then()
+       .finally(
+          function(result){
+            _setSession({});
+          });
     }
 
     /**
@@ -65,4 +73,4 @@ angular
       register: register,
       hasSession : hasSession
     };
-}]);
+});

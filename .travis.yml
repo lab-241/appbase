@@ -8,14 +8,17 @@ before_install:
   - npm install -g strongloop grunt-cli cordova ionic
 
 before_script:
-  - mkdir /tmp/build
+  - mkdir /tmp/build                  # Packaged apps will go there
 
-script:
-  - npm install api/
-  - npm install mobile/
-# - grunt test
-  - ionic platform add android
-  - ionic build --release  android
+script: .travis/script.sh
+
+build:
+  - currentfolder=${CI_HOME/api/}     # Build api package
+  - slc build --pack
+
+  #- currentfolder=${CI_HOME/api/}     # Build ionic android package
+  #- ionic platform add android
+  #- ionic build --release android
 
 notifications:
   email:
