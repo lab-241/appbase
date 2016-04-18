@@ -5,7 +5,7 @@ node_js:
   - "0.12"
 
 before_install:
-  - npm install -g strongloop grunt-cli ionic
+  - npm install -g strongloop grunt-cli cordova ionic
 
 before_script:
   - mkdir /tmp/build

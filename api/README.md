@@ -10,7 +10,7 @@ To start run theses commands from AppBase `api` root folder :
 
 ```
 $ npm install
-$ grunt
+$ grunt serve
 ```
 
 This will run the project REST api
