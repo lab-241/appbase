@@ -23,6 +23,10 @@ $calm: #047aaa !default;
 $balanced: #42A75F !default;
 $assertive: #D45248 !default;
 
+.txt-calm {
+  color: $calm;
+}
+
 //-- Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 

@@ -42,16 +42,7 @@ angular
    */
   $scope.showReview = function(review){
     $scope.review = review;
-    var icon = '<i class="icon ion-chatbubble-working chat"></i> ';
-    $ionicPopup.show({
-      templateUrl: 'app/shop/views/review-popup.html',
-      title: icon + review.reviewer.username,
-      subTitle: $filter('date')(review.date, 'dd-MM-yyyy hh:mm:ss'),
-      scope: $scope,
-      buttons: [
-        { text: 'Close', type: 'button-calm'},
-      ]
-    });
+    ShopService.showReviewPopup($scope);
   };
 
   /**

@@ -4,7 +4,7 @@
  */
 angular
 .module('appbase.shop')
-.factory('ShopService', function(Shop, Review) {
+.factory('ShopService', function($filter, $ionicPopup, Shop, Review) {
 
   var service = {};
 
@@ -72,6 +72,23 @@ angular
         include: ['reviewer']
       }
     }).$promise;
+  };
+
+  /**
+   * Show review details in a popup
+   * @param  {$scope} scope Scope object containing a review to display
+   */
+  service.showReviewPopup = function(scope){
+    var icon = '<i class="icon ion-chatbubble-working txt-calm"></i> ';
+    $ionicPopup.show({
+      templateUrl: 'app/shop/views/review-popup.html',
+      title: icon + scope.review.reviewer.username,
+      subTitle: $filter('date')(scope.review.date, 'dd-MM-yyyy hh:mm:ss'),
+      scope: scope,
+      buttons: [
+        { text: 'Close', type: 'button-calm'},
+      ]
+    });
   };
 
   return service;
