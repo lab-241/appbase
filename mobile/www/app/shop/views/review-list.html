@@ -1,7 +1,7 @@
 <ion-view view-title="Reviews">
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="review in reviews" href="#">
+      <ion-item ng-repeat="review in reviews" ng-click="showReview(review)">
         <p class="item-icon-left">
           <i class="icon ion-chatbubble"></i>
           {{review.comments}}

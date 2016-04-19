@@ -4,7 +4,7 @@
     <div class="padding">
       <h4>{{shop.name}}</h4>
       <div class="button-bar">
-        <button class="button button-outline button-calm button-small icon ion-ios-chatboxes-outline" ng-click="reviewShop()"></button>
+        <button class="button button-outline button-calm button-small icon ion-ios-chatboxes-outline" ng-click="addReview()"></button>
         <button class="button button-outline button-calm button-small icon ion-android-favorite-outline"></button>
       </div>
       <p class="desc">{{shop.desc | limitTo : 255 }}</p>
@@ -13,12 +13,12 @@
     <h5 class="subtitle" ng-show="reviews.length">Last reviews</h5>
     <h5 class="subtitle" ng-hide="reviews.length">No review yet ...</h5>
     <div ng-hide="reviews.length" class="padding">
-      <button class="button button-outline icon-left ion-chatbubble button-calm" ng-click="reviewShop()">
+      <button class="button button-outline icon-left ion-chatbubble button-calm" ng-click="addReview()">
         Be the first to review !
       </button>
     </div>
-    <div class="list list-inset shop-review-list">
-      <a class="item" ng-repeat="review in reviews" href="#">
+    <div class="list list-inset review-list">
+      <a class="item" ng-repeat="review in reviews" ng-click="showReview(review)">
         <div class="row head">
           <p class="col col-75">
             <i class="icon ion-chatbubble-working chat"></i>
@@ -30,7 +30,7 @@
       </a>
     </div>
 
-    <div class="padding" ng-show="reviews.length">
+    <div class="padding" ng-show="reviews.length >= nbLastReviews">
       <a class="button button-small button-outline button-calm" href="#/app/shops/{{shopId}}/reviews">
         {{'MORE_REVIEWS' | translate}}
       </a>

@@ -10,6 +10,7 @@ angular
 
   /**
    * Find shop with pagination
+   * @param {int} page : page results number
    * @returns : $promise
    */
   service.find = function (page) {

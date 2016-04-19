@@ -1,5 +1,4 @@
 
-
 .shop{
   p.hero {
     height: 130px;
@@ -22,10 +21,9 @@
   }
 }
 
-.shop-review {
+.shop-review-form {
   .rating{
     margin-left: -7px;
-
     .button:hover{
       color:$energized;
     }
@@ -38,7 +36,7 @@
   }
 }
 
-.shop-review-list {
+.review-list {
   a.item {
     padding:1px;
     margin-top: 4px;
@@ -48,7 +46,7 @@
 
     .head{
       margin:0;
-      padding:0;
+      padding:1px;
       line-height: 5px;
 
       .icon.chat{

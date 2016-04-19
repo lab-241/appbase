@@ -3,15 +3,17 @@ angular
   .controller('AppCtrl',
   function($scope, $rootScope, $ionicModal, $ionicPopup, AuthService, LocalStorage) {
 
-    //-- Init user session
-    $rootScope.session = LocalStorage.getObject('session');
-
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
   // listen for the $ionicView.enter event:
   //$scope.$on('$ionicView.enter', function(e) {
   //});
+
+  //-- Helper to check user session
+  $rootScope.hasSession = function(){
+    return AuthService.hasSession();
+  };
 
   //-- Create login modal that we will use later
   var url = '\'app/auth/views/login.html\'';

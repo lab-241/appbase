@@ -9,7 +9,7 @@ angular
   /**
    * Infinite scroll shops loader
    */
-  $scope.loadMore = function () {
+  $scope.loadMore = function (){
     ShopService
     .find($scope.page)
     .then(function(items){

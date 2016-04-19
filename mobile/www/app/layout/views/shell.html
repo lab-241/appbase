@@ -13,21 +13,18 @@
   </ion-side-menu-content>
 
   <ion-side-menu side="left" class="menu-sdie">
-    <!-- <ion-header-bar class="bar-stable">
-      <h1 class="title">App base</h1>
-    </ion-header-bar> -->
     <ion-content>
       <p class="hero"><i class="icon ion-bag"></i></p>
       <ion-list>
-        <ion-item menu-close ng-hide="session.token" ng-click="login()">
+        <ion-item menu-close ng-hide="hasSession()" ng-click="login()">
             <i class="icon-left ion-unlocked"></i>
             Login
         </ion-item>
-        <ion-item menu-close ng-show="session.token" ng-click="logout()">
+        <ion-item menu-close ng-show="hasSession()" ng-click="logout()">
             <i class="icon-left ion-locked"></i>
             Logout
         </ion-item>
-        <ion-item menu-close ng-show="session.token" ui-sref="app.splash">
+        <ion-item menu-close ng-show="hasSession()" ui-sref="app.splash">
           <i class="icon-left ion-heart"></i>
           Favorites
         </ion-item>

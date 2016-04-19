@@ -1,11 +1,13 @@
 angular
 .module('appbase.shop')
 .controller('ShopDetailCtrl',
-  function($scope, $stateParams, $ionicPopup, ShopService, AuthService,
-  LoaderService, MessageService){
+  function($scope, $stateParams, $ionicPopup, $filter,
+    ShopService, AuthService, LoaderService, MessageService){
 
   //-- Current shop Id (from navigation)
   $scope.shopId = $stateParams.shopId;
+  $scope.reviews = [];
+  $scope.nbLastReviews = 3;
 
   /**
    * Get one shop by id param
@@ -24,19 +26,38 @@ angular
    * Update current shop reviews
    */
   function getReviews(){
+    // Get last three reviews of current shop
     ShopService
-      .findReviews($scope.shopId, 3)
+      .findReviews($scope.shopId, $scope.nbLastReviews)
       .then(function(reviews){
         $scope.reviews = reviews;
-        console.log(reviews);
       }, function(err){
         console.debug(err);
         //TODO: Manage Error
       });
   }
 
-  $scope.reviewShop = function(){
+  /**
+   * Review details popup
+   */
+  $scope.showReview = function(review){
+    $scope.review = review;
+    var icon = '<i class="icon ion-chatbubble-working chat"></i> ';
+    $ionicPopup.show({
+      templateUrl: 'app/shop/views/review-popup.html',
+      title: icon + review.reviewer.username,
+      subTitle: $filter('date')(review.date, 'dd-MM-yyyy hh:mm:ss'),
+      scope: $scope,
+      buttons: [
+        { text: 'Close', type: 'button-calm'},
+      ]
+    });
+  };
 
+  /**
+   * Add new review popup
+   */
+  $scope.addReview = function(){
     if(!AuthService.hasSession()){
       LoaderService.toast(MessageService.get('AUTH_REUQUIRED'));
       return;
