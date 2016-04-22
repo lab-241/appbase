@@ -1,0 +1,20 @@
+<ion-view view-title="Favorites">
+  <ion-content>
+    <div class="list">
+      <div class="item item-button-right" ng-repeat="shop in shops" href="#/app/shops/{{shop.id}}">
+        {{shop.name}}
+        <button class="button button-clear" ng-click="removeFavorite(shop)">
+          <i class="icon ion-trash-a"></i>
+        </button>
+      </div>
+    </div>
+    <ion-infinite-scroll
+        ng-if="hasMore"
+        on-infinite="loadMore()"
+        distance="5%">
+    </ion-infinite-scroll>
+    <div class="text-center empty" ng-hide="shops.length">
+      Aucun résultat
+    </div>
+  </ion-content>
+</ion-view>

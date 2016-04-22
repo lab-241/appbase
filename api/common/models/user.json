@@ -6,19 +6,21 @@
   "properties": {},
   "validations": [],
   "relations": {
-    "favorites": {
+    "favoritesShops": {
       "type": "hasAndBelongsToMany",
       "model": "shop"
     }
   },
   "acls": [
-    {
-      "accessType": "READ",
-      "principalType": "ROLE",
-      "principalId": "admin",
-      "permission": "ALLOW",
-      "property": "*"
-    }
+    {"accessType": "READ", "principalType": "ROLE", "principalId": "admin", "permission": "ALLOW", "property": "*"},
+    
+    {"principalType": "ROLE", "principalId": "$owner", "permission": "ALLOW", "property": "__get__favoritesShops"},
+    {"principalType": "ROLE", "principalId": "$owner", "permission": "ALLOW", "property": "__findById__favoritesShops"},
+    {"principalType": "ROLE", "principalId": "$owner", "permission": "ALLOW", "property": "__link__favoritesShops"},
+    {"principalType": "ROLE", "principalId": "$owner", "permission": "ALLOW", "property": "__unlink__favoritesShops"},
+    {"principalType": "ROLE", "principalId": "$owner", "permission": "ALLOW", "property": "__count__favoritesShops"},
+    {"principalType": "ROLE", "principalId": "$owner", "permission": "ALLOW", "property": "__delete__favoritesShops"},
+    {"principalType": "ROLE", "principalId": "$owner", "permission": "ALLOW", "property": "__updateById__favoritesShops"}
   ],
   "methods": {}
 }

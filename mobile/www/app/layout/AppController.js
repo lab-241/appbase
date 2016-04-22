@@ -1,7 +1,8 @@
 angular
   .module('appbase')
   .controller('AppCtrl',
-  function($scope, $rootScope, $ionicModal, $ionicPopup, AuthService, LocalStorage) {
+  function($scope, $rootScope, $ionicModal, $ionicPopup, LoaderService,
+    AuthService, LocalStorage) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -56,6 +57,17 @@ angular
         title: '<b>APP BASE</b>',
         template: '<b>Version</b> v1.0.0<br><br>&copy; Lab-241 2016'
     });
+  };
+
+  /**
+   * Display or hide loader
+   * @param  {boolean} visible show/hide loader
+   */
+   $scope._loading = function(visible) {
+    if(visible)
+      LoaderService.show(null, {template:'<i class="ion-load-a">'});
+    else
+      LoaderService.hide();
   };
 
 });

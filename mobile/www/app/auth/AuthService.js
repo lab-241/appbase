@@ -6,17 +6,30 @@ angular
   .module('appbase.auth')
   .factory('AuthService', function(User, $q, $rootScope, LocalStorage) {
 
+    var self = {};
+
     /**
-     * Set sessin helper
+     * Set session helper
      */
     function _setSession(session){
       LocalStorage.setObject('session', session);
-      $rootScope.session = session;
     }
+
+    /**
+     * Get session obj
+     * session = {
+     * 	token : string
+     * 	user : object
+     * }
+     */
+    self.getSession = function(){
+      return LocalStorage.getObject('session');
+    }
+
     /**
      * Login user
      * */
-    function login(email, password) {
+    self.login = function(email, password) {
       return User
         .login({email: email, password: password})
         .$promise
@@ -32,7 +45,7 @@ angular
     /**
      * Check if user is logged in.
      */
-    function hasSession(){
+     self.hasSession = function(){
       if(LocalStorage.getObject('session').token){
         return true;
       }
@@ -42,7 +55,7 @@ angular
     /**
      * Logout User
      * */
-    function logout() {
+     self.logout = function() {
       return User
        .logout()
        .$promise
@@ -55,8 +68,8 @@ angular
 
     /**
      * register User
-     * */
-    function register(email, password, username) {
+     */
+     self.register = function(email, password, username) {
       return User
         .create({
           realm: 'user',
@@ -67,10 +80,5 @@ angular
        .$promise;
     }
 
-    return {
-      login: login,
-      logout: logout,
-      register: register,
-      hasSession : hasSession
-    };
+    return self;
 });

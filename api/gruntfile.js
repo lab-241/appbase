@@ -13,6 +13,7 @@ module.exports = function (grunt) {
 	//-- Project config
 	grunt.initConfig({
 
+		//-- Generate angular client + docs
 		loopback_sdk_angular: {
 			options: {
 				input: 'server/server.js',

@@ -15,7 +15,7 @@ angular.module('appbase.libs', ['lbServices'])
  * @param  {Strinng} API_AUTH_HEADER
  *         Use a custom auth header instead of the default 'Authorization'
  * @return {Object}
- *         lpdj module
+ *         appbase module
  *
  */
   .config(function(LoopBackResourceProvider, API_BASE_URL) {

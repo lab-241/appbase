@@ -4,7 +4,7 @@
  */
 angular
 .module('appbase.shop')
-.factory('ShopService', function($filter, $ionicPopup, Shop, Review) {
+.factory('ShopService', function($filter, $ionicPopup, Shop, Review, User) {
 
   var service = {};
 
@@ -55,17 +55,18 @@ angular
   /**
    * [function description]
    * @param  {int} id the shop Id
+   * @param  {int} page pagination number
    * @param  {int} limit max results number
    * @return $promise
    */
-  service.findReviews = function(id, limit, page){
-    var L = limit || 10,
-        P = page || 0;
+  service.findReviews = function(id, page, limit){
+    limit = limit || 10;
+    page = page || 0;
     return Review.find({
       filter: {
-        limit: L,
+        limit: limit,
         order: 'date DESC',
-        skip: P * L,
+        skip: page * limit,
         where: {
           shopId: id
         },
@@ -89,6 +90,50 @@ angular
         { text: 'Close', type: 'button-calm'},
       ]
     });
+  };
+
+  /**
+   * Get current user favorites as paginated list
+   * @param  {[type]} user Current user
+   * @param  {[type]} page Pagination number
+   * @return {[type]}      [description]
+   */
+  service.findFavorites = function(userId, page, limit){
+    limit = limit || 10;
+    page = page || 0;
+    return User.favoritesShops({
+        id: userId,
+        filter: {
+          limit: limit,
+          skip: page * limit
+        }
+      }).$promise;
+  };
+
+  /**
+   * Add a shop to current user favorites
+   * @param  {int} userId [description]
+   * @param  {int} shopId  [description]
+   * @return {$promise} promise
+   */
+  service.addFavotites = function(userId, shopId){
+    return User.favoritesShops.link({
+        id: userId,
+        fk: shopId
+      }, null).$promise;
+  };
+
+    /**
+    * Remove a shop from current user favorites
+    * @param  {int} userId User id
+    * @param  {int} shopId Shop id
+    * @return {$promise} promise
+     */
+  service.removeFavorite = function(userId, shopId){
+    return User.favoritesShops.unlink({
+       id: userId,
+       fk: shopId
+      }).$promise;
   };
 
   return service;

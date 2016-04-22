@@ -1,7 +1,7 @@
 angular
 .module('appbase.shop')
 .controller('ShopReviewListCtrl',
-  function($scope, $stateParams, $ionicPopup, $filter, ShopService, AuthService,
+  function($scope, $stateParams, ShopService, AuthService,
   LoaderService, MessageService){
 
   //-- Current shop Id (from navigation)
@@ -16,7 +16,7 @@ angular
    */
    $scope.loadMore = function (){
     ShopService
-      .findReviews($scope.shopId, $scope.limit, $scope.page)
+      .findReviews($scope.shopId, $scope.page)
       .then(function(items){
         $scope.reviews = $scope.reviews.concat(items);
         $scope.hasMore = items.length !== 0;
@@ -27,7 +27,6 @@ angular
         //TODO: Manage Error
       });
     };
-
 
     /**
      * Review details popup

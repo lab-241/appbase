@@ -28,6 +28,15 @@ angular
       }
     }
   })
+  .state('app.favorites', {
+    url: '/shops/favorites',
+    views: {
+      'menuContent': {
+        templateUrl: 'app/shop/views/shop-favorite-list.html',
+        controller: 'ShopFavoriteListCtrl'
+      }
+    }
+  })
   .state('app.reviews', {
     url: '/shops/:shopId/reviews',
     views: {

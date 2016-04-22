@@ -27,10 +27,12 @@ angular
    */
   function getReviews(){
     // Get last three reviews of current shop
+    var page = 0;
     ShopService
-      .findReviews($scope.shopId, $scope.nbLastReviews)
+      .findReviews($scope.shopId, page, $scope.nbLastReviews)
       .then(function(reviews){
         $scope.reviews = reviews;
+        console.log(reviews);
       }, function(err){
         console.debug(err);
         //TODO: Manage Error
@@ -91,13 +93,40 @@ angular
         ShopService
         .addReview($scope.review.rating, $scope.review.comments, $scope.shopId)
         .then(function() {
-          getReviews()
+          getReviews();
           reviewPopup.close();
           LoaderService.toast(MessageService.get('REVIEW_ADDED_SUCCESSFULLY'));
         }, function(err) {
+          //TODO: Manage Error
           console.debug(err);
         });
       }
+    });
+  };
+
+  /**
+   * Add shop to user favorites
+   */
+  $scope.addFavorite = function(){
+    var userId = AuthService.getSession().user.id;
+    ShopService.addFavotites(userId , $stateParams.shopId).then(function(){
+      LoaderService.toast(MessageService.get('SHOP_FAVORITE_ADDED'));
+    }, function(err) {
+      //TODO: Manage Error
+      console.debug(err);
+    });
+  };
+
+  /**
+   * Remove shop from user favorites
+   */
+  $scope.removeFavorite = function(){
+    var userId = AuthService.getSession().user.id;
+    ShopService.removeFavotites(userId , $stateParams.shopId).then(function(){
+      LoaderService.toast(MessageService.get('SHOP_FAVORITE_REMOVED'));
+    }, function(err) {
+      //TODO: Manage Error
+      console.debug(err);
     });
   };
 
