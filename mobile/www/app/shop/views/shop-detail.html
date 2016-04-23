@@ -13,8 +13,8 @@
     <h5 class="subtitle" ng-show="reviews.length">Last reviews</h5>
     <h5 class="subtitle" ng-hide="reviews.length">No review yet ...</h5>
     <div ng-hide="reviews.length" class="padding">
-      <button class="button button-outline icon-left ion-chatbubble button-calm" ng-click="addReview()">
-        Be the first to review !
+      <button class="button button-small button-outline icon-left ion-chatbubble button-calm" ng-click="addReview()">
+        {{'ADD_FIRST_REVIEW' | translate}}
       </button>
     </div>
     <div class="list list-inset review-list">

@@ -88,17 +88,19 @@ angular
     });
 
     reviewPopup.then(function(res) {
-      console.log('Tapped!', res);
       if(res){
+        $scope._loading(true);
         ShopService
         .addReview($scope.review.rating, $scope.review.comments, $scope.shopId)
         .then(function() {
-          getReviews();
           reviewPopup.close();
           LoaderService.toast(MessageService.get('REVIEW_ADDED_SUCCESSFULLY'));
+          getReviews();
         }, function(err) {
           //TODO: Manage Error
           console.debug(err);
+        }).finally(function(){
+          $scope._loading(false);
         });
       }
     });
@@ -109,7 +111,7 @@ angular
    */
   $scope.addFavorite = function(){
     var userId = AuthService.getSession().user.id;
-    ShopService.addFavotites(userId , $stateParams.shopId).then(function(){
+    ShopService.addFavorites(userId , $stateParams.shopId).then(function(){
       LoaderService.toast(MessageService.get('SHOP_FAVORITE_ADDED'));
     }, function(err) {
       //TODO: Manage Error
@@ -131,4 +133,19 @@ angular
   };
 
   //--- End of ShopDetailCtrl ---
+})
+
+.directive('buttonFavorite', function() {
+  return {
+    scope: true,
+    restrict: 'E',
+    template: '<button class="btn btn-icon"><span class="glyphicon glyphicon-heart" ng-class="{active: item.favorite}"></span></button>',
+    link: function(scope, elem) {
+      elem.bind('click', function() {
+        scope.$apply(function(){
+          scope.item.favorite = !scope.item.favorite;
+        });
+      });
+    }
+  };
 });

@@ -50,20 +50,3 @@ angular
       });
     };
 });
-
-angular
-.module('appbase.shop')
-.factory('myInterceptor', ['$log', function($log) {
-    $log.debug('$log is here to show you that this is a regular factory with injection');
-
-    var myInterceptor = {
-    };
-
-    return myInterceptor;
-}]);
-
-angular
-.module('appbase.shop')
-.config(['$httpProvider', function($httpProvider) {
-    $httpProvider.interceptors.push('myInterceptor');
-}]);
