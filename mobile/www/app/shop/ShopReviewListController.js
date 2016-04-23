@@ -4,8 +4,9 @@ angular
   function($scope, $stateParams, ShopService, AuthService,
   LoaderService, MessageService){
 
-  //-- Current shop Id (from navigation)
+  //-- Current shop Id and name (from navigation)
   $scope.shopId = $stateParams.shopId;
+  $scope.shopName = $stateParams.shopName;
 
   $scope.page     = 0;
   $scope.hasMore  = true;

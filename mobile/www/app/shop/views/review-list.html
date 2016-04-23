@@ -1,13 +1,18 @@
 <ion-view view-title="Reviews">
   <ion-content>
-    <ion-list>
-      <ion-item ng-repeat="review in reviews" ng-click="showReview(review)">
-        <p class="item-icon-left">
-          <i class="icon ion-chatbubble"></i>
-          {{review.comments}}
-        </p>
-      </ion-item>
-    </ion-list>
+    <h4 class="item-divider padding">{{shopName}}</h4>
+    <div class="list list-inset review-list">
+      <a class="item" ng-repeat="review in reviews" ng-click="showReview(review)">
+        <div class="row head">
+          <p class="col col-75">
+            <i class="icon ion-chatbubble-working chat"></i>
+            <h4 class="text-calm">{{review.date|date:'dd/MM/yyyy'}} - {{review.reviewer.username}}</h4>
+          </p>
+          <p class="col" ng-include="'app/shop/views/review-rate-tpl.html'"></p>
+        </div>
+        <p class="comments">{{review.comments}}</p>
+      </a>
+    </div>
     <ion-infinite-scroll
         ng-if="hasMore"
         on-infinite="loadMore()"
