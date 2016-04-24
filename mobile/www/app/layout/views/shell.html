@@ -18,23 +18,23 @@
       <ion-list>
         <ion-item menu-close ui-sref="app.shops">
           <i class="icon-left ion-android-home"></i>
-          Home
+          {{ 'HOME' | translate }}
         </ion-item>
         <ion-item menu-close ng-hide="hasSession()" ng-click="login()">
           <i class="icon-left ion-unlocked"></i>
-          Login
+          {{ 'LOGIN' | translate }}
         </ion-item>
         <ion-item menu-close ng-show="hasSession()" ng-click="logout()">
           <i class="icon-left ion-locked"></i>
-          Logout
+          {{ 'LOGOUT' | translate }}
         </ion-item>
         <ion-item menu-close ng-show="hasSession()" ui-sref="app.favorites">
           <i class="icon-left ion-heart"></i>
-          Favorites
+          {{ 'FAVORITES' | translate }}
         </ion-item>
         <ion-item menu-close ng-click="about()">
           <i class="icon-left ion-information-circled"></i>
-          About
+          {{ 'ABOUT' | translate }}
       </ion-list>
     </ion-content>
   </ion-side-menu>

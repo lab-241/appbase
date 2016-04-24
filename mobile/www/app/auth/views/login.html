@@ -1,6 +1,6 @@
 <ion-modal-view>
   <ion-header-bar class="bar-calm">
-    <h1 class="title">Login</h1>
+    <h1 class="title">{{'LOGIN_VIEW_TITLE' | translate}}</h1>
     <div class="buttons">
       <button class="button icon ion-close" ng-click="closeLogin()"></button>
     </div>
@@ -13,15 +13,15 @@
       <div class="list list-inset">
           <label class="item item-input">
             <i class="icon ion-email placeholder-icon"></i>
-            <input type="text" placeholder="Email" ng-model="credentials.email">
+            <input type="text" placeholder="{{'EMAIL' | translate}}" ng-model="credentials.email">
           </label>
           <label class="item item-input">
             <i class="icon ion-locked placeholder-icon"></i>
-            <input type="password" placeholder="Password" ng-model="credentials.password">
+            <input type="password" placeholder="{{'PASSWORD' | translate}}" ng-model="credentials.password">
           </label>
-          <button class="button button-block button-calm" type="submit">Login</button>
+          <button class="button button-block button-calm" type="submit">{{'LOGIN' | translate}}</button>
       </div>
     </form>
-    <p class="link-txt" ng-click="register()">Create an account ?</p>
+    <p class="link-txt" ng-click="register()">{{'CREATE_ACCOUNT' | translate}}</p>
   </ion-content>
 </ion-modal-view>

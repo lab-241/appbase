@@ -1,9 +1,95 @@
 var translations = {
   en : {
-    TITLE: 'APP BASE'
+    TITLE: 'APP BASE',
+    AUTH_REQUIRED: 'Authentication required',
+    CANCEL:'Cancel',
+    SAVE:'Save',
+    CLOSE: 'Close',
+    //LEFT MENU
+    HOME: 'Home',
+    LOGOUT: 'Logout',
+    FAVORITES: 'Favorites',
+    ABOUT: 'About',
+    // LOGIN
+    LOGIN_VIEW_TITLE: 'Login',
+    LOGIN: 'Login',
+    EMAIL:'Email',
+    PASSWORD:'Password',
+    CREATE_ACCOUNT:'Create an account',
+    LOGIN_FAILED:'Login failed',
+    CHECK_CREDENTIALS:'Please check your credentials!',
+    // REGISTER
+    REGISTER_VIEW_TITLE: 'Register',
+    USERNAME:'Username',
+    SUBSCRIBE_NEWSLETTER:'Subscribe to newsletter',
+    REGISTER:'Register',
+    ALREADY_HAVE_ACCOUNT: 'Compte existant',
+    REGISTER_FAILED: 'Register failed!',
+    REGISTERING_ERROR: 'Error occurs during registering process',
+    // SHOP LIST
+    SHOP_LIST_VIEW_TITLE: 'Shops',
+    NO_RESULT:'No result',
+    // SHOP DETAIL
+    SHOP_DETAIL_VIEW_TITLE: 'Shop',
+    LAST_REVIEWS: 'Last reviews',
+    NO_REVIEWS: 'No review yet ...',
+    ADD_FIRST_REVIEW: 'Be the first to review',
+    ENTER_REVIEW: 'Enter your review',
+    REMAIN_RESPECTFUL: 'Please remain respectful',
+    RATING_REQUIRED: 'Rating required',
+    REVIEW_ADDED_SUCCESSFULLY: 'Review Added Successfully',
+    COMMENTS: 'Comments',
+    MORE_REVIEWS: 'More reviews',
+    // SHOP FAVORITES
+    SHOP_FAVORITE_VIEW_TITLE: 'Favorites',
+    SHOP_FAVORITE_ADDED: 'Favorite shop successfully added',
+    SHOP_FAVORITE_REMOVED: 'Favorite shop successfully removed'
   },
   fr : {
-    TITLE: 'APP BASE'
+    TITLE: 'APP BASE',
+    AUTH_REQUIRED: 'Connexion requise',
+    CANCEL:'Annuler',
+    SAVE:'Enregistrer',
+    CLOSE: 'Fermer',
+    //LEFT MENU
+    HOME: 'Accueil',
+    LOGOUT: 'Déconnexion',
+    FAVORITES: 'Favoris',
+    ABOUT: 'A propos',
+    // LOGIN
+    LOGIN_VIEW_TITLE: 'Login',
+    LOGIN: 'Login',
+    EMAIL:'Email',
+    PASSWORD:'Password',
+    CREATE_ACCOUNT:'Créer un compte',
+    LOGIN_FAILED:'Identifiants incorrectes',
+    CHECK_CREDENTIALS:'Vérifiez vos identifiants',
+    // REGISTER
+    REGISTER_VIEW_TITLE: 'Créer un compte',
+    USERNAME:'Identifiant',
+    SUBSCRIBE_NEWSLETTER:'Inscription à la newsletter',
+    REGISTER: 'Enregistrer',
+    ALREADY_HAVE_ACCOUNT: 'Déjà inscrit',
+    REGISTER_FAILED: 'Inscription en erreur',
+    REGISTERING_ERROR: 'Une erreur est survenue durant l\' inscription',
+    //SHOP LIST
+    SHOP_LIST_VIEW_TITLE: 'Liste des enseignes',
+    NO_RESULT:'Aucun résultat',
+    // SHOP DETAIL
+    SHOP_DETAIL_VIEW_TITLE: 'Enseigne',
+    LAST_REVIEWS: 'Derniers avis',
+    NO_REVIEWS: 'Aucun avis pour l\'instant ...',
+    ADD_FIRST_REVIEW:'Soyez le premier à donner votre avis',
+    ENTER_REVIEW: 'Donnez votre avis',
+    REMAIN_RESPECTFUL: 'Merci de rester courtois',
+    RATING_REQUIRED: 'Renseignez une note',
+    REVIEW_ADDED_SUCCESSFULLY: 'Avis rajouté avec succès',
+    COMMENTS: 'Commentaires',
+    MORE_REVIEWS: 'Avis supplémentaires',
+    // SHOP FAVORITE
+    SHOP_FAVORITE_VIEW_TITLE: 'Enseignes favorites',
+    SHOP_FAVORITE_ADDED: 'Enseigne favorite ajoutée avec succès',
+    SHOP_FAVORITE_REMOVED: 'Enseigne supprimée avec succès'
   }
 };
 

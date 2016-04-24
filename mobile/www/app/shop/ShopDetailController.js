@@ -52,7 +52,7 @@ angular
    */
   $scope.addReview = function(){
     if(!AuthService.hasSession()){
-      LoaderService.toast(MessageService.get('AUTH_REUQUIRED'));
+      LoaderService.toast(MessageService.get('AUTH_REQUIRED'));
       return;
     }
 
@@ -64,20 +64,20 @@ angular
     //-- The review popup
     var reviewPopup = $ionicPopup.show({
       templateUrl: 'app/shop/views/review-form.html',
-      title: 'Enter youy review',
-      subTitle: 'Please remain respectful',
+      title: MessageService.get('ENTER_REVIEW'),
+      subTitle: MessageService.get('REMAIN_RESPECTFUL'),
       scope: $scope,
       buttons: [
         {
-          text: 'Cancel',
+          text: MessageService.get('CANCEL'),
           type: 'button-assertive'
         },
         {
-          text: '<b>Save</b>',
+          text: '<b>'+MessageService.get('SAVE')+'</b>',
           type: 'button-balanced',
           onTap: function(e) {
             if (!$scope.review.rating) {
-              LoaderService.toast(MessageService.get('REVIEW_REUQUIRED'));
+              LoaderService.toast(MessageService.get('RATING_REQUIRED'));
               e.preventDefault();
             } else {
               return $scope.review;

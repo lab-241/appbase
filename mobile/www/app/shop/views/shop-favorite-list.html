@@ -1,4 +1,4 @@
-<ion-view view-title="Favorites">
+<ion-view view-title="{{ 'SHOP_FAVORITE_VIEW_TITLE' | translate }}">
   <ion-content>
     <div class="list">
       <div class="item item-button-right" ng-repeat="shop in shops" href="#/app/shops/{{shop.id}}">
@@ -14,7 +14,7 @@
         distance="5%">
     </ion-infinite-scroll>
     <div class="text-center empty" ng-hide="shops.length">
-      Aucun résultat
+      {{ 'NO_RESULT' | translate }}
     </div>
   </ion-content>
 </ion-view>

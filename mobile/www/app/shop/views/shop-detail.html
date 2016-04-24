@@ -1,4 +1,4 @@
-<ion-view view-title="Shop">
+<ion-view view-title="{{ 'SHOP_DETAIL_VIEW_TITLE' | translate }}">
   <ion-content class="shop">
     <p class="hero"><i class="icon ion-bag"></i></p>
     <div class="padding">
@@ -10,8 +10,8 @@
       <p class="desc">{{shop.desc | limitTo : 255 }}</p>
     </div>
 
-    <h5 class="subtitle" ng-show="reviews.length">Last reviews</h5>
-    <h5 class="subtitle" ng-hide="reviews.length">No review yet ...</h5>
+    <h5 class="subtitle" ng-show="reviews.length">{{'LAST_REVIEWS' | translate}}</h5>
+    <h5 class="subtitle" ng-hide="reviews.length">{{'NO_REVIEWS' | translate}}</h5>
     <div ng-hide="reviews.length" class="padding">
       <button class="button button-small button-outline icon-left ion-chatbubble button-calm" ng-click="addReview()">
         {{'ADD_FIRST_REVIEW' | translate}}

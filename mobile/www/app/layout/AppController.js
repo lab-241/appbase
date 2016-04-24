@@ -19,7 +19,7 @@ angular
   //-- Create login modal that we will use later
   var logUrl = '\'app/auth/views/login.html\'';
   var logTpl = '<div ng-controller="AuthCtrl" ng-include="'+logUrl+'"></div>';
-  $scope.loginModal = $ionicModal.fromTemplate(loginTpl, {
+  $scope.loginModal = $ionicModal.fromTemplate(logTpl, {
     scope: $scope
   });
 

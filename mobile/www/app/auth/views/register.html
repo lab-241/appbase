@@ -1,6 +1,6 @@
 <ion-modal-view>
   <ion-header-bar class="bar-calm">
-    <h1 class="title">Register</h1>
+    <h1 class="title">{{'REGISTER_VIEW_TITLE' | translate}}</h1>
     <div class="buttons">
       <button class="button icon ion-close" ng-click="closeRegister()"></button>
     </div>
@@ -13,18 +13,18 @@
         <div class="list list-inset">
           <label class="item item-input">
             <i class="icon ion-email placeholder-icon"></i>
-            <input type="text" placeholder="Email" ng-model="credentials.email">
+            <input type="text" placeholder="{{'EMAIL' | translate}}" ng-model="credentials.email">
           </label>
           <label class="item item-input">
             <i class="icon ion-person placeholder-icon"></i>
-            <input type="text" placeholder="Username" ng-model="credentials.username">
+            <input type="text" placeholder="{{'USERNAME' | translate}}" ng-model="credentials.username">
           </label>
           <label class="item item-input">
             <i class="icon ion-locked placeholder-icon"></i>
-            <input type="password" placeholder="Password" ng-model="credentials.password">
+            <input type="password" placeholder="{{'PASSWORD' | translate}}" ng-model="credentials.password">
           </label>
           <label class="item item-toggle">
-            Subscribe to newsletter
+            {{'SUBSCRIBE_NEWSLETTER' | translate}}
             <label class="toggle toggle-calm">
               <input type="checkbox" ng-model="credentials.newsletter">
               <div class="track">
@@ -32,9 +32,9 @@
               </div>
             </label>
           </label>
-          <button class="button button-block button-calm" type="submit">Register</button>
+          <button class="button button-block button-calm" type="submit">{{'REGISTER' | translate}}</button>
         </div>
     </form>
-    <p class="link-txt" ng-click="login()">Already have an account ?</p>
+    <p class="link-txt" ng-click="login()">{{'ALREADY_HAVE_ACCOUNT' | translate}}</p>
   </ion-content>
 </ion-modal-view>

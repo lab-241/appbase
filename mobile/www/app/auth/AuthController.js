@@ -1,7 +1,7 @@
 angular
   .module('appbase.auth')
   .controller('AuthCtrl', function($scope, $ionicPopup, debug,
-    AuthService) {
+    AuthService, MessageService) {
 
     //-- Credentials
     $scope.credentials = debug ? {
@@ -20,8 +20,8 @@ angular
           $scope.closeLogin();
         }, function(err){
           var alertPopup = $ionicPopup.alert({
-              title: 'Login failed!',
-              template: 'Please check your credentials!'
+              title: MessageService.get('LOGIN_FAILED'),
+              template: MessageService.get('CHECK_CREDENTIALS')
           });
         })
         .finally(function(){
@@ -39,8 +39,8 @@ angular
           $scope.closeRegister();
         }, function(err){
           var alertPopup = $ionicPopup.alert({
-              title: 'Register failed!',
-              template: 'Error occurs during registering process'
+              title: MessageService.get('REGISTER_FAILED'),
+              template: MessageService.get('REGISTERING_ERROR')
           });
           //TODO: Specific case error message (eg: existing user)
         })

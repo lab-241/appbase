@@ -4,7 +4,7 @@
  */
 angular
 .module('appbase.shop')
-.factory('ShopService', function($filter, $ionicPopup, Shop, Review, User) {
+.factory('ShopService', function($filter, $ionicPopup, Shop, Review, User, MessageService) {
 
   var service = {};
 
@@ -87,7 +87,7 @@ angular
       subTitle: $filter('date')(scope.review.date, 'dd-MM-yyyy hh:mm:ss'),
       scope: scope,
       buttons: [
-        { text: 'Close', type: 'button-calm'},
+        { text: MessageService.get('CLOSE'), type: 'button-calm'},
       ]
     });
   };

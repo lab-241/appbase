@@ -1,4 +1,4 @@
-<ion-view view-title="Shops">
+<ion-view view-title="{{ 'SHOP_LIST_VIEW_TITLE' | translate }}">
   <ion-content>
     <ion-list>
       <ion-item ng-repeat="shop in shops" href="#/app/shops/{{shop.id}}">
@@ -15,7 +15,7 @@
         distance="5%">
     </ion-infinite-scroll>
     <div class="text-center empty" ng-hide="shops.length">
-      Aucun résultat
+      {{ 'NO_RESULT' | translate }}
     </div>
   </ion-content>
 </ion-view>
