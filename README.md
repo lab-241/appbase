@@ -64,7 +64,7 @@ App base is built on top of ionic (who use cordova) and strongloop.
 Some others automation tools (like gulp) are required.
 
 ```
-npm install -g cordova ionic strongloop grunt-cli gulp bower
+npm install -g cordova ionic strongloop grunt-cli gulp bower karma-cli phantomjs
 ```
 
 __Start app components__

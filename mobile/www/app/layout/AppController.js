@@ -17,16 +17,16 @@ angular
   };
 
   //-- Create login modal that we will use later
-  var url = '\'app/auth/views/login.html\'';
-  var tmpl = '<div ng-controller="AuthCtrl" ng-include="'+url+'"></div>';
-  $scope.loginModal = $ionicModal.fromTemplate(tmpl, {
+  var logUrl = '\'app/auth/views/login.html\'';
+  var logTpl = '<div ng-controller="AuthCtrl" ng-include="'+logUrl+'"></div>';
+  $scope.loginModal = $ionicModal.fromTemplate(loginTpl, {
     scope: $scope
   });
 
   //-- Create register modal that we will use later
-  var url = '\'app/auth/views/register.html\'';
-  var tmpl = '<div ng-controller="AuthCtrl" ng-include="'+url+'"></div>';
-  $scope.registerModal = $ionicModal.fromTemplate(tmpl, {
+  var regUrl = '\'app/auth/views/register.html\'';
+  var regTpl = '<div ng-controller="AuthCtrl" ng-include="'+regUrl+'"></div>';
+  $scope.registerModal = $ionicModal.fromTemplate(regTpl, {
     scope: $scope
   });
 

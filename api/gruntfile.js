@@ -17,7 +17,7 @@ module.exports = function (grunt) {
 		loopback_sdk_angular: {
 			options: {
 				input: 'server/server.js',
-				output: 'client/lb-services.js',
+				output: 'client/LbServices.js',
 				ngModuleName: 'lbServices',
 			},
 			docular: {

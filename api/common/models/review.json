@@ -24,7 +24,7 @@
     "shop": {
       "type": "belongsTo",
       "model": "shop",
-      "foreignKey": ""
+      "foreignKey": "shopId"
     },
     "reviewer": {
       "type": "belongsTo",

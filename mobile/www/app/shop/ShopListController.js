@@ -1,9 +1,9 @@
 angular
 .module('appbase.shop')
-.controller('ShopListCtrl', function($scope, ShopService, Review) {
+.controller('ShopListCtrl', function($scope, ShopService) {
 
-  $scope.shops    = [];
   $scope.page     = 0;
+  $scope.shops    = [];
   $scope.hasMore  = true;
 
   /**

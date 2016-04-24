@@ -1,7 +1,34 @@
 module.exports = function (grunt) {
 
-  grunt.initConfig({
+  var sourcesJs = ['gruntfile.js', 'www/app/**/*.js', '!www/app//libs/LbServices.js'];
 
+  grunt.initConfig({
+    jshint: {
+      all: {
+        src: sourcesJs,
+        options: {
+          jshintrc: true,
+          reporter: require('jshint-stylish')
+        }
+      },
+      out: {
+        src: sourcesJs,
+        options: {
+          jshintrc: true,
+          reporter: 'jslint',
+          reporterOutput: 'jshint-results.xml'
+        }
+      }
+    },
+    karma: {
+      options: {
+        //-- point all tasks to karma config file
+        configFile: 'tests/unit-tests.conf.js'
+      },
+      unit: {
+        singleRun: true
+      }
+    },
     ngconstant: {
       options: {
         deps: false, // constants added to existing 'appbase.conf' module
@@ -25,5 +52,7 @@ module.exports = function (grunt) {
 
   grunt.option('force', true);
 
-  grunt.registerTask('default', ['ngconstant:development']);
+  grunt.registerTask('default', ['jshint','ngconstant:development']);
+
+  grunt.registerTask('test', ['jshint', 'karma:unit']);
 };
