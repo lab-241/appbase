@@ -12,7 +12,6 @@ describe('ShopListController', function () {
     beforeEach(inject(function($controller, _$rootScope_, $q) {
 
       deferredFind = $q.defer();
-      deferredFind.resolve([{name:'test shop 1'}, {name:'test shop 2'}]);
 
       $rootScope = _$rootScope_;
       $scope = $rootScope.$new();
@@ -28,7 +27,6 @@ describe('ShopListController', function () {
         '$scope' : $scope,
         'ShopService': shopServiceMock
       });
-
     }));
 
     describe('#load_shops', function () {
@@ -45,10 +43,14 @@ describe('ShopListController', function () {
       describe('when the find is executed,', function() {
         it('if success : should init the shop list', function (){
 
-          deferredFind.resolve();
+          deferredFind.resolve([
+            {name:'test 1'},
+            {name:'test 2'}
+          ]);
 		      $rootScope.$digest();
           expect($scope.shops.length).toBe(2);
         });
+
         it('if failure : should display error message');
       });
 
