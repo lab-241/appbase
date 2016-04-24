@@ -1,11 +1,11 @@
 #! /bin/sh
 #
 echo "-- Install api dependencies --"
-cd $CI_HOME/api
+cd api
 npm install
 
 echo "Install ionic libs"
-cd $CI_HOME/mobile
+cd ../mobile
 npm install
 bower install
 
