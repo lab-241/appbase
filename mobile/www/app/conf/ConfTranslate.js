@@ -5,19 +5,24 @@ var translations = {
     CANCEL:'Cancel',
     SAVE:'Save',
     CLOSE: 'Close',
+
     //LEFT MENU
     HOME: 'Home',
     LOGOUT: 'Logout',
     FAVORITES: 'Favorites',
     ABOUT: 'About',
+
     // LOGIN
     LOGIN_VIEW_TITLE: 'Login',
     LOGIN: 'Login',
+    LOGIN_SUCCES : 'Login success',
+    REGISTER_SUCCESS : 'Register success',
     EMAIL:'Email',
     PASSWORD:'Password',
     CREATE_ACCOUNT:'Create an account',
     LOGIN_FAILED:'Login failed',
     CHECK_CREDENTIALS:'Please check your credentials!',
+
     // REGISTER
     REGISTER_VIEW_TITLE: 'Register',
     USERNAME:'Username',
@@ -26,9 +31,11 @@ var translations = {
     ALREADY_HAVE_ACCOUNT: 'Compte existant',
     REGISTER_FAILED: 'Register failed!',
     REGISTERING_ERROR: 'Error occurs during registering process',
+
     // SHOP LIST
     SHOP_LIST_VIEW_TITLE: 'Shops',
     NO_RESULT:'No result',
+
     // SHOP DETAIL
     SHOP_DETAIL_VIEW_TITLE: 'Shop',
     LAST_REVIEWS: 'Last reviews',
@@ -40,6 +47,7 @@ var translations = {
     REVIEW_ADDED_SUCCESSFULLY: 'Review Added Successfully',
     COMMENTS: 'Comments',
     MORE_REVIEWS: 'More reviews',
+
     // SHOP FAVORITES
     SHOP_FAVORITE_VIEW_TITLE: 'Favorites',
     SHOP_FAVORITE_ADDED: 'Favorite shop successfully added',
@@ -51,19 +59,24 @@ var translations = {
     CANCEL:'Annuler',
     SAVE:'Enregistrer',
     CLOSE: 'Fermer',
+
     //LEFT MENU
     HOME: 'Accueil',
     LOGOUT: 'Déconnexion',
     FAVORITES: 'Favoris',
     ABOUT: 'A propos',
+
     // LOGIN
     LOGIN_VIEW_TITLE: 'Login',
     LOGIN: 'Login',
+    LOGIN_SUCCES: 'Connexion réussie',
+    REGISTER_SUCCESS : 'Enregistrement réussit',
     EMAIL:'Email',
     PASSWORD:'Password',
     CREATE_ACCOUNT:'Créer un compte',
     LOGIN_FAILED:'Identifiants incorrectes',
     CHECK_CREDENTIALS:'Vérifiez vos identifiants',
+
     // REGISTER
     REGISTER_VIEW_TITLE: 'Créer un compte',
     USERNAME:'Identifiant',
@@ -72,6 +85,7 @@ var translations = {
     ALREADY_HAVE_ACCOUNT: 'Déjà inscrit',
     REGISTER_FAILED: 'Inscription en erreur',
     REGISTERING_ERROR: 'Une erreur est survenue durant l\' inscription',
+
     //SHOP LIST
     SHOP_LIST_VIEW_TITLE: 'Liste des enseignes',
     NO_RESULT:'Aucun résultat',
@@ -86,6 +100,7 @@ var translations = {
     REVIEW_ADDED_SUCCESSFULLY: 'Avis rajouté avec succès',
     COMMENTS: 'Commentaires',
     MORE_REVIEWS: 'Avis supplémentaires',
+
     // SHOP FAVORITE
     SHOP_FAVORITE_VIEW_TITLE: 'Enseignes favorites',
     SHOP_FAVORITE_ADDED: 'Enseigne favorite ajoutée avec succès',
@@ -98,7 +113,7 @@ angular
 .config(function ($translateProvider) {
   $translateProvider.translations('en', translations.en);
   $translateProvider.translations('fr', translations.fr);
-  $translateProvider.preferredLanguage('en');
+  $translateProvider.preferredLanguage('fr');
 
   //-- http://angular-translate.github.io/docs/#/guide/19_security
   $translateProvider.useSanitizeValueStrategy('escape');

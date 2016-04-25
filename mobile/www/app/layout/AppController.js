@@ -18,19 +18,19 @@ angular
 
   //-- Create login modal that we will use later
   var logUrl = '\'app/auth/views/login.html\'';
-  var logTpl = '<div ng-controller="AuthCtrl" ng-include="'+logUrl+'"></div>';
+  var logTpl = '<div ng-controller="LoginCtrl" ng-include="'+logUrl+'"></div>';
   $scope.loginModal = $ionicModal.fromTemplate(logTpl, {
     scope: $scope
   });
 
   //-- Create register modal that we will use later
   var regUrl = '\'app/auth/views/register.html\'';
-  var regTpl = '<div ng-controller="AuthCtrl" ng-include="'+regUrl+'"></div>';
+  var regTpl = '<div ng-controller="RegisterCtrl" ng-include="'+regUrl+'"></div>';
   $scope.registerModal = $ionicModal.fromTemplate(regTpl, {
     scope: $scope
   });
 
-  $scope.closeLogin = function() {
+  $scope.closeLogin = function(msg) {
     $scope.loginModal.hide();
   };
   $scope.closeRegister = function() {
