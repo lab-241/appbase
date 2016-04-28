@@ -22,6 +22,14 @@
     },
     "phone": {
       "type": "string"
+    },
+    "nbReviews": {
+      "type": "number",
+      "default": 0
+    },
+    "globalNote": {
+      "type": "number",
+      "default": 0
     }
   },
   "validations": [],

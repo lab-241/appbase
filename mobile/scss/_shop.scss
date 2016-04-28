@@ -35,6 +35,20 @@
   }
 }
 
+.shop-list {
+  a.item {
+    padding-top: 16px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 16px;
+
+    .badge {
+      margin-top: 10px;
+      right: 10px;
+    }
+  }
+}
+
 .review-list {
   a.item {
     padding:1px;

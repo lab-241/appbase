@@ -6,7 +6,6 @@ angular
 
   //-- Current shop Id and name (from navigation)
   $scope.shopId = $stateParams.shopId;
-  $scope.shopName = $stateParams.shopName;
 
   $scope.page     = 0;
   $scope.hasMore  = true;
@@ -21,6 +20,9 @@ angular
       .then(function(items){
         $scope.reviews = $scope.reviews.concat(items);
         $scope.hasMore = items.length !== 0;
+        if($scope.hasMore){
+          $scope.shop = $scope.reviews[0].shop;
+        }
         $scope.page++;
         $scope.$broadcast('scroll.infiniteScrollComplete');
       }, function(err){

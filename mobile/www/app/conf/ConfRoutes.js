@@ -38,7 +38,7 @@ angular
     }
   })
   .state('app.reviews', {
-    url: '/shops/:shopId/:shopName/reviews',
+    url: '/shops/:shopId/reviews',
     views: {
       'menuContent': {
         templateUrl: 'app/shop/views/review-list.html',

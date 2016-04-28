@@ -70,7 +70,7 @@ angular
         where: {
           shopId: id
         },
-        include: ['reviewer']
+        include: ['reviewer','shop']
       }
     }).$promise;
   };

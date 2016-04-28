@@ -32,6 +32,9 @@ angular
       .findReviews($scope.shopId, page, $scope.nbLastReviews)
       .then(function(reviews){
         $scope.reviews = reviews;
+        if($scope.reviews.length !== 0){
+          $scope.shop = $scope.reviews[0].shop;
+        }
         console.log(reviews);
       }, function(err){
         console.debug(err);

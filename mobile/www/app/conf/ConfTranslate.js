@@ -47,6 +47,7 @@ var translations = {
     REVIEW_ADDED_SUCCESSFULLY: 'Review Added Successfully',
     COMMENTS: 'Comments',
     MORE_REVIEWS: 'More reviews',
+    REVIEWS: 'Reviews',
 
     // SHOP FAVORITES
     SHOP_FAVORITE_VIEW_TITLE: 'Favorites',
@@ -100,6 +101,7 @@ var translations = {
     REVIEW_ADDED_SUCCESSFULLY: 'Avis rajouté avec succès',
     COMMENTS: 'Commentaires',
     MORE_REVIEWS: 'Avis supplémentaires',
+    REVIEWS: 'Avis',
 
     // SHOP FAVORITE
     SHOP_FAVORITE_VIEW_TITLE: 'Enseignes favorites',
