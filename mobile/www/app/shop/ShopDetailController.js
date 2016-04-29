@@ -20,6 +20,7 @@ angular
     }, function(err){
       console.debug(err);
       //TODO: Manage Error
+      LoaderService.toast(MessageService.get('ERROR_OCCURS_OP'));
     });
 
   /**
@@ -35,7 +36,6 @@ angular
         if($scope.reviews.length !== 0){
           $scope.shop = $scope.reviews[0].shop;
         }
-        console.log(reviews);
       }, function(err){
         console.debug(err);
         //TODO: Manage Error
@@ -102,6 +102,7 @@ angular
         }, function(err) {
           //TODO: Manage Error
           console.debug(err);
+          LoaderService.toast(MessageService.get('ERROR_OCCURS_OP'));
         }).finally(function(){
           $scope._loading(false);
         });
@@ -113,11 +114,15 @@ angular
    * Add shop to user favorites
    */
   $scope.addFavorite = function(){
+    if(!AuthService.hasSession()){
+      LoaderService.toast(MessageService.get('AUTH_REQUIRED'));
+      return;
+    }
     var userId = AuthService.getSession().user.id;
-    ShopService.addFavorites(userId , $stateParams.shopId).then(function(){
+    ShopService.addFavorite(userId , $stateParams.shopId).then(function(){
       LoaderService.toast(MessageService.get('SHOP_FAVORITE_ADDED'));
     }, function(err) {
-      //TODO: Manage Error
+      LoaderService.toast(MessageService.get('ERROR_OCCURS_OP'));
       console.debug(err);
     });
   };
@@ -126,11 +131,15 @@ angular
    * Remove shop from user favorites
    */
   $scope.removeFavorite = function(){
+    if(!AuthService.hasSession()){
+      LoaderService.toast(MessageService.get('AUTH_REQUIRED'));
+      return;
+    }
     var userId = AuthService.getSession().user.id;
-    ShopService.removeFavotites(userId , $stateParams.shopId).then(function(){
+    ShopService.removeFavotite(userId , $stateParams.shopId).then(function(){
       LoaderService.toast(MessageService.get('SHOP_FAVORITE_REMOVED'));
     }, function(err) {
-      //TODO: Manage Error
+      LoaderService.toast(MessageService.get('ERROR_OCCURS_OP'));
       console.debug(err);
     });
   };

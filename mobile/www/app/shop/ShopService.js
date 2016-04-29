@@ -116,7 +116,7 @@ angular
    * @param  {int} shopId  [description]
    * @return {$promise} promise
    */
-  service.addFavorites = function(userId, shopId){
+  service.addFavorite = function(userId, shopId){
     return User.favoritesShops.link({
         id: userId,
         fk: shopId

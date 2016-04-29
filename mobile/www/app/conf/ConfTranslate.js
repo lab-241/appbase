@@ -5,6 +5,7 @@ var translations = {
     CANCEL:'Cancel',
     SAVE:'Save',
     CLOSE: 'Close',
+    ERROR_OCCURS_OP: 'An error occurs during operation',
 
     //LEFT MENU
     HOME: 'Home',
@@ -60,6 +61,9 @@ var translations = {
     CANCEL:'Annuler',
     SAVE:'Enregistrer',
     CLOSE: 'Fermer',
+
+    // Erros
+    ERROR_OCCURS_OP: 'Une erreur s\'est produite pendant l\'opération',
 
     //LEFT MENU
     HOME: 'Accueil',
