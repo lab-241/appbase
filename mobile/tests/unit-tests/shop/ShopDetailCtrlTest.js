@@ -24,7 +24,11 @@ describe('ShopDetailController', function () {
   // Instantiate the controller and mocks for every test
   beforeEach(inject(function($controller, _$rootScope_, $q) {
 
-    deferred = $q.defer();
+    deferredShop = $q.defer();
+    deferredReviews = $q.defer();
+    deferredAddFav = $q.defer();
+    deferredRemFav = $q.defer();
+    deferredShowpop = $q.defer();
 
     $rootScope = _$rootScope_;
     $scope = $rootScope.$new();
@@ -32,11 +36,13 @@ describe('ShopDetailController', function () {
     // Mock ShopService
     shopServiceMock = {
       findById: jasmine.createSpy('findById-spy')
-        .and.returnValue(deferred.promise),
+        .and.returnValue(deferredShop.promise),
       findReviews: jasmine.createSpy('findReviews-spy')
-        .and.returnValue(deferred.promise),
+        .and.returnValue(deferredReviews.promise),
       addFavorite: jasmine.createSpy('addFavorite-spy')
-        .and.returnValue(deferred.promise)
+        .and.returnValue(deferredAddFav.promise),
+      removeFavorite: jasmine.createSpy('rmFavorite-spy')
+        .and.returnValue(deferredRemFav.promise)
     };
 
     // Mock ShopService
@@ -48,12 +54,12 @@ describe('ShopDetailController', function () {
 
     // Mock $ionicPopup
     ionicPopupMock = {
-      show: jasmine.createSpy('showPopup-spy').and.returnValue(deferred.promise)
+      show: jasmine.createSpy('showPopup-spy').and.returnValue(deferredShowpop.promise)
     };
 
     // Mock MessageService
     msgServiceMock = {
-      get: jasmine.createSpy('getMessage-spy').and.returnValue(deferred.promise)
+      get: jasmine.createSpy('getMessage-spy')
     };
 
     // Mock LoaderService
@@ -90,23 +96,24 @@ describe('ShopDetailController', function () {
 
     describe('when the findBy is executed,', function() {
       it('if success : should init the shop into scope', function (){
-        deferred.resolve({name:'test 1'});
+        deferredShop.resolve({name:'test 1'});
 	      $rootScope.$digest();
-        expect($scope.shop).toEqual(jasmine.any(Object));
+        //expect($scope.shop).toEqual(jasmine.any(Object));
         expect($scope.shop.name).toBe('test 1');
       });
 
       it('should call findReviews on ShopService', function() {
-        deferred.resolve();
+        deferredShop.resolve([]);
 	      $rootScope.$digest();
         expect(shopServiceMock.findReviews).toHaveBeenCalled();
       });
 
       describe('when the findReviews is executed,', function() {
-        it('if success : should init the reviews into scope', function (){
-          deferred.resolve([{name:'review 1'}, {name:'review 1'}]);
+        it('if success : should set reviews on scope', function (){
+          deferredShop.resolve();
+          deferredReviews.resolve([{name:'review 1'}, {name:'review 1'}]);
 		      $rootScope.$digest();
-          expect($scope.shop.length).toBe(2);
+          expect($scope.reviews.length).toBe(2);
         });
       });
 
@@ -162,14 +169,14 @@ describe('ShopDetailController', function () {
       });
 
       it('if success : should toast SHOP_FAVORITE_ADDED message', function() {
-        deferred.resolve();
+        deferredAddFav.resolve();
         $rootScope.$digest();
         expect(msgServiceMock.get).toHaveBeenCalledWith('SHOP_FAVORITE_ADDED');
         expect(loaderServiceMock.toast).toHaveBeenCalled();
       });
 
       it('if failure : should toast ERROR_OCCURS_OP message', function() {
-        deferred.reject();
+        deferredAddFav.reject();
         $rootScope.$digest();
         expect(msgServiceMock.get).toHaveBeenCalledWith('ERROR_OCCURS_OP');
         expect(loaderServiceMock.toast).toHaveBeenCalled();
@@ -190,25 +197,25 @@ describe('ShopDetailController', function () {
   describe('#remove_shop_favorite', function () {
 
     it('should check if user is authenticated', function() {
-      $scope.addFavorite();
+      $scope.removeFavorite();
       expect(authServiceMock.hasSession).toHaveBeenCalled();
     });
 
     describe('when user is authenticated,', function() {
       beforeEach(function() {
         authServiceMock.hasSession.and.returnValue(true);
-        $scope.addFavorite();
+        $scope.removeFavorite();
       });
 
-      it('if success : should toast SHOP_FAVORITE_ADDED message', function() {
-        deferred.resolve();
+      it('if success : should toast SHOP_FAVORITE_REMOVED message', function() {
+        deferredRemFav.resolve();
         $rootScope.$digest();
-        expect(msgServiceMock.get).toHaveBeenCalledWith('SHOP_FAVORITE_ADDED');
+        expect(msgServiceMock.get).toHaveBeenCalledWith('SHOP_FAVORITE_REMOVED');
         expect(loaderServiceMock.toast).toHaveBeenCalled();
       });
 
       it('if failure : should toast ERROR_OCCURS_OP message', function() {
-        deferred.reject();
+        deferredRemFav.reject();
         $rootScope.$digest();
         expect(msgServiceMock.get).toHaveBeenCalledWith('ERROR_OCCURS_OP');
         expect(loaderServiceMock.toast).toHaveBeenCalled();

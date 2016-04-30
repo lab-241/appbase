@@ -18,7 +18,7 @@ angular
       $scope.shop = item;
       getReviews();
     }, function(err){
-      console.debug(err);
+      //console.debug(err);
       //TODO: Manage Error
       LoaderService.toast(MessageService.get('ERROR_OCCURS_OP'));
     });
@@ -37,7 +37,7 @@ angular
           $scope.shop = $scope.reviews[0].shop;
         }
       }, function(err){
-        console.debug(err);
+        //console.debug(err);
         //TODO: Manage Error
       });
   }
@@ -101,7 +101,7 @@ angular
           getReviews();
         }, function(err) {
           //TODO: Manage Error
-          console.debug(err);
+          //console.debug(err);
           LoaderService.toast(MessageService.get('ERROR_OCCURS_OP'));
         }).finally(function(){
           $scope._loading(false);
@@ -123,7 +123,7 @@ angular
       LoaderService.toast(MessageService.get('SHOP_FAVORITE_ADDED'));
     }, function(err) {
       LoaderService.toast(MessageService.get('ERROR_OCCURS_OP'));
-      console.debug(err);
+      //console.debug(err);
     });
   };
 
@@ -136,11 +136,11 @@ angular
       return;
     }
     var userId = AuthService.getSession().user.id;
-    ShopService.removeFavotite(userId , $stateParams.shopId).then(function(){
+    ShopService.removeFavorite(userId , $stateParams.shopId).then(function(){
       LoaderService.toast(MessageService.get('SHOP_FAVORITE_REMOVED'));
     }, function(err) {
       LoaderService.toast(MessageService.get('ERROR_OCCURS_OP'));
-      console.debug(err);
+      //console.debug(err);
     });
   };
 
