@@ -107,7 +107,8 @@ app.config(['NgAdminConfigurationProvider', function (nga) {
         .targetEntity(nga.entity('cities'))
         .targetField(nga.field('name'))
         .label('City')
-    ]);
+    ])
+    .listActions(['show', 'edit', 'delete']);
 
   shop.showView()
     .fields([
@@ -126,11 +127,11 @@ app.config(['NgAdminConfigurationProvider', function (nga) {
     ]);
 
   shop.creationView().fields([
-    nga.field('name'),
-    nga.field('desc', 'text'),
-    nga.field('location.lat', 'float').label('Latitude'),
-    nga.field('location.lng', 'float').label('Longitude'),
-    nga.field('cityId')
+    shop.listView().fields()
+  ]);
+
+  shop.editionView().fields([
+    shop.listView().fields()
   ]);
 
   // Attach entities to app
@@ -165,6 +166,7 @@ app.config(['NgAdminConfigurationProvider', function (nga) {
         .fields([
           review.listView().fields()
         ])
+        .listActions(['show', 'delete'])
       )
       .addCollection(nga.collection(admin.getEntity('shops'))
         .name('shops')
@@ -202,7 +204,6 @@ app.config(['NgAdminConfigurationProvider', function (nga) {
         </div>
       `)
   );
-
 
   //----------------------
   // Menu
