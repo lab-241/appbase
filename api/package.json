@@ -31,7 +31,8 @@
     "jshint": "^2.9.1",
     "jshint-stylish": "^2.1.0",
     "load-grunt-tasks": "^3.4.1",
-    "nsp": "^2.1.0"
+    "nsp": "^2.1.0",
+    "webpack": "^1.13.0"
   },
   "repository": {
     "type": "git",
