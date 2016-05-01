@@ -1,0 +1,24 @@
+
+/* Remove border radius */
+
+.panel, .panel-heading {
+  border-radius: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+/* Add missing panel "primary"  css */
+
+.panel-primary {
+  border-color: #337ab7;
+}
+
+.panel-primary .panel-heading {
+  border-color: #337ab7;
+  color: #fff;
+  background-color: #337ab7;
+}
+
+.dashboard-content .panel-primary .panel-heading a{
+  color: #fff;
+}
