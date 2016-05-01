@@ -36,6 +36,18 @@ app.config(['NgAdminConfigurationProvider', function (nga) {
     ]);
 
   //-----------------------------------
+  // ENTITY   : user
+  // endpoint : /users/:id
+  //-----------------------------------
+  var user = nga.entity('users');
+  user.listView()
+    .description('List of users')
+    .fields([
+      nga.field('username'),
+      nga.field('email')
+    ]);
+      
+  //-----------------------------------
   // ENTITY   : review
   // endpoint : /reviews/:id
   //-----------------------------------
@@ -106,16 +118,16 @@ app.config(['NgAdminConfigurationProvider', function (nga) {
   // Attach entities to app
   admin.addEntity(city);
   admin.addEntity(shop);
+  admin.addEntity(user);
   admin.addEntity(review);
 
+// Customize menu entries
   admin.menu(nga.menu()
-    .addChild(nga.menu(city)
-      .icon('<span class="glyphicon glyphicon-plus"></span>'))
-    .addChild(nga.menu(shop)
-      .icon('<span class="glyphicon glyphicon-plus"></span>'))
-    .addChild(nga.menu(review)
-      .icon('<span class="glyphicon glyphicon-plus"></span>'))
-    .addChild(nga.menu()
+  .addChild(nga.menu(city).icon('<span class="glyphicon glyphicon-map-marker"></span>'))
+  .addChild(nga.menu(shop).icon('<span class="glyphicon glyphicon-shopping-cart"></span>'))
+  .addChild(nga.menu(user).icon('<span class="glyphicon glyphicon-user"></span>'))
+  .addChild(nga.menu(review).icon('<span class="glyphicon glyphicon-comment"></span>'))
+  .addChild(nga.menu()
       .template(
       '<a href="/"><i class="glyphicon glyphicon-home"></i> Exit</a>')
     )

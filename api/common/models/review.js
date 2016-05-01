@@ -19,4 +19,14 @@ module.exports = function(Review) {
     next();
   });
 
+  /**
+   * Update the global note and number of review after create a new review
+   */
+  Review.afterRemote('delete', function(context, user, next) {
+    var Shop = Review.app.models.Shop;
+    var req = context.req;
+    Shop.unrate(req.body.shopId, req.body.rating);
+    next();
+  });
+
 };
