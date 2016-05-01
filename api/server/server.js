@@ -15,13 +15,15 @@ app.start = function() {
     console.log('==============================================');
     console.log('****************  APP BASE  ******************');
 
-    console.log('| ENV : '+ process.env.NODE_ENV);
-    console.log('| Web server listening at : %s', baseUrl);
-    
+    console.log('| NODE_ENV : '+ process.env.NODE_ENV);
+    console.log('| Web server : %s', baseUrl);
+
     if (app.get('loopback-component-explorer')) {
       var explorerPath = app.get('loopback-component-explorer').mountPath;
-      console.log('| API browser running at  :  %s%s', baseUrl, explorerPath);
+      console.log('| API browser :  %s%s', baseUrl, explorerPath);
     }
+
+    console.log('| Admin dashboard :  %s%s', baseUrl, '/admin');
     console.log('==============================================');
   });
 };
