@@ -49,21 +49,24 @@ module.exports = function(app) {
             desc: 'Le 100% hi-Tech. ' + lorem,
             cityId: cities[0].id,
             managerId:users[0].id,
-            location: {lat: 0.3924100, lng: 9.4535600}
+            location: {lat: 0.3924100, lng: 9.4535600},
+            image:'http://lorempixel.com/300/300/food/1'
           },
           {
             name: 'Africa fashion',
             desc: 'La mode afro à petit prix. ' + lorem,
             cityId: cities[1].id,
             managerId:users[1].id,
-            location: {lat: 0.3924100, lng: 9.4535600}
+            location: {lat: 0.3924100, lng: 9.4535600},
+            image:'http://lorempixel.com/300/300/food/2'
           },
           {
             name: 'Le temple du cuir',
             desc: 'Le meilleur tout simplement. ' + lorem,
             cityId: cities[2].id,
             managerId:users[2].id,
-            location: {lat: 0.3924100, lng: 9.4535600}
+            location: {lat: 0.3924100, lng: 9.4535600},
+            image:'http://lorempixel.com/300/300/food/3'
           }
       ], function(err, shops) {
           if (err) return console.log('%j', err);
@@ -113,6 +116,10 @@ module.exports = function(app) {
         }
       ], function(err, reviews) {
           if (err) return console.log('%j', err);
+          Shop.rate(shops[0].id, 5);
+          Shop.rate(shops[1].id, 5);
+          Shop.rate(shops[2].id, 4);
+          Shop.rate(shops[0].id, 4);
           console.log('Created reviews', reviews.length);
           return cb;
       });

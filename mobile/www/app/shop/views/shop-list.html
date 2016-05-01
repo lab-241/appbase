@@ -1,21 +1,15 @@
 <ion-view view-title="{{ 'SHOP_LIST_VIEW_TITLE' | translate }}">
   <ion-content>
-    <div class="list list-inset shop-list">
-      <a class="item" ng-repeat="shop in shops" href="#/app/shops/{{shop.id}}">
-        <div class="row">
-          <p class="col col-10">
-            <i class="icon ion-bag"></i>
-          </p>
-          <p class="col col-55">
-            {{shop.name}}
-          </p>
-          <p class="col col-25">
-              <rate-bar rate="shop.globalNote"></rate-bar>
-          </p>
-          <p class="col col-10">
-            <span class="badge badge-balanced">{{shop.nbReviews}}</span>
-          </p>
+    <div class="list shop-list">
+      <a class="item item-thumbnail-right" ng-repeat="shop in shops" href="#/app/shops/{{shop.id}}">
+        <img src="{{shop.image}}">
+        <h2>{{shop.name}}</h2>
+        <p>{{shop.desc | limitTo : 100 }}</p>
+        <div class="row rate">
+          <rate-bar rate="shop.globalNote"></rate-bar>
+          <div class="globalNote"><p>{{shop.globalNote | number:1}}</p></div>
         </div>
+        <p class="comment">{{shop.nbReviews}} {{'REVIEWS' | translate}}<p>
       </a>
     </div>
     <ion-infinite-scroll

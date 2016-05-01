@@ -9762,7 +9762,9 @@ a.button {
   text-align: center;
   padding-top: 25px;
   font-size: 5em;
-  color: #fff; }
+  color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover; }
 
 .shop p.desc {
   margin-top: 10px;
@@ -9781,14 +9783,33 @@ a.button {
 .shop-review-form .comments label {
   color: #777; }
 
-.shop-list a.item {
-  padding-top: 16px;
+.shop-list .row {
+  padding: 0px; }
+
+.shop-list .rate {
+  font-size: 12px; }
+
+.shop-list .globalNote {
+  padding-left: 10px; }
+
+.shop-list .globalNote p {
   padding-left: 5px;
   padding-right: 5px;
-  padding-bottom: 16px; }
-  .shop-list a.item .badge {
-    margin-top: 10px;
-    right: 10px; }
+  text-align: center;
+  background: #444;
+  color: #ffc900;
+  display: inline-block;
+  border-radius: 2px;
+  font-size: 10px; }
+
+.shop-list .comment {
+  font-size: 10px;
+  color: #aaa;
+  font-style: italic;
+  padding: 0px; }
+
+.shop-list a.item {
+  padding-bottom: 0px; }
 
 .review-list a.item {
   padding: 1px;
