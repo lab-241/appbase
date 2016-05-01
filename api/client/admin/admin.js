@@ -12,7 +12,7 @@ function truncate(value) {
 app.config(['NgAdminConfigurationProvider', function (nga) {
   //-- create an admin application
   var admin = nga.application('Admin Dashboard')
-             .baseApiUrl('http://api.appbase.ga/api/');
+             .baseApiUrl('http://localhost:3000/api/');
 
   //-----------------------------------
   // ENTITY   : city
@@ -26,6 +26,21 @@ app.config(['NgAdminConfigurationProvider', function (nga) {
     ]);
 
   //-----------------------------------
+  // ENTITY   : review
+  // endpoint : /reviews/:id
+  //-----------------------------------
+  var review = nga.entity('reviews');
+  review.listView()
+      .title('Reviews')
+      .sortField('date')
+      .sortDir('DESC')
+      .fields([
+          nga.field('date', 'datetime'),
+          nga.field('comments'),
+          nga.field('rating')
+      ]);
+
+  //-----------------------------------
   // ENTITY   : shop
   // endpoint : /shops/:id
   //-----------------------------------
@@ -34,7 +49,9 @@ app.config(['NgAdminConfigurationProvider', function (nga) {
     .description('List of shops')
     .fields([
       nga.field('name').isDetailLink(true),
-      nga.field('desc').map(truncate),
+      nga.field('desc')
+        .label('Description')
+        .map(truncate),
       nga.field('cityId', 'reference')
         .targetEntity(city)
         .targetField(nga.field('name'))
@@ -69,22 +86,9 @@ app.config(['NgAdminConfigurationProvider', function (nga) {
     nga.field('cityId')
   ]);
 
-  //-----------------------------------
-  // ENTITY   : review
-  // endpoint : /reviews/:id
-  //-----------------------------------
-  var reviews = admin.entity('reviews');
-  reviews.listView()
-      .title('Reviews')
-      .sortField('date')
-      .sortDir('DESC')
-      .fields([
-          nga.field('date', 'datetime')
-      ]);
-
-
   // Attach entities to app
   admin.addEntity(city);
+  admin.addEntity(review);
   admin.addEntity(shop);
 
   //-- Attach the admin application to the DOM and execute it

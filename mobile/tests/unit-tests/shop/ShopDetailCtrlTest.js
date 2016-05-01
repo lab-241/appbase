@@ -24,10 +24,10 @@ describe('ShopDetailController', function () {
   // Instantiate the controller and mocks for every test
   beforeEach(inject(function($controller, _$rootScope_, $q) {
 
-    deferredShop = $q.defer();
+    deferredShop    = $q.defer();
     deferredReviews = $q.defer();
-    deferredAddFav = $q.defer();
-    deferredRemFav = $q.defer();
+    deferredAddFav  = $q.defer();
+    deferredRemFav  = $q.defer();
     deferredShowpop = $q.defer();
 
     $rootScope = _$rootScope_;
