@@ -8,15 +8,15 @@ module.exports = function(app) {
   var Review = app.models.review;
 
   var lorem = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. ' +
-	'Nisi sit ducimus veritatis ab perferendis nulla numquam, similique ' +
-	'cupiditate incidunt.';
+	'Nisi sit ducimus veritatis ab perferendis nulla numquam, similique.';
 
-  var db = app.dataSources.db;
+  var db  = app.dataSources.db;
+  var env = process.env.NODE_ENV;
 
-  if(process.env.NODE_ENV == 'staging' || process.env.NODE_ENV == 'production'){
+  if(env === 'staging' || env === 'production'){
     console.log('NODE_ENV', process.env.NODE_ENV);
     console.log('!! CAUTION !! <automigrate> will destroy all data');
-    console.log('IMPORT SAMPLE DATA ABRORTED');
+    console.log('IMPORT SAMPLE DATA ABORTED');
     return;
   }
 
@@ -35,12 +35,12 @@ module.exports = function(app) {
       createUser(function(users){
         //-- If cities and users created, add shops
         createShops(cities, users);
-      })
+      });
     });
   });
 
   //-- Create shop
-  function createShops(cities, users) {
+  function createShops(cities, users, cb) {
     db.automigrate('shop', function(err) {
       if (err) return cb(err);
       Shop.create([
