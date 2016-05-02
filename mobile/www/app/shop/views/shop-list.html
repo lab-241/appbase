@@ -2,14 +2,14 @@
   <ion-content>
     <div class="list shop-list">
       <a class="item item-thumbnail-right" ng-repeat="shop in shops" href="#/app/shops/{{shop.id}}">
-        <img src="{{shop.image}}">
+        <img ng-src="{{shop.image}}" />
         <h2>{{shop.name}}</h2>
         <p>{{shop.desc | limitTo : 100 }}</p>
         <div class="row rate">
           <rate-bar rate="shop.globalNote"></rate-bar>
           <div class="globalNote"><p>{{shop.globalNote | number:1}}</p></div>
         </div>
-        <p class="comment">{{shop.nbReviews}} {{'REVIEWS' | translate}}<p>
+        <p class="comment">{{shop.nbReviews}} {{'REVIEWS' | translate}}</p>
       </a>
     </div>
     <ion-infinite-scroll
