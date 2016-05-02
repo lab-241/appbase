@@ -38,35 +38,37 @@
 }
 
 .shop-list {
-  .row {
-    padding: 0px;
-  }
-  .rate {
-    font-size: 12px;
-  }
-
-  .globalNote {
-    padding-left: 10px;
-  }
-  .globalNote p {
-    padding-left: 5px;
-    padding-right: 5px;
-    text-align: center;
-    background: #444;
-    color: #ffc900;
-    display: inline-block;
-    border-radius: 2px;
-    font-size: 10px;
-  }
-  .comment {
-    font-size: 10px;
-    color: #aaa;
-    font-style: italic;
-    padding: 0px;
-  }
-
   a.item {
     padding-bottom: 0px;
+
+    .row {
+      padding: 0px;
+    }
+    .rate {
+      font-size: 12px;
+      margin-top:10px;
+    }
+
+    .globalNote {
+      padding-left: 10px;
+    }
+    .globalNote p {
+      padding-left: 5px;
+      padding-right: 5px;
+      text-align: center;
+      background: #444;
+      color: #ffc900;
+      display: inline-block;
+      border-radius: 2px;
+      font-size: 10px;
+    }
+    .comment {
+      font-size: 10px;
+      color: #aaa;
+      font-style: italic;
+      padding: 0px;
+      margin-left:15px;
+    }
   }
 }
 

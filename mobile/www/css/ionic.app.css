@@ -9783,33 +9783,30 @@ a.button {
 .shop-review-form .comments label {
   color: #777; }
 
-.shop-list .row {
-  padding: 0px; }
-
-.shop-list .rate {
-  font-size: 12px; }
-
-.shop-list .globalNote {
-  padding-left: 10px; }
-
-.shop-list .globalNote p {
-  padding-left: 5px;
-  padding-right: 5px;
-  text-align: center;
-  background: #444;
-  color: #ffc900;
-  display: inline-block;
-  border-radius: 2px;
-  font-size: 10px; }
-
-.shop-list .comment {
-  font-size: 10px;
-  color: #aaa;
-  font-style: italic;
-  padding: 0px; }
-
 .shop-list a.item {
   padding-bottom: 0px; }
+  .shop-list a.item .row {
+    padding: 0px; }
+  .shop-list a.item .rate {
+    font-size: 12px;
+    margin-top: 10px; }
+  .shop-list a.item .globalNote {
+    padding-left: 10px; }
+  .shop-list a.item .globalNote p {
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    background: #444;
+    color: #ffc900;
+    display: inline-block;
+    border-radius: 2px;
+    font-size: 10px; }
+  .shop-list a.item .comment {
+    font-size: 10px;
+    color: #aaa;
+    font-style: italic;
+    padding: 0px;
+    margin-left: 15px; }
 
 .review-list a.item {
   padding: 1px;

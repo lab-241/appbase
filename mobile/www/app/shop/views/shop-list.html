@@ -8,8 +8,9 @@
         <div class="row rate">
           <rate-bar rate="shop.globalNote"></rate-bar>
           <div class="globalNote"><p>{{shop.globalNote | number:1}}</p></div>
+          <p class="comment">{{shop.nbReviews}} {{'REVIEWS' | translate}}</p>
         </div>
-        <p class="comment">{{shop.nbReviews}} {{'REVIEWS' | translate}}</p>
+
       </a>
     </div>
     <ion-infinite-scroll
