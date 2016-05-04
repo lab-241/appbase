@@ -1,13 +1,49 @@
-.shop{
-  p.hero {
-    height: 130px;
+.switch-display {
+  .button-icon{
+    font-size:2em;
+  }
+}
+.shop-detail{
+  .hero {
+    height: 200px;
     background: $calm;
     text-align: center;
-    padding-top: 25px;
     font-size: 5em;
+    text-transform: uppercase;
     color: $light;
-    background-repeat:no-repeat;
-    background-size: cover;
+
+    .buttons button{
+      margin: 10px;
+      &.favorite {
+        color: $assertive;
+      }
+    }
+
+    .picture {
+      width:100%;
+      height:200px;
+      position:absolute;
+      background-repeat: no-repeat;
+      background-size: cover;
+      -webkit-filter: brightness(60%);
+      filter: brightness(60%);
+    }
+
+    .content{
+      padding-top: 30px;
+      .nb-reviews, i.dark{
+        color: $light;
+      }
+
+      .button-bar{
+        padding:20px;
+      }
+    }
+  }
+
+  .title{
+    color: $light;
+    margin:0;
   }
 
   p.desc {
@@ -29,45 +65,126 @@
       color:$energized;
     }
   }
-
-  .comments {
-    label{
-      color: #777;
-    }
-  }
 }
 
 .shop-list {
+
+  background: #EEE;
   a.item {
     padding-bottom: 0px;
 
-    .row {
-      padding: 0px;
-    }
-    .rate {
+    .row.rating {
+      padding: 0;
       font-size: 12px;
       margin-top:10px;
+      .average {
+        margin-left: 8px;
+        p {
+          padding-left: 5px;
+          padding-right: 5px;
+          text-align: center;
+          background: $dark;
+          color: $energized;
+          display: inline-block;
+          border-radius: 2px;
+          font-size: 10px;
+        }
+      }
+
+      .reviews {
+        font-size: 10px;
+        font-style: italic;
+        padding: 0;
+        margin-left:10px;
+      }
+
+      .city{
+        &.col{
+          padding: 0;
+        }
+        .icon{
+          color: $dark;
+          font-size: 15px;
+          margin-right: 5px;
+        }
+        font-size: 12px;
+      }
+    }
+    .desc{
+      margin-top: 10px;
+    }
+  }
+
+  a.item-card {
+    padding: 2px 0 0 0;
+    margin: 0 0 8px 0;
+    border: none;
+    height:300px;
+
+    .picture {
+      width: 100%;
+      height: 300px;
+      cursor: pointer;
     }
 
-    .globalNote {
-      padding-left: 10px;
+    .thumb {
+      bottom: 65px;
+      right: 10px;
+      width: 70px;
+      height: 65px;
+      z-index: 10;
+      padding: 0;
+      position: absolute;
+      border: solid 2px $light;
+      transition: 0.3s;
     }
-    .globalNote p {
-      padding-left: 5px;
-      padding-right: 5px;
-      text-align: center;
-      background: #444;
-      color: #ffc900;
-      display: inline-block;
-      border-radius: 2px;
-      font-size: 10px;
+
+    .restoPic.activated{
+      border: solid 2px $assertive;
     }
-    .comment {
-      font-size: 10px;
-      color: #aaa;
-      font-style: italic;
-      padding: 0px;
-      margin-left:15px;
+
+    .favorite{
+      top: 15px;
+      right: 10px;
+      color: $light;
+      font-size: 40px;
+      position: relative;
+    }
+
+    .favorite.enabled{
+      opacity: 0.7;
+      color: $assertive;
+    }
+
+    .details {
+      top: -105px;
+      width: 100%;
+      height: 100px;
+      padding: 5px;
+      position: relative;
+      background: rgba(255, 255, 255, 0.8);
+
+      rate-bar{
+        font-size: 1.5em;
+      }
+      .title {
+        color: #333;
+        margin-top: 5px;
+        font-size: 1.4em;
+      }
+      p.note {
+        left: 0;
+        top: -100px;
+        padding: 5px;
+        color: $light;;
+        font-size: 1.2em;
+        position: absolute;
+        background: $assertive;
+      }
+      .desc {
+          margin-top: 0px;
+          font-size: 12px;
+      }
     }
   }
 }

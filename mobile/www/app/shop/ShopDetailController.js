@@ -2,12 +2,13 @@ angular
 .module('appbase.shop')
 .controller('ShopDetailCtrl',
   function($scope, $stateParams, $ionicPopup, $filter,
-    ShopService, AuthService, LoaderService, MessageService){
+    ShopService, AuthService, LoaderService, LocalStorage, MessageService){
 
   //-- Current shop Id (from navigation)
   $scope.shopId = $stateParams.shopId;
   $scope.reviews = [];
   $scope.nbLastReviews = 3;
+  $scope.isFavorite = ShopService.isFavorite($scope.shopId);
 
   /**
    * Get one shop by id param
@@ -110,6 +111,13 @@ angular
     });
   };
 
+  $scope.toggleFavorite = function(){
+    if(!$scope.isFavorite)
+      $scope.addFavorite();
+    else
+      $scope.removeFavorite();
+  };
+
   /**
    * Add shop to user favorites
    */
@@ -119,8 +127,9 @@ angular
       return;
     }
     var userId = AuthService.getSession().user.id;
-    ShopService.addFavorite(userId , $stateParams.shopId).then(function(){
+    ShopService.addFavorite(userId , $stateParams.shopId).then(function(data){
       LoaderService.toast(MessageService.get('SHOP_FAVORITE_ADDED'));
+      $scope.isFavorite = true;
     }, function(err) {
       LoaderService.toast(MessageService.get('ERROR_OCCURS_OP'));
       //console.debug(err);
@@ -138,6 +147,7 @@ angular
     var userId = AuthService.getSession().user.id;
     ShopService.removeFavorite(userId , $stateParams.shopId).then(function(){
       LoaderService.toast(MessageService.get('SHOP_FAVORITE_REMOVED'));
+      $scope.isFavorite = false;
     }, function(err) {
       LoaderService.toast(MessageService.get('ERROR_OCCURS_OP'));
       //console.debug(err);

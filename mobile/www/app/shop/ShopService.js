@@ -1,25 +1,29 @@
 /**
- * ShopService : Api Shop service
+ * ShopService : Api Shop self
  * @Author Michael P.O
  */
 angular
 .module('appbase.shop')
-.factory('ShopService', function($filter, $ionicPopup, Shop, Review, User, MessageService) {
+.factory('ShopService', function($filter, $ionicPopup, Shop, Review, User,
+  LocalStorage, MessageService) {
 
-  var service = {};
+  var self = {};
+
+  var FAVORITES_SHOPS = 'favorites-shops';
 
   /**
    * Find shop with pagination
    * @param {int} page : page results number
    * @returns : $promise
    */
-  service.find = function (page) {
+  self.find = function (page) {
     var limit = 10;
     return Shop.find({
       filter: {
         order: 'date DESC',
         limit: limit,
-        skip: page * limit
+        skip: page * limit,
+        include: ['city']
       }
     }).$promise;
   };
@@ -28,10 +32,11 @@ angular
    * Find one shop by Id
    * @returns : $promise
    */
-  service.findById = function (id) {
+  self.findById = function (id) {
     return Shop.findOne({
       filter: {
-        where: {id : id}
+        where: {id : id},
+        include: ['city']
       }
     }).$promise;
   };
@@ -41,7 +46,7 @@ angular
    * Required : autehntication
    * @returns : $promise
    */
-  service.addReview = function(rating, comments, shopId){
+  self.addReview = function(rating, comments, shopId){
     //-- NB: "PublisherId" and "date" fields are
     // auto setted by api Review model.
     // @see api/common/review.js Review.beforeRemote('create')
@@ -59,7 +64,7 @@ angular
    * @param  {int} limit max results number
    * @return $promise
    */
-  service.findReviews = function(id, page, limit){
+  self.findReviews = function(id, page, limit){
     limit = limit || 10;
     page = page || 0;
     return Review.find({
@@ -79,7 +84,7 @@ angular
    * Show review details in a popup
    * @param  {$scope} scope Scope object containing a review to display
    */
-  service.showReviewPopup = function(scope){
+  self.showReviewPopup = function(scope){
     var icon = '<i class="icon ion-chatbubble-working txt-calm"></i> ';
     $ionicPopup.show({
       templateUrl: 'app/shop/views/review-popup.html',
@@ -98,7 +103,7 @@ angular
    * @param  {[type]} page Pagination number
    * @return {[type]}      [description]
    */
-  service.findFavorites = function(userId, page, limit){
+  self.findFavorites = function(userId, page, limit){
     limit = limit || 10;
     page = page || 0;
     return User.favoritesShops({
@@ -116,25 +121,60 @@ angular
    * @param  {int} shopId  [description]
    * @return {$promise} promise
    */
-  service.addFavorite = function(userId, shopId){
+  self.addFavorite = function(userId, shopId){
     return User.favoritesShops.link({
         id: userId,
         fk: shopId
-      }, null).$promise;
+      }, null).$promise.then(function(response){
+        if(!self.isFavorite(shopId)){
+          // Add the shop in local storage favorites list
+          var shops = LocalStorage.getObject(FAVORITES_SHOPS);
+          shops.push(shopId);
+          LocalStorage.setObject(FAVORITES_SHOPS, shops);
+        }
+        return response;
+      });
   };
 
-    /**
-    * Remove a shop from current user favorites
-    * @param  {int} userId User id
-    * @param  {int} shopId Shop id
-    * @return {$promise} promise
-     */
-  service.removeFavorite = function(userId, shopId){
+  /**
+  * Remove a shop from current user favorites
+  * @param  {int} userId User id
+  * @param  {int} shopId Shop id
+  * @return {$promise} promise
+   */
+  self.removeFavorite = function(userId, shopId){
     return User.favoritesShops.unlink({
        id: userId,
        fk: shopId
-      }).$promise;
+      }).$promise.then(function(response){
+        if(self.isFavorite(shopId)){
+          // Remove the shop from local storage favorites list
+          var shops = LocalStorage.getObject(FAVORITES_SHOPS);
+          delete shops[shops.indexOf(shopId)];
+          delete shops[0];
+          LocalStorage.setObject(FAVORITES_SHOPS, shops);
+        }
+        return response;
+      });
   };
 
-  return service;
+  /**
+   * Check if shop is in user favorites (local storage)
+   * @param  {string} shopId shop identifier
+   * @return {boolean}  true/false
+   */
+  self.isFavorite = function(shopId){
+    var shops = LocalStorage.getObject(FAVORITES_SHOPS, []);
+    return shops.indexOf(shopId) !== -1;
+  };
+
+  /**
+   * Get current user favorites list (local storage)
+   * @return {Array}  list of favorites Ids
+   */
+  self.getLocalFavorites = function(){
+    return LocalStorage.getObject(FAVORITES_SHOPS, []);
+  };
+
+  return self;
 });

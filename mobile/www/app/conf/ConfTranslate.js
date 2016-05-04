@@ -46,7 +46,7 @@ var translations = {
     REMAIN_RESPECTFUL: 'Please remain respectful',
     RATING_REQUIRED: 'Rating required',
     REVIEW_ADDED_SUCCESSFULLY: 'Review Added Successfully',
-    COMMENTS: 'Comments',
+    REVIEW_COMMENTS_PLACEHOLDER: 'Write your comments ...',
     MORE_REVIEWS: 'More reviews',
     REVIEWS: 'Reviews',
 
@@ -103,7 +103,7 @@ var translations = {
     REMAIN_RESPECTFUL: 'Merci de rester courtois',
     RATING_REQUIRED: 'Renseignez une note',
     REVIEW_ADDED_SUCCESSFULLY: 'Avis rajouté avec succès',
-    COMMENTS: 'Commentaires',
+    REVIEW_COMMENTS_PLACEHOLDER: 'Saisissez vos commentaires ...',
     MORE_REVIEWS: 'Avis supplémentaires',
     REVIEWS: 'Avis',
 

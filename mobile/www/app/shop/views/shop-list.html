@@ -1,18 +1,46 @@
 <ion-view view-title="{{ 'SHOP_LIST_VIEW_TITLE' | translate }}">
+
   <ion-content>
-    <div class="list shop-list">
+    <div class="button-bar switch-display">
+      <a class="button button-icon"
+      ng-class="{'ion-ios-list':cardsLayout, 'ion-image':!cardsLayout}"
+      ng-click="cardsLayout = !cardsLayout"></a>
+    </div>
+
+    <div class="list shop-list" ng-if="!cardsLayout">
       <a class="item item-thumbnail-right" ng-repeat="shop in shops" href="#/app/shops/{{shop.id}}">
         <img ng-src="{{shop.image}}" />
         <h2>{{shop.name}}</h2>
-        <p>{{shop.desc | limitTo : 100 }}</p>
-        <div class="row rate">
+        <p class="desc">{{shop.desc | limitTo : 100 }}</p>
+        <div class="row rating">
+          <p class="city col col-30">
+            <i class="icon ion-android-pin"></i>{{shop.city.name}}
+          </p>
           <rate-bar rate="shop.globalNote"></rate-bar>
-          <div class="globalNote"><p>{{shop.globalNote | number:1}}</p></div>
-          <p class="comment">{{shop.nbReviews}} {{'REVIEWS' | translate}}</p>
+          <div class="average"><p>{{shop.globalNote | number:1}}</p></div>
+          <p class="reviews">{{shop.nbReviews}} {{'REVIEWS' | translate}}</p>
         </div>
-
       </a>
     </div>
+
+    <div class="list shop-list" ng-if="cardsLayout">
+      <a class="item item-card" ng-repeat="shop in shops" href="#/app/shops/{{shop.id}}">
+        <img class="picture" ng-src="{{shop.image}}" />
+        <div class="details">
+          <p class="title">{{shop.name}}</p>
+          <div class="row rating">
+            <p class="city col col-30">
+              <i class="icon ion-android-pin"></i>{{shop.city.name}}
+            </p>
+            <rate-bar rate="shop.globalNote"></rate-bar>
+          </div>
+          <p class="desc">{{shop.desc}}</p>
+          <p class="note">{{shop.globalNote | number:1}}</p>
+          <img class="button thumb" ng-src="{{shop.image}}" />
+        </div>
+      </a>
+    </div>
+
     <ion-infinite-scroll
         ng-if="hasMore"
         on-infinite="loadMore()"
