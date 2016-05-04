@@ -42,7 +42,8 @@ describe('ShopDetailController', function () {
       addFavorite: jasmine.createSpy('addFavorite-spy')
         .and.returnValue(deferredAddFav.promise),
       removeFavorite: jasmine.createSpy('rmFavorite-spy')
-        .and.returnValue(deferredRemFav.promise)
+        .and.returnValue(deferredRemFav.promise),
+      isFavorite: jasmine.createSpy('isFavorite-spy')
     };
 
     // Mock ShopService
@@ -84,21 +85,26 @@ describe('ShopDetailController', function () {
    * ********************************
    */
   describe('#load_shop_details', function () {
+    var shopId = 132;
 
     // Call loadMore on the controller for every test
     beforeEach(function() {
-      shopServiceMock.findById(1);
+      shopServiceMock.findById(shopId);
+      shopServiceMock.isFavorite(shopId);
     });
 
     it('should call findById on ShopService', function() {
-      expect(shopServiceMock.findById).toHaveBeenCalledWith(1);
+      expect(shopServiceMock.findById).toHaveBeenCalledWith(shopId);
+    });
+
+    it('should call isFavorite on ShopService to get shop status ', function(){
+      expect(shopServiceMock.isFavorite).toHaveBeenCalledWith(shopId);
     });
 
     describe('when the findBy is executed,', function() {
       it('if success : should init the shop into scope', function (){
         deferredShop.resolve({name:'test 1'});
 	      $rootScope.$digest();
-        //expect($scope.shop).toEqual(jasmine.any(Object));
         expect($scope.shop.name).toBe('test 1');
       });
 

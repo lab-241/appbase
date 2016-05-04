@@ -2,7 +2,7 @@ angular
 .module('appbase.shop')
 .controller('ShopDetailCtrl',
   function($scope, $stateParams, $ionicPopup, $filter,
-    ShopService, AuthService, LoaderService, LocalStorage, MessageService){
+    ShopService, AuthService, LoaderService, MessageService){
 
   //-- Current shop Id (from navigation)
   $scope.shopId = $stateParams.shopId;
