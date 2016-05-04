@@ -49,10 +49,12 @@ module.exports = function(Shop) {
   Shop.unrate = function(shopId, rating,cb) {
     Shop.findById(shopId , function (err, instance){
       var response = {};
-      if(!instance.globalNote || !instance.nbReviews || instance.globalNote == 0 || instance.nbReviews == 0 || (instance.nbReviews==1 && instance.globalNote!=rating) ){
-        cb("Unconsistent data", null);
+      if(!instance.globalNote || !instance.nbReviews ||
+        instance.globalNote === 0 || instance.nbReviews === 0 ||
+        (instance.nbReviews === 1 && instance.globalNote !== rating) ){
+        cb('Unconsistent data', null);
       } else {
-        instance.globalNote = (( instance.nbReviews *  instance.globalNote) - rating) / (instance.nbReviews - 1);
+        instance.globalNote = (( instance.nbReviews * instance.globalNote) - rating) / (instance.nbReviews - 1);
         instance.nbReviews--;
         instance.save().then(function(){
           response.globalNote = instance.globalNote;
