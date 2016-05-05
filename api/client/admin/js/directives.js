@@ -40,6 +40,13 @@ app.directive('dashboardSummary', ['Restangular', function(Restangular){
           .then(reviews => {
               $scope.stats.reviews = reviews.data;
           });
+
+        Restangular
+            .all('users')
+            .getList({range: '[1,100]', sort: '["username","ASC"]'})
+            .then(users => {
+                $scope.stats.users = users.data;
+            });
     },
     templateUrl: 'tpl/dashboard-summary.html'
   };

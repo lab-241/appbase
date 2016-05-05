@@ -1,5 +1,6 @@
 //-- Declare a new module, with the `ng-admin` module as a dependency
-var app = angular.module('appbase-admin', ['ng-admin']);
+var app = angular.module('appbase-admin', ['ng-admin','appbase-admin.conf',
+'appbase-admin.libs']);
 
 function truncate(value, size) {
   if (!value) {
@@ -12,11 +13,13 @@ function truncate(value, size) {
 }
 
 //-- Declare a function to run when the module bootstraps
-app.config(['NgAdminConfigurationProvider', function (nga) {
-
+//app.config(['NgAdminConfigurationProvider, API_BASE_URL',
+app.config(function (NgAdminConfigurationProvider,API_BASE_URL) {
+  var nga = NgAdminConfigurationProvider;
   //-- create an admin application
   var admin = nga.application('Admin Dashboard')
-             .baseApiUrl('http://localhost:3000/api/');
+  .baseApiUrl(API_BASE_URL);
+             //.baseApiUrl('http://localhost:3000/api/');
 
   //-----------------------------------
   // ENTITY   : city
@@ -50,13 +53,19 @@ app.config(['NgAdminConfigurationProvider', function (nga) {
   // ENTITY   : user
   // endpoint : /users/:id
   //-----------------------------------
-  // var user = nga.entity('users');
-  // user.listView()
-  //   .description('List of users')
-  //   .fields([
-  //     nga.field('username'),
-  //     nga.field('email')
-  //   ]);
+  var user = nga.entity('users');
+  user.listView()
+    .description('List of users')
+    .fields([
+      nga.field('username'),
+      nga.field('email')
+    ]);
+
+    user.creationView()
+      .fields([
+        user.listView().fields(),
+        nga.field('password')
+      ]);
 
   //-----------------------------------
   // ENTITY   : review
@@ -137,7 +146,7 @@ app.config(['NgAdminConfigurationProvider', function (nga) {
   // Attach entities to app
   admin.addEntity(city);
   admin.addEntity(shop);
-  //admin.addEntity(user);
+  admin.addEntity(user);
   admin.addEntity(review);
 
   //----------------------
@@ -208,21 +217,25 @@ app.config(['NgAdminConfigurationProvider', function (nga) {
   //----------------------
   // Menu
   //----------------------
-  admin.menu(nga.menu()
-    .addChild(nga.menu(city)
-      .icon('<span class="glyphicon glyphicon-map-marker"></span>'))
-    .addChild(nga.menu(shop)
-      .icon('<span class="glyphicon glyphicon-shopping-cart"></span>'))
-    // .addChild(nga.menu(user)
-    //   .icon('<span class="glyphicon glyphicon-user"></span>'))
-    .addChild(nga.menu(review)
-      .icon('<span class="glyphicon glyphicon-comment"></span>'))
-    .addChild(nga.menu()
-      .template('<a href="/"><i class="glyphicon glyphicon-home"></i> Exit</a>')
-    )
-  );
+  //if(LoopBackAuth.accessTokenId){
+    admin.menu(nga.menu()
+      .addChild(nga.menu(city)
+        .icon('<span class="glyphicon glyphicon-map-marker"></span>'))
+      .addChild(nga.menu(shop)
+        .icon('<span class="glyphicon glyphicon-shopping-cart"></span>'))
+       .addChild(nga.menu(user)
+         .icon('<span class="glyphicon glyphicon-user"></span>'))
+      .addChild(nga.menu(review)
+        .icon('<span class="glyphicon glyphicon-comment"></span>'))
+      .addChild(nga.menu()
+        .icon('<i class="glyphicon glyphicon-home"></i>').title('Logout').link('/logout')
+      )
+    );
+   /*}else {
+    admin.menu(nga.menu());
+  }*/
 
   //-- Attach the admin application to the DOM and execute it
   nga.configure(admin);
 
-}]);
+});
