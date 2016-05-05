@@ -8,6 +8,12 @@ angular
   $scope.hasMore  = true;
   $scope.shops    = [];
 
+  var userId = AuthService.getSession().user.id;
+
+  $scope.shouldShowDelete = false;
+  $scope.shouldShowReorder = false;
+  $scope.listCanSwipe = true;
+
   $scope.$on('$ionicView.enter', function(e) {
     //-- Reload data
     if($scope.shops.length > 0){
@@ -21,7 +27,6 @@ angular
    * Load current shop reviews
    */
    $scope.loadMore = function (){
-     var userId = AuthService.getSession().user.id;
      ShopService
       .findFavorites(userId, $scope.page)
       .then(function(items){
@@ -36,7 +41,6 @@ angular
     };
 
     $scope.removeFavorite = function(shop){
-      var userId = AuthService.getSession().user.id;
       ShopService.removeFavorite(userId, shop.id)
       .then(function(res){
         LoaderService.toast(MessageService.get('SHOP_FAVORITE_REMOVED'));

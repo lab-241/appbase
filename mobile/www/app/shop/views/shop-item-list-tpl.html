@@ -1,0 +1,13 @@
+<a class="item item-thumbnail-right" ng-repeat="shop in shops" href="#/app/shops/{{shop.id}}">
+  <img ng-src="{{shop.image}}" />
+  <h2>{{shop.name}}</h2>
+  <p class="desc">{{shop.desc | limitTo : 100 }}</p>
+  <div class="row rating">
+    <p class="city col col-30">
+      <i class="icon ion-android-pin"></i>{{shop.city.name}}
+    </p>
+    <rate-bar rate="shop.globalNote"></rate-bar>
+    <div class="average"><p>{{shop.globalNote | number:1}}</p></div>
+    <p class="reviews">{{shop.nbReviews}} {{'REVIEWS' | translate}}</p>
+  </div>
+</a>

@@ -128,7 +128,7 @@ angular
       }, null).$promise.then(function(response){
         if(!self.isFavorite(shopId)){
           // Add the shop in local storage favorites list
-          var shops = LocalStorage.getObject(FAVORITES_SHOPS);
+          var shops = self.getLocalFavorites();
           shops.push(shopId);
           LocalStorage.setObject(FAVORITES_SHOPS, shops);
         }
@@ -149,9 +149,8 @@ angular
       }).$promise.then(function(response){
         if(self.isFavorite(shopId)){
           // Remove the shop from local storage favorites list
-          var shops = LocalStorage.getObject(FAVORITES_SHOPS);
+          var shops = self.getLocalFavorites();
           delete shops[shops.indexOf(shopId)];
-          delete shops[0];
           LocalStorage.setObject(FAVORITES_SHOPS, shops);
         }
         return response;
@@ -164,7 +163,7 @@ angular
    * @return {boolean}  true/false
    */
   self.isFavorite = function(shopId){
-    var shops = LocalStorage.getObject(FAVORITES_SHOPS, []);
+    var shops = self.getLocalFavorites();
     return shops.indexOf(shopId) !== -1;
   };
 
@@ -173,7 +172,7 @@ angular
    * @return {Array}  list of favorites Ids
    */
   self.getLocalFavorites = function(){
-    return LocalStorage.getObject(FAVORITES_SHOPS, []);
+    return LocalStorage.getArray(FAVORITES_SHOPS);
   };
 
   return self;

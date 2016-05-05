@@ -70,7 +70,13 @@
 .shop-list {
 
   background: #EEE;
-  a.item {
+  ion-item{
+    .item-content{
+      padding: 0;
+    }
+  }
+
+  .item {
     padding-bottom: 0px;
 
     .row.rating {
@@ -137,10 +143,6 @@
       position: absolute;
       border: solid 2px $light;
       transition: 0.3s;
-    }
-
-    .restoPic.activated{
-      border: solid 2px $assertive;
     }
 
     .favorite{

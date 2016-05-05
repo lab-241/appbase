@@ -2,6 +2,7 @@
   "name": "appbase-ionic",
   "version": "1.1.1",
   "description": "App Base: mobile app",
+  "repository": "https://github.com/lab-241/appbase.git",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",

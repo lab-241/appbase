@@ -8,37 +8,11 @@
     </div>
 
     <div class="list shop-list" ng-if="!cardsLayout">
-      <a class="item item-thumbnail-right" ng-repeat="shop in shops" href="#/app/shops/{{shop.id}}">
-        <img ng-src="{{shop.image}}" />
-        <h2>{{shop.name}}</h2>
-        <p class="desc">{{shop.desc | limitTo : 100 }}</p>
-        <div class="row rating">
-          <p class="city col col-30">
-            <i class="icon ion-android-pin"></i>{{shop.city.name}}
-          </p>
-          <rate-bar rate="shop.globalNote"></rate-bar>
-          <div class="average"><p>{{shop.globalNote | number:1}}</p></div>
-          <p class="reviews">{{shop.nbReviews}} {{'REVIEWS' | translate}}</p>
-        </div>
-      </a>
+      <div ng-include="'app/shop/views/shop-item-list-tpl.html'"></div>
     </div>
 
     <div class="list shop-list" ng-if="cardsLayout">
-      <a class="item item-card" ng-repeat="shop in shops" href="#/app/shops/{{shop.id}}">
-        <img class="picture" ng-src="{{shop.image}}" />
-        <div class="details">
-          <p class="title">{{shop.name}}</p>
-          <div class="row rating">
-            <p class="city col col-30">
-              <i class="icon ion-android-pin"></i>{{shop.city.name}}
-            </p>
-            <rate-bar rate="shop.globalNote"></rate-bar>
-          </div>
-          <p class="desc">{{shop.desc}}</p>
-          <p class="note">{{shop.globalNote | number:1}}</p>
-          <img class="button thumb" ng-src="{{shop.image}}" />
-        </div>
-      </a>
+      <div ng-include="'app/shop/views/shop-item-card-tpl.html'"></div>
     </div>
 
     <ion-infinite-scroll

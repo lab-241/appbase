@@ -9805,15 +9805,17 @@ a.button {
 
 .shop-list {
   background: #EEE; }
-  .shop-list a.item {
+  .shop-list ion-item .item-content {
+    padding: 0; }
+  .shop-list .item {
     padding-bottom: 0px; }
-    .shop-list a.item .row.rating {
+    .shop-list .item .row.rating {
       padding: 0;
       font-size: 12px;
       margin-top: 10px; }
-      .shop-list a.item .row.rating .average {
+      .shop-list .item .row.rating .average {
         margin-left: 8px; }
-        .shop-list a.item .row.rating .average p {
+        .shop-list .item .row.rating .average p {
           padding-left: 5px;
           padding-right: 5px;
           text-align: center;
@@ -9822,20 +9824,20 @@ a.button {
           display: inline-block;
           border-radius: 2px;
           font-size: 10px; }
-      .shop-list a.item .row.rating .reviews {
+      .shop-list .item .row.rating .reviews {
         font-size: 10px;
         font-style: italic;
         padding: 0;
         margin-left: 10px; }
-      .shop-list a.item .row.rating .city {
+      .shop-list .item .row.rating .city {
         font-size: 12px; }
-        .shop-list a.item .row.rating .city.col {
+        .shop-list .item .row.rating .city.col {
           padding: 0; }
-        .shop-list a.item .row.rating .city .icon {
+        .shop-list .item .row.rating .city .icon {
           color: #444;
           font-size: 15px;
           margin-right: 5px; }
-    .shop-list a.item .desc {
+    .shop-list .item .desc {
       margin-top: 10px; }
   .shop-list a.item-card {
     padding: 2px 0 0 0;
@@ -9856,8 +9858,6 @@ a.button {
       position: absolute;
       border: solid 2px #fff;
       transition: 0.3s; }
-    .shop-list a.item-card .restoPic.activated {
-      border: solid 2px #D45248; }
     .shop-list a.item-card .favorite {
       top: 15px;
       right: 10px;
