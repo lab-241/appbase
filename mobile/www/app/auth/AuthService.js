@@ -4,27 +4,10 @@
  */
 angular
   .module('appbase.auth')
-  .factory('AuthService', function(User, $q, $rootScope, LocalStorage) {
+  .factory('AuthService', function(User, $q, $rootScope,
+    LoopBackAuth){
 
   var self = {};
-
-  /**
-   * Set session helper
-   */
-  function _setSession(session){
-    LocalStorage.setObject('session', session);
-  }
-
-  /**
-   * Get session obj
-   * session = {
-   * 	token : string
-   * 	user : object
-   * }
-   */
-  self.getSession = function(){
-    return LocalStorage.getObject('session');
-  };
 
   /**
    * Login user
@@ -32,24 +15,18 @@ angular
   self.login = function(email, password) {
     return User
       .login({email: email, password: password})
-      .$promise
-      .then(function(response) {
-        var session = {
-          token : response.id,
-          user : response.user
-        };
-        _setSession(session);
-      });
+      .$promise;
+  };
+
+  self.currentUserId = function(){
+    return LoopBackAuth.currentUserId || 'not_id_found';
   };
 
   /**
    * Check if user is logged in.
    */
    self.hasSession = function(){
-      if(LocalStorage.getObject('session').token){
-        return true;
-      }
-      return false;
+      return User.isAuthenticated();
     };
 
   /**
@@ -58,16 +35,11 @@ angular
    self.logout = function() {
     return User
      .logout()
-     .$promise
-     .then()
-     .finally(
-        function(result){
-          _setSession({});
-        });
+     .$promise;
     };
 
   /**
-   * register User
+   * Register User
    */
    self.register = function(email, password, username) {
       return User

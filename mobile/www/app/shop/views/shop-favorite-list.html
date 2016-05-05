@@ -1,54 +1,26 @@
 <ion-view view-title="{{ 'SHOP_FAVORITE_VIEW_TITLE' | translate }}">
   <ion-content>
-    <!-- <div class="list">
-      <div class="item item-button-right" ng-repeat="shop in shops" href="#/app/shops/{{shop.id}}">
-        {{shop.name}}
-        <button class="button button-clear" ng-click="removeFavorite(shop)">
-          <i class="icon ion-trash-a"></i>
-        </button>
-      </div>
-    </div> -->
-    <ion-list class="shop-list"
-        show-delete="shouldShowDelete"
-        show-reorder="shouldShowReorder"
-        can-swipe="listCanSwipe">
-      <ion-item ng-repeat="shop in shops" class="item-thumbnail-right">
-        <!-- <div ng-include="'app/shop/views/shop-item-list-tpl.html'"></div> -->
-          <img ng-src="{{shop.image}}" />
-          <h2>{{shop.name}}</h2>
-          <p class="desc">{{shop.desc | limitTo : 100 }}</p>
-          <!-- <div class="row rating">
-            <p class="city col col-30">
-              <i class="icon ion-android-pin"></i>{{shop.city.name}}
-            </p>
-            <rate-bar rate="shop.globalNote"></rate-bar>
-            <div class="average"><p>{{shop.globalNote | number:1}}</p></div>
-            <p class="reviews">{{shop.nbReviews}} {{'REVIEWS' | translate}}</p>
-          </div> -->
-
-
-        <ion-option-button class="button-assertive" ng-click="share(item)">
-          Delete
-        </ion-option-button>
-        <!-- <ion-option-button class="button-info" ng-click="edit(item)">
-          Share
-        </ion-option-button> -->
-        <ion-delete-button class="ion-minus-circled"
-          ng-click="items.splice($index, 1)">
-        </ion-delete-button>
-        <ion-reorder-button
-          class="ion-navicon"
-          on-reorder="reorderItem(item, $fromIndex, $toIndex)">
-        </ion-reorder-button>
+    <ion-list show-delete="showDelete" show-reorder="showReorder" class="list shop-list">
+      <ion-item ng-repeat="shop in shops" item="shop" class="item-remove-animate">
+       <div ng-include="'app/shop/views/shop-item-list-tpl.html'"></div>
+       <ion-delete-button class="ion-trash-a" ng-click="removeFavorite(shop)"></ion-delete-button>
+       <ion-reorder-button class="ion-navicon" on-reorder="moveItem(shop, $fromIndex, $toIndex)"></ion-reorder-button>
       </ion-item>
     </ion-list>
+
     <ion-infinite-scroll
         ng-if="hasMore"
         on-infinite="loadMore()"
         distance="5%">
     </ion-infinite-scroll>
-    <div class="text-center empty" ng-hide="shops.length">
-      {{ 'NO_RESULT' | translate }}
+    <div class="text-center padding" ng-hide="shops.length">
+      <p>{{ 'NO_FAVIRITE_SHOP' | translate }}</p>
     </div>
   </ion-content>
+
+  <div class="bar bar-footer bar-light">
+    <button class="button icon ion-trash-a" ng-click="showDelete = !showDelete; showReorder = false"></button>
+    <button class="button icon ion-arrow-move" ng-click="showReorder = !showReorder; showDelete = false"></button>
+  </div>
+
 </ion-view>

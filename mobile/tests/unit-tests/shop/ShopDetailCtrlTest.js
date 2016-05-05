@@ -49,8 +49,8 @@ describe('ShopDetailController', function () {
     // Mock ShopService
     authServiceMock = {
       hasSession: jasmine.createSpy('hasSession-spy'),
-      getSession: jasmine.createSpy('getSession-spy')
-            .and.returnValue({user: {id: 123546}})
+      currentUserId: jasmine.createSpy('currentUserId-spy')
+            .and.returnValue('123546')
     };
 
     // Mock $ionicPopup

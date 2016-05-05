@@ -8,11 +8,11 @@
     </div>
 
     <div class="list shop-list" ng-if="!cardsLayout">
-      <div ng-include="'app/shop/views/shop-item-list-tpl.html'"></div>
+      <div ng-repeat="shop in shops" ng-include="'app/shop/views/shop-item-list-tpl.html'"></div>
     </div>
 
     <div class="list shop-list" ng-if="cardsLayout">
-      <div ng-include="'app/shop/views/shop-item-card-tpl.html'"></div>
+      <div ng-repeat="shop in shops" ng-include="'app/shop/views/shop-item-card-tpl.html'"></div>
     </div>
 
     <ion-infinite-scroll

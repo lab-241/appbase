@@ -110,7 +110,8 @@ angular
         id: userId,
         filter: {
           limit: limit,
-          skip: page * limit
+          skip: page * limit,
+          include: ['city']
         }
       }).$promise;
   };

@@ -9805,6 +9805,8 @@ a.button {
 
 .shop-list {
   background: #EEE; }
+  .shop-list .favorites {
+    magin-top: 40px; }
   .shop-list ion-item .item-content {
     padding: 0; }
   .shop-list .item {

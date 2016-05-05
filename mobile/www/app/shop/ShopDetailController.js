@@ -126,7 +126,7 @@ angular
       LoaderService.toast(MessageService.get('AUTH_REQUIRED'));
       return;
     }
-    var userId = AuthService.getSession().user.id;
+    var userId = AuthService.currentUserId();
     ShopService.addFavorite(userId , $stateParams.shopId).then(function(data){
       LoaderService.toast(MessageService.get('SHOP_FAVORITE_ADDED'));
       $scope.isFavorite = true;
@@ -144,7 +144,7 @@ angular
       LoaderService.toast(MessageService.get('AUTH_REQUIRED'));
       return;
     }
-    var userId = AuthService.getSession().user.id;
+    var userId = AuthService.currentUserId();
     ShopService.removeFavorite(userId , $stateParams.shopId).then(function(){
       LoaderService.toast(MessageService.get('SHOP_FAVORITE_REMOVED'));
       $scope.isFavorite = false;

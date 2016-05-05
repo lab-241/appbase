@@ -36,6 +36,7 @@ var translations = {
     // SHOP LIST
     SHOP_LIST_VIEW_TITLE: 'Shops',
     NO_RESULT:'No result',
+    NO_FAVIRITE_SHOP: 'No favorite shop',
 
     // SHOP DETAIL
     SHOP_DETAIL_VIEW_TITLE: 'Shop',
@@ -94,6 +95,8 @@ var translations = {
     //SHOP LIST
     SHOP_LIST_VIEW_TITLE: 'Liste des enseignes',
     NO_RESULT:'Aucun résultat',
+    NO_FAVIRITE_SHOP: 'Aucune enseigne favorite',
+
     // SHOP DETAIL
     SHOP_DETAIL_VIEW_TITLE: 'Enseigne',
     LAST_REVIEWS: 'Derniers avis',

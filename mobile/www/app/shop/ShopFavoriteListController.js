@@ -8,7 +8,7 @@ angular
   $scope.hasMore  = true;
   $scope.shops    = [];
 
-  var userId = AuthService.getSession().user.id;
+  var userId = AuthService.currentUserId();
 
   $scope.shouldShowDelete = false;
   $scope.shouldShowReorder = false;
@@ -52,5 +52,10 @@ angular
         console.debug(res);
         //TODO: Manage Error
       });
+    };
+
+    $scope.moveItem = function(item, fromIndex, toIndex) {
+      $scope.shops.splice(fromIndex, 1);
+      $scope.shops.splice(toIndex, 0, item);
     };
 });
