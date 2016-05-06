@@ -1,5 +1,7 @@
 # App Base
 
+[![Join the chat at https://gitter.im/lab-241/appbase](https://badges.gitter.im/lab-241/appbase.svg)](https://gitter.im/lab-241/appbase?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 A production ready mobile app foundation.
 
 [![Build Status](https://travis-ci.org/lab-241/appbase.svg?branch=master)](https://travis-ci.org/lab-241/appbase)
