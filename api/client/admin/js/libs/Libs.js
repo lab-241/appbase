@@ -18,7 +18,23 @@ angular.module('appbase-admin.libs', ['lbServices'])
  *         appbase module
  *
  */
-  .config(function(LoopBackResourceProvider, API_BASE_URL) {
+  .config(function(LoopBackResourceProvider, $httpProvider, API_BASE_URL) {
     LoopBackResourceProvider.setAuthHeader('X-Access-Token');
     LoopBackResourceProvider.setUrlBase(API_BASE_URL);
+    
+    $httpProvider.interceptors.push(function($q, $location, LoopBackAuth) {
+      return {
+        responseError: function(rejection) {
+          if(rejection.status === 401) {
+            // Clearing the loopback values from client browser for safe logout
+            LoopBackAuth.clearUser();
+            LoopBackAuth.clearStorage();
+            $location.nextAfterLogin = $location.path();
+            $location.path('/login');
+          }
+          return $q.reject(rejection);
+        }
+      };
+    });
+    
   });

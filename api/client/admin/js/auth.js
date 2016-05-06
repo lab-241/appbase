@@ -1,51 +1,44 @@
 var app = angular.module('appbase-admin');
 
-function hideMenu() {
-  $('#header-nav').hide();
-  $('#page-wrapper').css('margin-left',0);
-}
-
-function showMenu() {
-  $('#loginForm').hide();
-  $('#page-wrapper').css('margin-left',250);
-  $('#header-nav').show();
-}
-
 app.run(function($rootScope, $location, $state, LoopBackAuth){
   if(!LoopBackAuth.accessTokenId){
-    $location.path('/login').replace();
+    $location.path('/login');
   }
 
   $rootScope.$on("$locationChangeStart", function (event, next, current) {
     if (!LoopBackAuth.accessTokenId && !next.match(/login$/)) {
-      $location.path('/login').replace();
+      $location.path('/login');
     }
   });
 });
 
 app.controller('AuthCtrl',
   function ($scope, $rootScope, $location, LoopBackAuth, User) {
-    $scope.hasLoginFormError=false;
-    hideMenu();
+    
+    $scope.hasLoginFormError = false;
+    
     $scope.doLogin = function() {
       User.login({email: $scope.login, password: $scope.password})
-      .$promise
+        .$promise
         .then(function(){
-          showMenu();
-          $location.path('/dashboard').replace();
+          if($location.nextAfterLogin) {
+            $location.path($location.nextAfterLogin);
+          } else{
+            $location.path('/dashboard');
+          }
         }, function(err){
-          $scope.hasLoginFormError=true;
-        })
-        .finally(function(){
-
+          $scope.hasLoginFormError = true;
         });
     };
 
     $scope.doLogout =  function (){
-      User.logout().$promise
-      .then(function (result){
-          $location.path('/login').replace();
-      });
+      User.logout()
+        .$promise
+        .finally(function(){
+          LoopBackAuth.clearUser();
+          LoopBackAuth.clearStorage();
+          $location.path('/login');
+        });
     };
 
     if(LoopBackAuth.accessTokenId){
@@ -53,21 +46,26 @@ app.controller('AuthCtrl',
     }
 });
 
-app.config(function($stateProvider) {
-  $stateProvider
-    .state('login', {
-      parent: 'main',
-      url: '/login',
-      controller: 'AuthCtrl',
-      templateUrl: 'tpl/login-form.html'
-    });
-});
+app.controller('SettingsCtrl',
+  function ($scope, LoopBackAuth) {
+    $scope.accessToken = LoopBackAuth.accessTokenId;
+  });
 
 app.config(function($stateProvider) {
   $stateProvider
+    .state('login', {
+      url: '/login',
+      controller: 'AuthCtrl',
+      templateUrl: 'tpl/login-form.html'
+    })
     .state('logout', {
-      parent: 'main',
       url: '/logout',
       controller: 'AuthCtrl'
+    })
+    .state('settings', {
+      parent: 'main',
+      url: '/settings',
+      controller: 'SettingsCtrl',
+      templateUrl: 'tpl/settings.html'
     });
 });

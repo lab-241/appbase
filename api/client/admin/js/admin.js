@@ -1,6 +1,10 @@
 //-- Declare a new module, with the `ng-admin` module as a dependency
-var app = angular.module('appbase-admin', ['ng-admin','appbase-admin.conf',
-'appbase-admin.libs']);
+var app = angular.module('appbase-admin', 
+  [
+    'ng-admin',
+    'appbase-admin.conf',
+    'appbase-admin.libs'
+  ]);
 
 function truncate(value, size) {
   if (!value) {
@@ -16,10 +20,10 @@ function truncate(value, size) {
 //app.config(['NgAdminConfigurationProvider, API_BASE_URL',
 app.config(function (NgAdminConfigurationProvider,API_BASE_URL) {
   var nga = NgAdminConfigurationProvider;
+  
   //-- create an admin application
   var admin = nga.application('Admin Dashboard')
-  .baseApiUrl(API_BASE_URL);
-             //.baseApiUrl('http://localhost:3000/api/');
+                 .baseApiUrl(API_BASE_URL);
 
   //-----------------------------------
   // ENTITY   : city
@@ -217,23 +221,21 @@ app.config(function (NgAdminConfigurationProvider,API_BASE_URL) {
   //----------------------
   // Menu
   //----------------------
-  //if(LoopBackAuth.accessTokenId){
-    admin.menu(nga.menu()
-      .addChild(nga.menu(city)
-        .icon('<span class="glyphicon glyphicon-map-marker"></span>'))
-      .addChild(nga.menu(shop)
-        .icon('<span class="glyphicon glyphicon-shopping-cart"></span>'))
-       .addChild(nga.menu(user)
-         .icon('<span class="glyphicon glyphicon-user"></span>'))
-      .addChild(nga.menu(review)
-        .icon('<span class="glyphicon glyphicon-comment"></span>'))
-      .addChild(nga.menu()
-        .icon('<i class="glyphicon glyphicon-home"></i>').title('Logout').link('/logout')
-      )
-    );
-   /*}else {
-    admin.menu(nga.menu());
-  }*/
+
+  admin.menu(nga.menu()
+    .addChild(nga.menu(city)
+      .icon('<i class="glyphicon glyphicon-map-marker"></i>'))
+    .addChild(nga.menu(shop)
+      .icon('<i class="glyphicon glyphicon-shopping-cart"></i>'))
+     .addChild(nga.menu(user)
+       .icon('<i class="glyphicon glyphicon-user"></i>'))
+    .addChild(nga.menu(review)
+      .icon('<i class="glyphicon glyphicon-comment"></i>'))
+    .addChild(nga.menu()
+      .icon('<i class="glyphicon glyphicon-cog"></i>').title('Settings').link('/settings'))        
+    .addChild(nga.menu()
+      .icon('<i class="glyphicon glyphicon-home"></i>').title('Logout').link('/logout'))
+  );
 
   //-- Attach the admin application to the DOM and execute it
   nga.configure(admin);

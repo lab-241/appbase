@@ -111,7 +111,7 @@ module.exports = function(app) {
           date: Date.now() - (DAY_IN_MILLS),
           rating: 4,
           comments: 'I go here everyday.',
-          publisherId: reviewers.id,
+          publisherId: reviewers[2].id,
           shopId: shops[0].id
         }
       ], function(err, reviews) {

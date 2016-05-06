@@ -12,7 +12,8 @@
     }
   },
   "acls": [
-    {"accessType": "READ", "principalType": "ROLE", "principalId": "admin", "permission": "ALLOW", "property": "*"},
+    {"principalType": "ROLE", "principalId": "admin", "permission": "ALLOW", "accessType": "READ",  "property": "*"},
+    {"principalType": "ROLE", "principalId": "admin", "permission": "ALLOW", "accessType": "WRITE", "property": "deleteById"},
     
     {"principalType": "ROLE", "principalId": "$owner", "permission": "ALLOW", "property": "__get__favoritesShops"},
     {"principalType": "ROLE", "principalId": "$owner", "permission": "ALLOW", "property": "__findById__favoritesShops"},
