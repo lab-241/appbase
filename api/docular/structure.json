@@ -1,0 +1,197 @@
+{
+    "groups": [
+        {
+            "groupTitle": "LoopBack",
+            "groupId": "loopback",
+            "groups": [
+                {
+                    "title": "LoopBack Services",
+                    "groupId": "lbServices",
+                    "groupTitle": "LoopBack Services",
+                    "files": [
+                        "client/lb-services.js"
+                    ],
+                    "groupIcon": "code",
+                    "id": 3,
+                    "groups": [],
+                    "path": "loopback/lbServices"
+                }
+            ],
+            "files": [],
+            "groupIcon": "code",
+            "id": 2,
+            "path": "loopback"
+        }
+    ],
+    "baseUrl": "/",
+    "javascript": [
+        "resources/libraries/jquery/jquery.min.js",
+        "resources/libraries/angular/angular.js",
+        "resources/libraries/angular/angular-route.min.js",
+        "resources/libraries/angular/ui-bootstrap.min.js",
+        "resources/libraries/angular/ui-bootstrap-tpls.min.js",
+        "resources/libraries/marked/marked.js",
+        "resources/plugins/ngdoc/ngplugin.js",
+        "resources/plugins/markdown/markdownPlugin.js"
+    ],
+    "css": [
+        "resources/js/highlight/styles/github.css"
+    ],
+    "angularModules": [
+        "docular.plugin.ngdoc",
+        "docular.plugin.markdown"
+    ],
+    "dependencies": [
+        {
+            "package": "jquery",
+            "version": "1.10.2",
+            "files": [
+                "jquery.min.js"
+            ],
+            "savedir": "jquery"
+        },
+        {
+            "package": "angular-route",
+            "version": "1.2.22",
+            "files": [
+                "angular-route.min.js"
+            ],
+            "savedir": "angular"
+        },
+        {
+            "package": "angular-animate",
+            "version": "1.2.22",
+            "files": [
+                "angular-animate.min.js"
+            ],
+            "savedir": "angular"
+        },
+        {
+            "package": "angular-cookies",
+            "version": "1.2.22",
+            "files": [
+                "angular-cookies.min.js"
+            ],
+            "savedir": "angular"
+        },
+        {
+            "package": "angular-loader",
+            "version": "1.2.22",
+            "files": [
+                "angular-loader.min.js"
+            ],
+            "savedir": "angular"
+        },
+        {
+            "package": "angular-mocks",
+            "version": "1.2.22",
+            "files": [
+                [
+                    "angular-mocks.js",
+                    "angular-mocks.min.js"
+                ]
+            ],
+            "savedir": "angular"
+        },
+        {
+            "package": "angular-resource",
+            "version": "1.2.22",
+            "files": [
+                "angular-resource.min.js"
+            ],
+            "savedir": "angular"
+        },
+        {
+            "package": "angular-sanitize",
+            "version": "1.2.22",
+            "files": [
+                "angular-sanitize.min.js"
+            ],
+            "savedir": "angular"
+        },
+        {
+            "package": "angular-touch",
+            "version": "1.2.22",
+            "files": [
+                "angular-touch.min.js"
+            ],
+            "savedir": "angular"
+        },
+        {
+            "package": "angular",
+            "version": "1.2.22",
+            "files": [
+                "angular.js"
+            ],
+            "savedir": "angular"
+        },
+        {
+            "package": "bootstrap",
+            "version": "3.2",
+            "files": []
+        },
+        {
+            "package": "fontawesome",
+            "version": "4.1.0",
+            "files": []
+        },
+        {
+            "package": "angular-bootstrap",
+            "version": "0.11.0",
+            "files": [
+                "ui-bootstrap.min.js",
+                "ui-bootstrap-tpls.min.js"
+            ],
+            "savedir": "angular"
+        },
+        {
+            "package": "marked",
+            "version": "0.3.2",
+            "files": [
+                [
+                    "lib/marked.js",
+                    "marked.js"
+                ]
+            ],
+            "savedir": "marked"
+        }
+    ],
+    "languages": [
+        "css",
+        "scss",
+        "markdown",
+        "ruby",
+        "java",
+        "php",
+        "xml",
+        "sql",
+        "bash"
+    ],
+    "plugins": [
+        null,
+        null
+    ],
+    "examples": {
+        "autoBootstrap": true,
+        "include": {
+            "angular": true,
+            "js": [],
+            "css": []
+        }
+    },
+    "showAngularDocs": false,
+    "showDocularDocs": false,
+    "analytics": {
+        "account": false
+    },
+    "discussions": {
+        "shortName": false
+    },
+    "useHtml5Mode": true,
+    "docular_webapp_target": "docular",
+    "files": [],
+    "groupIcon": "code",
+    "id": 1,
+    "groupId": "Base",
+    "path": ""
+}

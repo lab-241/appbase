@@ -28,11 +28,13 @@
     "grunt-loopback-sdk-angular": "^1.1.2",
     "grunt-mocha-test": "~0.12.6",
     "grunt-nodemon": "~0.4.0",
+    "grunt-webpack": "^1.0.11",
     "jshint": "^2.9.1",
     "jshint-stylish": "^2.1.0",
     "load-grunt-tasks": "^3.4.1",
     "nsp": "^2.1.0",
-    "webpack": "^1.13.0"
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1"
   },
   "repository": {
     "type": "git",
