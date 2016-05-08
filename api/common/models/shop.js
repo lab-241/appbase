@@ -1,4 +1,36 @@
+
 module.exports = function(Shop) {
+  /**
+   * Increment shop user likes counter
+   * @param  {int} shopId Shop Id
+   * @return {nbLikes}
+   */
+  Shop.addLike = function(shopId, cb){
+    Shop.findById(shopId , function (err, instance){
+      instance.nbLikes = (instance.nbLikes) ? instance.nbLikes++ : 0;
+      instance.save().then(function(){
+        var response = {nbLikes : instance.nbLikes};
+        cb(null, response);
+      });
+    });
+  };
+
+  /**
+   * Decrement shop user likes counter
+   * @param  {int} shopId Shop Id
+   * @return {nbLikes}
+   */
+  Shop.removeLike = function(shopId, cb){
+    Shop.findById(shopId , function (err, instance){
+      if(err) return cb(err);
+      instance.nbLikes = (instance.nbLikes) ? instance.nbLikes-- : 0;
+      instance.save().then(function(){
+        var response = {nbLikes : instance.nbLikes};
+        cb(null, response);
+      });
+    });
+  };
+
   /**
    * Rate the shop (calculating the global note and incrementing the number of reviews)
    * @param  {int} shopId Shop Id
@@ -24,21 +56,21 @@ module.exports = function(Shop) {
     });
   };
 
-  /**
-   * Rate remoteMethod declaration
-   */
-  Shop.remoteMethod(
-    'rate',
-    {
-      description : 'Rate the shop (calculating the global note and incrementing the number of reviews)',
-      accepts: [
-        {arg: 'id', type: 'string', description: 'Shop Id', required: true},
-        {arg: 'rating', type: 'number', description: 'Note', required: true}
-      ],
-      http: {path: '/:id/rate/:rating', verb: 'post'},
-      returns: {arg: 'response', type: 'object'}
-    }
-  );
+  // /**
+  //  * Rate remoteMethod declaration
+  //  */
+  // Shop.remoteMethod(
+  //   'rate',
+  //   {
+  //     description : 'Rate the shop (calculating the global note and incrementing the number of reviews)',
+  //     accepts: [
+  //       {arg: 'id', type: 'string', description: 'Shop Id', required: true},
+  //       {arg: 'rating', type: 'number', description: 'Note', required: true}
+  //     ],
+  //     http: {path: '/:id/rate/:rating', verb: 'post'},
+  //     returns: {arg: 'response', type: 'object'}
+  //   }
+  // );
 
   /**
    * Unrate the shop (calculating the global note and decrementing the number of reviews)
@@ -65,20 +97,20 @@ module.exports = function(Shop) {
     });
   };
 
-  /**
-   * Rate remoteMethod declaration
-   */
-  Shop.remoteMethod(
-    'unrate',
-    {
-      description : 'Unrate the shop (calculating the global note and decrementing the number of reviews)',
-      accepts: [
-        {arg: 'id', type: 'string', description: 'Shop Id', required: true},
-        {arg: 'rating', type: 'number', description: 'Deleted Note', required: true}
-      ],
-      http: {path: '/:id/unrate/:rating', verb: 'post'},
-      returns: {arg: 'response', type: 'object'}
-    }
-  );
+  // /**
+  //  * Rate remoteMethod declaration
+  //  */
+  // Shop.remoteMethod(
+  //   'unrate',
+  //   {
+  //     description : 'Unrate the shop (calculating the global note and decrementing the number of reviews)',
+  //     accepts: [
+  //       {arg: 'id', type: 'string', description: 'Shop Id', required: true},
+  //       {arg: 'rating', type: 'number', description: 'Deleted Note', required: true}
+  //     ],
+  //     http: {path: '/:id/unrate/:rating', verb: 'post'},
+  //     returns: {arg: 'response', type: 'object'}
+  //   }
+  // );
 
 };
