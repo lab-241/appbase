@@ -123,7 +123,7 @@ angular
    * @return {$promise} promise
    */
   self.addFavorite = function(userId, shopId){
-    return User.favoritesShops.link({
+    return User.favoriteshops.link({
         id: userId,
         fk: shopId
       }, null).$promise.then(function(response){
@@ -144,7 +144,7 @@ angular
   * @return {$promise} promise
    */
   self.removeFavorite = function(userId, shopId){
-    return User.favoritesShops.unlink({
+    return User.favoriteshops.unlink({
        id: userId,
        fk: shopId
       }).$promise.then(function(response){

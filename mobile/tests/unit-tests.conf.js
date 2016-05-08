@@ -17,7 +17,7 @@ module.exports = function(config) {
       'www/lib/angular-mocks/angular-mocks.js',
       'www/lib/angular-resource/angular-resource.min.js',
       'www/lib/angular-translate/angular-translate.min.js',
-      'www/app/libs/LbServices.js',
+      'www/app/libs/lb-services.js',
 
       //-- Modules
       'www/app/app.js',

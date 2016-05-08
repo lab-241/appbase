@@ -173,57 +173,57 @@ module.factory(
           method: "PUT"
         },
 
-        // INTERNAL. Use User.favoritesShops.findById() instead.
-        "prototype$__findById__favoritesShops": {
+        // INTERNAL. Use User.favoriteshops.findById() instead.
+        "prototype$__findById__favoriteshops": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/users/:id/favoritesShops/:fk",
+          url: urlBase + "/users/:id/favoriteshops/:fk",
           method: "GET"
         },
 
-        // INTERNAL. Use User.favoritesShops.destroyById() instead.
-        "prototype$__destroyById__favoritesShops": {
+        // INTERNAL. Use User.favoriteshops.destroyById() instead.
+        "prototype$__destroyById__favoriteshops": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/users/:id/favoritesShops/:fk",
+          url: urlBase + "/users/:id/favoriteshops/:fk",
           method: "DELETE"
         },
 
-        // INTERNAL. Use User.favoritesShops.updateById() instead.
-        "prototype$__updateById__favoritesShops": {
+        // INTERNAL. Use User.favoriteshops.updateById() instead.
+        "prototype$__updateById__favoriteshops": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/users/:id/favoritesShops/:fk",
+          url: urlBase + "/users/:id/favoriteshops/:fk",
           method: "PUT"
         },
 
-        // INTERNAL. Use User.favoritesShops.link() instead.
-        "prototype$__link__favoritesShops": {
+        // INTERNAL. Use User.favoriteshops.link() instead.
+        "prototype$__link__favoriteshops": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/users/:id/favoritesShops/rel/:fk",
+          url: urlBase + "/users/:id/favoriteshops/rel/:fk",
           method: "PUT"
         },
 
-        // INTERNAL. Use User.favoritesShops.unlink() instead.
-        "prototype$__unlink__favoritesShops": {
+        // INTERNAL. Use User.favoriteshops.unlink() instead.
+        "prototype$__unlink__favoriteshops": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/users/:id/favoritesShops/rel/:fk",
+          url: urlBase + "/users/:id/favoriteshops/rel/:fk",
           method: "DELETE"
         },
 
-        // INTERNAL. Use User.favoritesShops.exists() instead.
-        "prototype$__exists__favoritesShops": {
+        // INTERNAL. Use User.favoriteshops.exists() instead.
+        "prototype$__exists__favoriteshops": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/users/:id/favoritesShops/rel/:fk",
+          url: urlBase + "/users/:id/favoriteshops/rel/:fk",
           method: "HEAD"
         },
 
@@ -364,28 +364,28 @@ module.factory(
           method: "GET"
         },
 
-        // INTERNAL. Use User.favoritesShops() instead.
-        "prototype$__get__favoritesShops": {
+        // INTERNAL. Use User.favoriteshops() instead.
+        "prototype$__get__favoriteshops": {
           isArray: true,
-          url: urlBase + "/users/:id/favoritesShops",
+          url: urlBase + "/users/:id/favoriteshops",
           method: "GET"
         },
 
-        // INTERNAL. Use User.favoritesShops.create() instead.
-        "prototype$__create__favoritesShops": {
-          url: urlBase + "/users/:id/favoritesShops",
+        // INTERNAL. Use User.favoriteshops.create() instead.
+        "prototype$__create__favoriteshops": {
+          url: urlBase + "/users/:id/favoriteshops",
           method: "POST"
         },
 
-        // INTERNAL. Use User.favoritesShops.destroyAll() instead.
-        "prototype$__delete__favoritesShops": {
-          url: urlBase + "/users/:id/favoritesShops",
+        // INTERNAL. Use User.favoriteshops.destroyAll() instead.
+        "prototype$__delete__favoriteshops": {
+          url: urlBase + "/users/:id/favoriteshops",
           method: "DELETE"
         },
 
-        // INTERNAL. Use User.favoritesShops.count() instead.
-        "prototype$__count__favoritesShops": {
-          url: urlBase + "/users/:id/favoritesShops/count",
+        // INTERNAL. Use User.favoriteshops.count() instead.
+        "prototype$__count__favoriteshops": {
+          url: urlBase + "/users/:id/favoriteshops/count",
           method: "GET"
         },
 
@@ -1272,27 +1272,27 @@ module.factory(
 
     /**
      * @ngdoc object
-     * @name lbServices.User.favoritesShops
-     * @header lbServices.User.favoritesShops
+     * @name lbServices.User.favoriteshops
+     * @header lbServices.User.favoriteshops
      * @object
      * @description
      *
-     * The object `User.favoritesShops` groups methods
+     * The object `User.favoriteshops` groups methods
      * manipulating `Shop` instances related to `User`.
      *
-     * Call {@link lbServices.User#favoritesShops User.favoritesShops()}
+     * Call {@link lbServices.User#favoriteshops User.favoriteshops()}
      * to query all related instances.
      */
 
 
         /**
          * @ngdoc method
-         * @name lbServices.User#favoritesShops
+         * @name lbServices.User#favoriteshops
          * @methodOf lbServices.User
          *
          * @description
          *
-         * Queries favoritesShops of user.
+         * Queries favoriteshops of user.
          *
          * @param {Object=} parameters Request parameters.
          *
@@ -1315,20 +1315,20 @@ module.factory(
          * This usually means the response is a `Shop` object.)
          * </em>
          */
-        R.favoritesShops = function() {
+        R.favoriteshops = function() {
           var TargetResource = $injector.get("Shop");
-          var action = TargetResource["::get::user::favoritesShops"];
+          var action = TargetResource["::get::user::favoriteshops"];
           return action.apply(R, arguments);
         };
 
         /**
          * @ngdoc method
-         * @name lbServices.User.favoritesShops#count
-         * @methodOf lbServices.User.favoritesShops
+         * @name lbServices.User.favoriteshops#count
+         * @methodOf lbServices.User.favoriteshops
          *
          * @description
          *
-         * Counts favoritesShops of user.
+         * Counts favoriteshops of user.
          *
          * @param {Object=} parameters Request parameters.
          *
@@ -1350,20 +1350,20 @@ module.factory(
          *
          *  - `count` – `{number=}` - 
          */
-        R.favoritesShops.count = function() {
+        R.favoriteshops.count = function() {
           var TargetResource = $injector.get("Shop");
-          var action = TargetResource["::count::user::favoritesShops"];
+          var action = TargetResource["::count::user::favoriteshops"];
           return action.apply(R, arguments);
         };
 
         /**
          * @ngdoc method
-         * @name lbServices.User.favoritesShops#create
-         * @methodOf lbServices.User.favoritesShops
+         * @name lbServices.User.favoriteshops#create
+         * @methodOf lbServices.User.favoriteshops
          *
          * @description
          *
-         * Creates a new instance in favoritesShops of this model.
+         * Creates a new instance in favoriteshops of this model.
          *
          * @param {Object=} parameters Request parameters.
          *
@@ -1388,20 +1388,20 @@ module.factory(
          * This usually means the response is a `Shop` object.)
          * </em>
          */
-        R.favoritesShops.create = function() {
+        R.favoriteshops.create = function() {
           var TargetResource = $injector.get("Shop");
-          var action = TargetResource["::create::user::favoritesShops"];
+          var action = TargetResource["::create::user::favoriteshops"];
           return action.apply(R, arguments);
         };
 
         /**
          * @ngdoc method
-         * @name lbServices.User.favoritesShops#createMany
-         * @methodOf lbServices.User.favoritesShops
+         * @name lbServices.User.favoriteshops#createMany
+         * @methodOf lbServices.User.favoriteshops
          *
          * @description
          *
-         * Creates a new instance in favoritesShops of this model.
+         * Creates a new instance in favoriteshops of this model.
          *
          * @param {Object=} parameters Request parameters.
          *
@@ -1426,20 +1426,20 @@ module.factory(
          * This usually means the response is a `Shop` object.)
          * </em>
          */
-        R.favoritesShops.createMany = function() {
+        R.favoriteshops.createMany = function() {
           var TargetResource = $injector.get("Shop");
-          var action = TargetResource["::createMany::user::favoritesShops"];
+          var action = TargetResource["::createMany::user::favoriteshops"];
           return action.apply(R, arguments);
         };
 
         /**
          * @ngdoc method
-         * @name lbServices.User.favoritesShops#destroyAll
-         * @methodOf lbServices.User.favoritesShops
+         * @name lbServices.User.favoriteshops#destroyAll
+         * @methodOf lbServices.User.favoriteshops
          *
          * @description
          *
-         * Deletes all favoritesShops of this model.
+         * Deletes all favoriteshops of this model.
          *
          * @param {Object=} parameters Request parameters.
          *
@@ -1457,26 +1457,26 @@ module.factory(
          *
          * This method returns no data.
          */
-        R.favoritesShops.destroyAll = function() {
+        R.favoriteshops.destroyAll = function() {
           var TargetResource = $injector.get("Shop");
-          var action = TargetResource["::delete::user::favoritesShops"];
+          var action = TargetResource["::delete::user::favoriteshops"];
           return action.apply(R, arguments);
         };
 
         /**
          * @ngdoc method
-         * @name lbServices.User.favoritesShops#destroyById
-         * @methodOf lbServices.User.favoritesShops
+         * @name lbServices.User.favoriteshops#destroyById
+         * @methodOf lbServices.User.favoriteshops
          *
          * @description
          *
-         * Delete a related item by id for favoritesShops.
+         * Delete a related item by id for favoriteshops.
          *
          * @param {Object=} parameters Request parameters.
          *
          *  - `id` – `{*}` - User id
          *
-         *  - `fk` – `{*}` - Foreign key for favoritesShops
+         *  - `fk` – `{*}` - Foreign key for favoriteshops
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -1490,26 +1490,26 @@ module.factory(
          *
          * This method returns no data.
          */
-        R.favoritesShops.destroyById = function() {
+        R.favoriteshops.destroyById = function() {
           var TargetResource = $injector.get("Shop");
-          var action = TargetResource["::destroyById::user::favoritesShops"];
+          var action = TargetResource["::destroyById::user::favoriteshops"];
           return action.apply(R, arguments);
         };
 
         /**
          * @ngdoc method
-         * @name lbServices.User.favoritesShops#exists
-         * @methodOf lbServices.User.favoritesShops
+         * @name lbServices.User.favoriteshops#exists
+         * @methodOf lbServices.User.favoriteshops
          *
          * @description
          *
-         * Check the existence of favoritesShops relation to an item by id.
+         * Check the existence of favoriteshops relation to an item by id.
          *
          * @param {Object=} parameters Request parameters.
          *
          *  - `id` – `{*}` - User id
          *
-         *  - `fk` – `{*}` - Foreign key for favoritesShops
+         *  - `fk` – `{*}` - Foreign key for favoriteshops
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -1526,26 +1526,26 @@ module.factory(
          * This usually means the response is a `Shop` object.)
          * </em>
          */
-        R.favoritesShops.exists = function() {
+        R.favoriteshops.exists = function() {
           var TargetResource = $injector.get("Shop");
-          var action = TargetResource["::exists::user::favoritesShops"];
+          var action = TargetResource["::exists::user::favoriteshops"];
           return action.apply(R, arguments);
         };
 
         /**
          * @ngdoc method
-         * @name lbServices.User.favoritesShops#findById
-         * @methodOf lbServices.User.favoritesShops
+         * @name lbServices.User.favoriteshops#findById
+         * @methodOf lbServices.User.favoriteshops
          *
          * @description
          *
-         * Find a related item by id for favoritesShops.
+         * Find a related item by id for favoriteshops.
          *
          * @param {Object=} parameters Request parameters.
          *
          *  - `id` – `{*}` - User id
          *
-         *  - `fk` – `{*}` - Foreign key for favoritesShops
+         *  - `fk` – `{*}` - Foreign key for favoriteshops
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -1562,26 +1562,26 @@ module.factory(
          * This usually means the response is a `Shop` object.)
          * </em>
          */
-        R.favoritesShops.findById = function() {
+        R.favoriteshops.findById = function() {
           var TargetResource = $injector.get("Shop");
-          var action = TargetResource["::findById::user::favoritesShops"];
+          var action = TargetResource["::findById::user::favoriteshops"];
           return action.apply(R, arguments);
         };
 
         /**
          * @ngdoc method
-         * @name lbServices.User.favoritesShops#link
-         * @methodOf lbServices.User.favoritesShops
+         * @name lbServices.User.favoriteshops#link
+         * @methodOf lbServices.User.favoriteshops
          *
          * @description
          *
-         * Add a related item by id for favoritesShops.
+         * Add a related item by id for favoriteshops.
          *
          * @param {Object=} parameters Request parameters.
          *
          *  - `id` – `{*}` - User id
          *
-         *  - `fk` – `{*}` - Foreign key for favoritesShops
+         *  - `fk` – `{*}` - Foreign key for favoriteshops
          *
          * @param {Object} postData Request data.
          *
@@ -1602,26 +1602,26 @@ module.factory(
          * This usually means the response is a `Shop` object.)
          * </em>
          */
-        R.favoritesShops.link = function() {
+        R.favoriteshops.link = function() {
           var TargetResource = $injector.get("Shop");
-          var action = TargetResource["::link::user::favoritesShops"];
+          var action = TargetResource["::link::user::favoriteshops"];
           return action.apply(R, arguments);
         };
 
         /**
          * @ngdoc method
-         * @name lbServices.User.favoritesShops#unlink
-         * @methodOf lbServices.User.favoritesShops
+         * @name lbServices.User.favoriteshops#unlink
+         * @methodOf lbServices.User.favoriteshops
          *
          * @description
          *
-         * Remove the favoritesShops relation to an item by id.
+         * Remove the favoriteshops relation to an item by id.
          *
          * @param {Object=} parameters Request parameters.
          *
          *  - `id` – `{*}` - User id
          *
-         *  - `fk` – `{*}` - Foreign key for favoritesShops
+         *  - `fk` – `{*}` - Foreign key for favoriteshops
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -1635,26 +1635,26 @@ module.factory(
          *
          * This method returns no data.
          */
-        R.favoritesShops.unlink = function() {
+        R.favoriteshops.unlink = function() {
           var TargetResource = $injector.get("Shop");
-          var action = TargetResource["::unlink::user::favoritesShops"];
+          var action = TargetResource["::unlink::user::favoriteshops"];
           return action.apply(R, arguments);
         };
 
         /**
          * @ngdoc method
-         * @name lbServices.User.favoritesShops#updateById
-         * @methodOf lbServices.User.favoritesShops
+         * @name lbServices.User.favoriteshops#updateById
+         * @methodOf lbServices.User.favoriteshops
          *
          * @description
          *
-         * Update a related item by id for favoritesShops.
+         * Update a related item by id for favoriteshops.
          *
          * @param {Object=} parameters Request parameters.
          *
          *  - `id` – `{*}` - User id
          *
-         *  - `fk` – `{*}` - Foreign key for favoritesShops
+         *  - `fk` – `{*}` - Foreign key for favoriteshops
          *
          * @param {Object} postData Request data.
          *
@@ -1675,9 +1675,9 @@ module.factory(
          * This usually means the response is a `Shop` object.)
          * </em>
          */
-        R.favoritesShops.updateById = function() {
+        R.favoriteshops.updateById = function() {
           var TargetResource = $injector.get("Shop");
-          var action = TargetResource["::updateById::user::favoritesShops"];
+          var action = TargetResource["::updateById::user::favoriteshops"];
           return action.apply(R, arguments);
         };
 
@@ -2247,89 +2247,167 @@ module.factory(
           method: "POST"
         },
 
-        // INTERNAL. Use User.favoritesShops.findById() instead.
-        "::findById::user::favoritesShops": {
+        /**
+         * @ngdoc method
+         * @name lbServices.Shop#rate
+         * @methodOf lbServices.Shop
+         *
+         * @description
+         *
+         * Rate the shop (calculating the global note and incrementing the number of reviews)
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         *  - `id` – `{string}` - Shop Id
+         *
+         *  - `rating` – `{number}` - Note
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `response` – `{object=}` - 
+         */
+        "rate": {
+          url: urlBase + "/shops/:id/rate/:rating",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Shop#unrate
+         * @methodOf lbServices.Shop
+         *
+         * @description
+         *
+         * Unrate the shop (calculating the global note and decrementing the number of reviews)
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         *  - `id` – `{string}` - Shop Id
+         *
+         *  - `rating` – `{number}` - Deleted Note
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `response` – `{object=}` - 
+         */
+        "unrate": {
+          url: urlBase + "/shops/:id/unrate/:rating",
+          method: "POST"
+        },
+
+        // INTERNAL. Use User.favoriteshops.findById() instead.
+        "::findById::user::favoriteshops": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/users/:id/favoritesShops/:fk",
+          url: urlBase + "/users/:id/favoriteshops/:fk",
           method: "GET"
         },
 
-        // INTERNAL. Use User.favoritesShops.destroyById() instead.
-        "::destroyById::user::favoritesShops": {
+        // INTERNAL. Use User.favoriteshops.destroyById() instead.
+        "::destroyById::user::favoriteshops": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/users/:id/favoritesShops/:fk",
+          url: urlBase + "/users/:id/favoriteshops/:fk",
           method: "DELETE"
         },
 
-        // INTERNAL. Use User.favoritesShops.updateById() instead.
-        "::updateById::user::favoritesShops": {
+        // INTERNAL. Use User.favoriteshops.updateById() instead.
+        "::updateById::user::favoriteshops": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/users/:id/favoritesShops/:fk",
+          url: urlBase + "/users/:id/favoriteshops/:fk",
           method: "PUT"
         },
 
-        // INTERNAL. Use User.favoritesShops.link() instead.
-        "::link::user::favoritesShops": {
+        // INTERNAL. Use User.favoriteshops.link() instead.
+        "::link::user::favoriteshops": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/users/:id/favoritesShops/rel/:fk",
+          url: urlBase + "/users/:id/favoriteshops/rel/:fk",
           method: "PUT"
         },
 
-        // INTERNAL. Use User.favoritesShops.unlink() instead.
-        "::unlink::user::favoritesShops": {
+        // INTERNAL. Use User.favoriteshops.unlink() instead.
+        "::unlink::user::favoriteshops": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/users/:id/favoritesShops/rel/:fk",
+          url: urlBase + "/users/:id/favoriteshops/rel/:fk",
           method: "DELETE"
         },
 
-        // INTERNAL. Use User.favoritesShops.exists() instead.
-        "::exists::user::favoritesShops": {
+        // INTERNAL. Use User.favoriteshops.exists() instead.
+        "::exists::user::favoriteshops": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/users/:id/favoritesShops/rel/:fk",
+          url: urlBase + "/users/:id/favoriteshops/rel/:fk",
           method: "HEAD"
         },
 
-        // INTERNAL. Use User.favoritesShops() instead.
-        "::get::user::favoritesShops": {
+        // INTERNAL. Use User.favoriteshops() instead.
+        "::get::user::favoriteshops": {
           isArray: true,
-          url: urlBase + "/users/:id/favoritesShops",
+          url: urlBase + "/users/:id/favoriteshops",
           method: "GET"
         },
 
-        // INTERNAL. Use User.favoritesShops.create() instead.
-        "::create::user::favoritesShops": {
-          url: urlBase + "/users/:id/favoritesShops",
+        // INTERNAL. Use User.favoriteshops.create() instead.
+        "::create::user::favoriteshops": {
+          url: urlBase + "/users/:id/favoriteshops",
           method: "POST"
         },
 
-        // INTERNAL. Use User.favoritesShops.createMany() instead.
-        "::createMany::user::favoritesShops": {
+        // INTERNAL. Use User.favoriteshops.createMany() instead.
+        "::createMany::user::favoriteshops": {
           isArray: true,
-          url: urlBase + "/users/:id/favoritesShops",
+          url: urlBase + "/users/:id/favoriteshops",
           method: "POST"
         },
 
-        // INTERNAL. Use User.favoritesShops.destroyAll() instead.
-        "::delete::user::favoritesShops": {
-          url: urlBase + "/users/:id/favoritesShops",
+        // INTERNAL. Use User.favoriteshops.destroyAll() instead.
+        "::delete::user::favoriteshops": {
+          url: urlBase + "/users/:id/favoriteshops",
           method: "DELETE"
         },
 
-        // INTERNAL. Use User.favoritesShops.count() instead.
-        "::count::user::favoritesShops": {
-          url: urlBase + "/users/:id/favoritesShops/count",
+        // INTERNAL. Use User.favoriteshops.count() instead.
+        "::count::user::favoriteshops": {
+          url: urlBase + "/users/:id/favoriteshops/count",
           method: "GET"
         },
 
