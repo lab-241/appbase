@@ -2,21 +2,21 @@ var app = angular.module('appbase-admin');
 
 app.run(function($rootScope, $location, $state, LoopBackAuth){
   if(!LoopBackAuth.accessTokenId){
-    $location.path('/login');
+    $location.path('/login').replace();
   }
 
-  $rootScope.$on("$locationChangeStart", function (event, next, current) {
+  $rootScope.$on('$locationChangeStart', function (event, next, current) {
     if (!LoopBackAuth.accessTokenId && !next.match(/login$/)) {
-      $location.path('/login');
+      $location.path('/login').replace();
     }
   });
 });
 
 app.controller('AuthCtrl',
   function ($scope, $rootScope, $location, LoopBackAuth, User) {
-    
+
     $scope.hasLoginFormError = false;
-    
+
     $scope.doLogin = function() {
       User.login({email: $scope.login, password: $scope.password})
         .$promise
@@ -24,7 +24,7 @@ app.controller('AuthCtrl',
           if($location.nextAfterLogin) {
             $location.path($location.nextAfterLogin);
           } else{
-            $location.path('/dashboard');
+            $location.path('/dashboard').replace();
           }
         }, function(err){
           $scope.hasLoginFormError = true;

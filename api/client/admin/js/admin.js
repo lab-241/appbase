@@ -1,9 +1,8 @@
 //-- Declare a new module, with the `ng-admin` module as a dependency
-var app = angular.module('appbase-admin', 
+var app = angular.module('appbase-admin',
   [
     'ng-admin',
-    'appbase-admin.conf',
-    'appbase-admin.libs'
+    'appbase-admin.conf'
   ]);
 
 function truncate(value, size) {
@@ -20,7 +19,7 @@ function truncate(value, size) {
 //app.config(['NgAdminConfigurationProvider, API_BASE_URL',
 app.config(function (NgAdminConfigurationProvider,API_BASE_URL) {
   var nga = NgAdminConfigurationProvider;
-  
+
   //-- create an admin application
   var admin = nga.application('Admin Dashboard')
                  .baseApiUrl(API_BASE_URL);
@@ -81,15 +80,14 @@ app.config(function (NgAdminConfigurationProvider,API_BASE_URL) {
     .sortField('date')
     .sortDir('DESC')
     .fields([
-        nga.field('date', 'datetime').isDetailLink(true),
-        nga.field('comments').map(truncate),
-        nga.field('rating', 'template')
-          .template(
-            '<star-rating stars="{{entry.values.rating}}"></star-rating>'),
-        nga.field('shopId', 'reference')
-          .targetField(nga.field('name'))
-          .targetEntity(nga.entity('shops'))
-          .label('Shop')
+      nga.field('date', 'datetime').isDetailLink(true),
+      nga.field('comments').map(truncate),
+      nga.field('rating', 'template')
+       .template('<star-rating stars="{{entry.values.rating}}"></star-rating>'),
+      nga.field('shopId', 'reference')
+        .targetField(nga.field('name'))
+        .targetEntity(nga.entity('shops'))
+        .label('Shop')
     ]);
 
   review.showView()
@@ -232,9 +230,11 @@ app.config(function (NgAdminConfigurationProvider,API_BASE_URL) {
     .addChild(nga.menu(review)
       .icon('<i class="glyphicon glyphicon-comment"></i>'))
     .addChild(nga.menu()
-      .icon('<i class="glyphicon glyphicon-cog"></i>').title('Settings').link('/settings'))        
+      .icon('<i class="glyphicon glyphicon-cog"></i>')
+      .title('Settings').link('/settings'))
     .addChild(nga.menu()
-      .icon('<i class="glyphicon glyphicon-home"></i>').title('Logout').link('/logout'))
+      .icon('<i class="glyphicon glyphicon-home"></i>')
+      .title('Logout').link('/logout'))
   );
 
   //-- Attach the admin application to the DOM and execute it
