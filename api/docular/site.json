@@ -3195,7 +3195,7 @@
         "left": 1,
         "level": 0,
         "root": "lbServices.Shop",
-        "right": 48
+        "right": 44
     },
     {
         "params": [
@@ -4163,176 +4163,6 @@
                 ],
                 "varName": "postData",
                 "altName": null,
-                "description": "Request data.\n\n- `id` – `{string}` - Shop Id\n\n- `rating` – `{number}` - Note",
-                "optional": false,
-                "defaultValue": null
-            },
-            {
-                "type": [
-                    {
-                        "name": "function",
-                        "type": "function"
-                    },
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    },
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    }
-                ],
-                "varName": "successCb",
-                "altName": null,
-                "description": "Success callback with two arguments: `value`, `responseHeaders`.",
-                "optional": false,
-                "defaultValue": null
-            },
-            {
-                "type": [
-                    {
-                        "name": "function(Object)",
-                        "type": "function"
-                    }
-                ],
-                "varName": "errorCb",
-                "altName": null,
-                "description": "Error callback with one argument:\n`httpResponse`.",
-                "optional": true,
-                "defaultValue": null
-            }
-        ],
-        "docType": "ngdoc",
-        "ngdoc": "method",
-        "name": "rate",
-        "methodOf": "lbServices.Shop",
-        "description": "Rate the shop (calculating the global note and incrementing the number of reviews)",
-        "returns": "{Object} An empty reference that will be\npopulated with the actual data once the response is returned\nfrom the server.\n\nData properties:\n\n- `response` – `{object=}` -",
-        "parentDoc": {
-            "name": "lbServices.Shop"
-        },
-        "file": "client/lb-services.js",
-        "id": "rate",
-        "path": "loopback/lbServices",
-        "groupId": 3,
-        "type": "method",
-        "handler": "ngdoc",
-        "search": "rate undefined.method:rate client/lb-services.js",
-        "sortOn": "rate",
-        "left": 26,
-        "level": 1,
-        "root": "lbServices.Shop",
-        "right": 27
-    },
-    {
-        "params": [
-            {
-                "type": [
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    }
-                ],
-                "varName": "parameters",
-                "altName": null,
-                "description": "Request parameters.\n\nThis method does not accept any parameters.\nSupply an empty object or omit this argument altogether.",
-                "optional": true,
-                "defaultValue": null
-            },
-            {
-                "type": [
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    }
-                ],
-                "varName": "postData",
-                "altName": null,
-                "description": "Request data.\n\n- `id` – `{string}` - Shop Id\n\n- `rating` – `{number}` - Deleted Note",
-                "optional": false,
-                "defaultValue": null
-            },
-            {
-                "type": [
-                    {
-                        "name": "function",
-                        "type": "function"
-                    },
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    },
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    }
-                ],
-                "varName": "successCb",
-                "altName": null,
-                "description": "Success callback with two arguments: `value`, `responseHeaders`.",
-                "optional": false,
-                "defaultValue": null
-            },
-            {
-                "type": [
-                    {
-                        "name": "function(Object)",
-                        "type": "function"
-                    }
-                ],
-                "varName": "errorCb",
-                "altName": null,
-                "description": "Error callback with one argument:\n`httpResponse`.",
-                "optional": true,
-                "defaultValue": null
-            }
-        ],
-        "docType": "ngdoc",
-        "ngdoc": "method",
-        "name": "unrate",
-        "methodOf": "lbServices.Shop",
-        "description": "Unrate the shop (calculating the global note and decrementing the number of reviews)",
-        "returns": "{Object} An empty reference that will be\npopulated with the actual data once the response is returned\nfrom the server.\n\nData properties:\n\n- `response` – `{object=}` -",
-        "parentDoc": {
-            "name": "lbServices.Shop"
-        },
-        "file": "client/lb-services.js",
-        "id": "unrate",
-        "path": "loopback/lbServices",
-        "groupId": 3,
-        "type": "method",
-        "handler": "ngdoc",
-        "search": "unrate undefined.method:unrate client/lb-services.js",
-        "sortOn": "unrate",
-        "left": 28,
-        "level": 1,
-        "root": "lbServices.Shop",
-        "right": 29
-    },
-    {
-        "params": [
-            {
-                "type": [
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    }
-                ],
-                "varName": "parameters",
-                "altName": null,
-                "description": "Request parameters.\n\nThis method does not accept any parameters.\nSupply an empty object or omit this argument altogether.",
-                "optional": true,
-                "defaultValue": null
-            },
-            {
-                "type": [
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    }
-                ],
-                "varName": "postData",
-                "altName": null,
                 "description": "Request data.\n\nThis method expects a subset of model properties as request parameters.",
                 "optional": false,
                 "defaultValue": null
@@ -4389,10 +4219,10 @@
         "handler": "ngdoc",
         "search": "updateOrCreate undefined.method:updateOrCreate client/lb-services.js",
         "sortOn": "updateOrCreate",
-        "left": 30,
+        "left": 26,
         "level": 1,
         "root": "lbServices.Shop",
-        "right": 31
+        "right": 27
     },
     {
         "params": [
@@ -4474,10 +4304,10 @@
         "handler": "ngdoc",
         "search": "update undefined.method:update client/lb-services.js",
         "sortOn": "update",
-        "left": 32,
+        "left": 28,
         "level": 1,
         "root": "lbServices.Shop",
-        "right": 33
+        "right": 29
     },
     {
         "params": [
@@ -4546,10 +4376,10 @@
         "handler": "ngdoc",
         "search": "destroyById undefined.method:destroyById client/lb-services.js",
         "sortOn": "destroyById",
-        "left": 34,
+        "left": 30,
         "level": 1,
         "root": "lbServices.Shop",
-        "right": 35
+        "right": 31
     },
     {
         "params": [
@@ -4618,10 +4448,10 @@
         "handler": "ngdoc",
         "search": "removeById undefined.method:removeById client/lb-services.js",
         "sortOn": "removeById",
-        "left": 36,
+        "left": 32,
         "level": 1,
         "root": "lbServices.Shop",
-        "right": 37
+        "right": 33
     },
     {
         "params": [],
@@ -4641,10 +4471,10 @@
         "handler": "ngdoc",
         "search": "modelName undefined.property:modelName client/lb-services.js",
         "sortOn": "modelName",
-        "left": 38,
+        "left": 34,
         "level": 1,
         "root": "lbServices.Shop",
-        "right": 39
+        "right": 35
     },
     {
         "params": [
@@ -4713,10 +4543,10 @@
         "handler": "ngdoc",
         "search": "manager undefined.method:manager client/lb-services.js",
         "sortOn": "manager",
-        "left": 40,
+        "left": 36,
         "level": 1,
         "root": "lbServices.Shop",
-        "right": 41
+        "right": 37
     },
     {
         "params": [
@@ -4785,10 +4615,10 @@
         "handler": "ngdoc",
         "search": "followers undefined.method:followers client/lb-services.js",
         "sortOn": "followers",
-        "left": 42,
+        "left": 38,
         "level": 1,
         "root": "lbServices.Shop",
-        "right": 43
+        "right": 39
     },
     {
         "params": [
@@ -4857,10 +4687,10 @@
         "handler": "ngdoc",
         "search": "city undefined.method:city client/lb-services.js",
         "sortOn": "city",
-        "left": 44,
+        "left": 40,
         "level": 1,
         "root": "lbServices.Shop",
-        "right": 45
+        "right": 41
     },
     {
         "params": [
@@ -4929,10 +4759,10 @@
         "handler": "ngdoc",
         "search": "reviews undefined.method:reviews client/lb-services.js",
         "sortOn": "reviews",
-        "left": 46,
+        "left": 42,
         "level": 1,
         "root": "lbServices.Shop",
-        "right": 47
+        "right": 43
     },
     {
         "params": [],

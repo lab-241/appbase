@@ -1,8 +1,7 @@
 angular
 .module('appbase.shop')
 .controller('ShopReviewListCtrl',
-  function($scope, $stateParams, ShopService, AuthService,
-  LoaderService, MessageService){
+  function($scope, $stateParams, ShopService){
 
   //-- Current shop Id and name (from navigation)
   $scope.shopId = $stateParams.shopId;
@@ -10,6 +9,7 @@ angular
   $scope.page     = 0;
   $scope.hasMore  = true;
   $scope.reviews  = [];
+  $scope.shop     = {};
 
   /**
    * Load current shop reviews
