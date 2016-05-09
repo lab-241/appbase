@@ -54,8 +54,8 @@ angular
   //-- On click to about button
   $scope.about = function(){
     $ionicPopup.alert({
-        title: '<b>APP BASE</b>',
-        template: '<b>Version</b> v1.0.0<br><br>&copy; Lab-241 2016'
+      title: '<b>APP BASE</b>',
+      template: '<b>Version</b> v1.0.0<br><br>&copy; Lab-241 2016'
     });
   };
 

@@ -4,8 +4,7 @@
  */
 angular
   .module('appbase.auth')
-  .factory('AuthService', function(User, $q, $rootScope,
-    LoopBackAuth){
+  .factory('AuthService', function(User, $q, $rootScope, LoopBackAuth){
 
   var self = {};
 
@@ -35,7 +34,11 @@ angular
    self.logout = function() {
     return User
      .logout()
-     .$promise;
+     .$promise
+     .finally(function(){
+       LoopBackAuth.clearUser();
+       LoopBackAuth.clearStorage();
+     });
     };
 
   /**

@@ -106,7 +106,7 @@ angular
   self.findFavorites = function(userId, page, limit){
     limit = limit || 10;
     page = page || 0;
-    return User.favoritesShops({
+    return User.favoriteshops({
         id: userId,
         filter: {
           limit: limit,
