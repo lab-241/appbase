@@ -116,10 +116,11 @@ module.exports = function(app) {
         }
       ], function(err, reviews) {
           if (err) return console.log('%j', err);
-          Shop.rate(shops[0].id, 5);
+          Shop.rate(shops[0].id, 5, function(){
+              Shop.rate(shops[0].id, 4);
+          });
           Shop.rate(shops[1].id, 5);
           Shop.rate(shops[2].id, 4);
-          Shop.rate(shops[0].id, 4);
           console.log('Created reviews', reviews.length);
           return cb;
       });
