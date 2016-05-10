@@ -44,5 +44,9 @@
   "review": {
     "dataSource": "db",
     "public": true
+  },
+  "favoriteshop": {
+    "dataSource": "db",
+    "public": false
   }
 }

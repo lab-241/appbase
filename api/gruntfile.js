@@ -48,14 +48,7 @@ module.exports = function (grunt) {
 			},
 			serverJs: {
 				files: files.serverJs,
-				tasks: ['jshint', 'loopback_sdk_angular', 'docular'],
-				options: {
-					livereload: 35730
-				}
-			},
-			serverJson: {
-				files: files.serverJson,
-				tasks: ['loopback_sdk_angular', 'docular'],
+				tasks: ['jshint'],
 				options: {
 					livereload: 35730
 				}
@@ -91,7 +84,6 @@ module.exports = function (grunt) {
 		},
 		concurrent: {
 			default: ['nodemon', 'watch'],
-			//debug: ['nodemon', 'watch', 'node-inspector'],
 			options: {
 				logConcurrentOutput: true,
 				limit: 10

@@ -9,7 +9,9 @@
           <button class="button button-outline button-light icon ion-ios-chatboxes" ng-click="addReview()">
             {{shop.nbReviews}} {{'REVIEWS' | translate}}
           </button>
-          <button ng-class="{'favorite': isFavorite}" class="button button-outline button-light icon ion-android-favorite" ng-click="toggleFavorite()"></button>
+          <button ng-class="{'favorite': isFavorite}" class="button button-outline button-light icon ion-android-favorite" ng-click="toggleFavorite()">
+            {{shop.nbLikes}}
+          </button>
         </div>
       </div>
     </div>

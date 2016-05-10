@@ -24,11 +24,11 @@ describe('ShopDetailController', function () {
   // Instantiate the controller and mocks for every test
   beforeEach(inject(function($controller, _$rootScope_, $q) {
 
-    deferredShop    = $q.defer();
-    deferredReviews = $q.defer();
-    deferredAddFav  = $q.defer();
-    deferredRemFav  = $q.defer();
-    deferredShowpop = $q.defer();
+    deferredFindShop = $q.defer();
+    deferredReviews  = $q.defer();
+    deferredAddFav   = $q.defer();
+    deferredRemFav   = $q.defer();
+    deferredShowpop  = $q.defer();
 
     $rootScope = _$rootScope_;
     $scope = $rootScope.$new();
@@ -36,7 +36,7 @@ describe('ShopDetailController', function () {
     // Mock ShopService
     shopServiceMock = {
       findById: jasmine.createSpy('findById-spy')
-        .and.returnValue(deferredShop.promise),
+        .and.returnValue(deferredFindShop.promise),
       findReviews: jasmine.createSpy('findReviews-spy')
         .and.returnValue(deferredReviews.promise),
       addFavorite: jasmine.createSpy('addFavorite-spy')
@@ -103,20 +103,20 @@ describe('ShopDetailController', function () {
 
     describe('when the findBy is executed,', function() {
       it('if success : should init the shop into scope', function (){
-        deferredShop.resolve({name:'test 1'});
+        deferredFindShop.resolve({name:'test 1'});
 	      $rootScope.$digest();
         expect($scope.shop.name).toBe('test 1');
       });
 
       it('should call findReviews on ShopService', function() {
-        deferredShop.resolve([]);
+        deferredFindShop.resolve([]);
 	      $rootScope.$digest();
         expect(shopServiceMock.findReviews).toHaveBeenCalled();
       });
 
       describe('when the findReviews is executed,', function() {
         it('if success : should set reviews on scope', function (){
-          deferredShop.resolve();
+          deferredFindShop.resolve();
           deferredReviews.resolve([{name:'review 1'}, {name:'review 1'}]);
 		      $rootScope.$digest();
           expect($scope.reviews.length).toBe(2);
@@ -163,6 +163,12 @@ describe('ShopDetailController', function () {
    */
   describe('#add_shop_favorite', function () {
 
+    // Call findById on the controller for every test
+    beforeEach(function() {
+      deferredFindShop.resolve({name:'test 1'});
+      $rootScope.$digest();
+    });
+
     it('should check if user is authenticated', function() {
       $scope.addFavorite();
       expect(authServiceMock.hasSession).toHaveBeenCalled();
@@ -201,6 +207,12 @@ describe('ShopDetailController', function () {
    * ********************************
    */
   describe('#remove_shop_favorite', function () {
+
+    // Call findById on the controller for every test
+    beforeEach(function() {
+      deferredFindShop.resolve({name:'test 1'});
+      $rootScope.$digest();
+    });
 
     it('should check if user is authenticated', function() {
       $scope.removeFavorite();

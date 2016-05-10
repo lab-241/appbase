@@ -130,6 +130,7 @@ angular
     ShopService.addFavorite(userId , $stateParams.shopId).then(function(data){
       LoaderService.toast(MessageService.get('SHOP_FAVORITE_ADDED'));
       $scope.isFavorite = true;
+      $scope.shop.nbLikes++;
     }, function(err) {
       LoaderService.toast(MessageService.get('ERROR_OCCURS_OP'));
       //console.debug(err);
@@ -148,6 +149,7 @@ angular
     ShopService.removeFavorite(userId , $stateParams.shopId).then(function(){
       LoaderService.toast(MessageService.get('SHOP_FAVORITE_REMOVED'));
       $scope.isFavorite = false;
+      $scope.shop.nbLikes--;
     }, function(err) {
       LoaderService.toast(MessageService.get('ERROR_OCCURS_OP'));
       //console.debug(err);

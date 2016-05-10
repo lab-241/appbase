@@ -4559,78 +4559,6 @@
                 ],
                 "varName": "parameters",
                 "altName": null,
-                "description": "Request parameters.\n\n- `id` – `{*}` - PersistedModel id\n\n- `filter` – `{object=}` -",
-                "optional": true,
-                "defaultValue": null
-            },
-            {
-                "type": [
-                    {
-                        "name": "function",
-                        "type": "function"
-                    },
-                    {
-                        "name": "Array.<Object>",
-                        "type": "array.<object>"
-                    },
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    }
-                ],
-                "varName": "successCb",
-                "altName": null,
-                "description": "Success callback with two arguments: `value`, `responseHeaders`.",
-                "optional": false,
-                "defaultValue": null
-            },
-            {
-                "type": [
-                    {
-                        "name": "function(Object)",
-                        "type": "function"
-                    }
-                ],
-                "varName": "errorCb",
-                "altName": null,
-                "description": "Error callback with one argument:\n`httpResponse`.",
-                "optional": true,
-                "defaultValue": null
-            }
-        ],
-        "docType": "ngdoc",
-        "ngdoc": "method",
-        "name": "followers",
-        "methodOf": "lbServices.Shop",
-        "description": "Queries followers of shop.",
-        "returns": "{Array.<Object>} An empty reference that will be\npopulated with the actual data once the response is returned\nfrom the server.\n\n<em>\n(The remote method definition does not provide any description.\nThis usually means the response is a `User` object.)\n</em>",
-        "parentDoc": {
-            "name": "lbServices.Shop"
-        },
-        "file": "client/lb-services.js",
-        "id": "followers",
-        "path": "loopback/lbServices",
-        "groupId": 3,
-        "type": "method",
-        "handler": "ngdoc",
-        "search": "followers undefined.method:followers client/lb-services.js",
-        "sortOn": "followers",
-        "left": 38,
-        "level": 1,
-        "root": "lbServices.Shop",
-        "right": 39
-    },
-    {
-        "params": [
-            {
-                "type": [
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    }
-                ],
-                "varName": "parameters",
-                "altName": null,
                 "description": "Request parameters.\n\n- `id` – `{*}` - PersistedModel id\n\n- `refresh` – `{boolean=}` -",
                 "optional": true,
                 "defaultValue": null
@@ -4687,10 +4615,10 @@
         "handler": "ngdoc",
         "search": "city undefined.method:city client/lb-services.js",
         "sortOn": "city",
-        "left": 40,
+        "left": 38,
         "level": 1,
         "root": "lbServices.Shop",
-        "right": 41
+        "right": 39
     },
     {
         "params": [
@@ -4759,32 +4687,10 @@
         "handler": "ngdoc",
         "search": "reviews undefined.method:reviews client/lb-services.js",
         "sortOn": "reviews",
-        "left": 42,
+        "left": 40,
         "level": 1,
         "root": "lbServices.Shop",
-        "right": 43
-    },
-    {
-        "params": [],
-        "docType": "ngdoc",
-        "ngdoc": "object",
-        "name": "lbServices.Shop.followers",
-        "header": "lbServices.Shop.followers",
-        "object": "",
-        "description": "The object `Shop.followers` groups methods\nmanipulating `User` instances related to `Shop`.\n\nCall {@link lbServices.Shop#followers Shop.followers()}\nto query all related instances.",
-        "parentDoc": {},
-        "file": "client/lb-services.js",
-        "id": "lbServices.Shop.followers",
-        "path": "loopback/lbServices",
-        "groupId": 3,
-        "type": "object",
-        "handler": "ngdoc",
-        "search": "lbServices.Shop.followers undefined.object:lbServices.Shop.followers client/lb-services.js",
-        "sortOn": "lbServices.Shop.followers",
-        "left": 1,
-        "level": 0,
-        "root": "lbServices.Shop.followers",
-        "right": 16
+        "right": 41
     },
     {
         "params": [
@@ -4797,178 +4703,8 @@
                 ],
                 "varName": "parameters",
                 "altName": null,
-                "description": "Request parameters.\n\n- `id` – `{*}` - PersistedModel id\n\n- `where` – `{object=}` - Criteria to match model instances",
+                "description": "Request parameters.\n\n- `id` – `{*}` - PersistedModel id\n\n- `filter` – `{object=}` -",
                 "optional": true,
-                "defaultValue": null
-            },
-            {
-                "type": [
-                    {
-                        "name": "function",
-                        "type": "function"
-                    },
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    },
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    }
-                ],
-                "varName": "successCb",
-                "altName": null,
-                "description": "Success callback with two arguments: `value`, `responseHeaders`.",
-                "optional": false,
-                "defaultValue": null
-            },
-            {
-                "type": [
-                    {
-                        "name": "function(Object)",
-                        "type": "function"
-                    }
-                ],
-                "varName": "errorCb",
-                "altName": null,
-                "description": "Error callback with one argument:\n`httpResponse`.",
-                "optional": true,
-                "defaultValue": null
-            }
-        ],
-        "docType": "ngdoc",
-        "ngdoc": "method",
-        "name": "count",
-        "methodOf": "lbServices.Shop.followers",
-        "description": "Counts followers of shop.",
-        "returns": "{Object} An empty reference that will be\npopulated with the actual data once the response is returned\nfrom the server.\n\nData properties:\n\n- `count` – `{number=}` -",
-        "parentDoc": {
-            "name": "lbServices.Shop.followers"
-        },
-        "file": "client/lb-services.js",
-        "id": "count",
-        "path": "loopback/lbServices",
-        "groupId": 3,
-        "type": "method",
-        "handler": "ngdoc",
-        "search": "count undefined.method:count client/lb-services.js",
-        "sortOn": "count",
-        "left": 2,
-        "level": 1,
-        "root": "lbServices.Shop.followers",
-        "right": 3
-    },
-    {
-        "params": [
-            {
-                "type": [
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    }
-                ],
-                "varName": "parameters",
-                "altName": null,
-                "description": "Request parameters.\n\n- `id` – `{*}` - PersistedModel id",
-                "optional": true,
-                "defaultValue": null
-            },
-            {
-                "type": [
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    }
-                ],
-                "varName": "postData",
-                "altName": null,
-                "description": "Request data.\n\nThis method expects a subset of model properties as request parameters.",
-                "optional": false,
-                "defaultValue": null
-            },
-            {
-                "type": [
-                    {
-                        "name": "function",
-                        "type": "function"
-                    },
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    },
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    }
-                ],
-                "varName": "successCb",
-                "altName": null,
-                "description": "Success callback with two arguments: `value`, `responseHeaders`.",
-                "optional": false,
-                "defaultValue": null
-            },
-            {
-                "type": [
-                    {
-                        "name": "function(Object)",
-                        "type": "function"
-                    }
-                ],
-                "varName": "errorCb",
-                "altName": null,
-                "description": "Error callback with one argument:\n`httpResponse`.",
-                "optional": true,
-                "defaultValue": null
-            }
-        ],
-        "docType": "ngdoc",
-        "ngdoc": "method",
-        "name": "create",
-        "methodOf": "lbServices.Shop.followers",
-        "description": "Creates a new instance in followers of this model.",
-        "returns": "{Object} An empty reference that will be\npopulated with the actual data once the response is returned\nfrom the server.\n\n<em>\n(The remote method definition does not provide any description.\nThis usually means the response is a `User` object.)\n</em>",
-        "parentDoc": {
-            "name": "lbServices.Shop.followers"
-        },
-        "file": "client/lb-services.js",
-        "id": "create",
-        "path": "loopback/lbServices",
-        "groupId": 3,
-        "type": "method",
-        "handler": "ngdoc",
-        "search": "create undefined.method:create client/lb-services.js",
-        "sortOn": "create",
-        "left": 4,
-        "level": 1,
-        "root": "lbServices.Shop.followers",
-        "right": 5
-    },
-    {
-        "params": [
-            {
-                "type": [
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    }
-                ],
-                "varName": "parameters",
-                "altName": null,
-                "description": "Request parameters.\n\n- `id` – `{*}` - PersistedModel id",
-                "optional": true,
-                "defaultValue": null
-            },
-            {
-                "type": [
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    }
-                ],
-                "varName": "postData",
-                "altName": null,
-                "description": "Request data.\n\nThis method expects a subset of model properties as request parameters.",
-                "optional": false,
                 "defaultValue": null
             },
             {
@@ -5008,326 +4744,25 @@
         ],
         "docType": "ngdoc",
         "ngdoc": "method",
-        "name": "createMany",
-        "methodOf": "lbServices.Shop.followers",
-        "description": "Creates a new instance in followers of this model.",
+        "name": "likers",
+        "methodOf": "lbServices.Shop",
+        "description": "Queries likers of shop.",
         "returns": "{Array.<Object>} An empty reference that will be\npopulated with the actual data once the response is returned\nfrom the server.\n\n<em>\n(The remote method definition does not provide any description.\nThis usually means the response is a `User` object.)\n</em>",
         "parentDoc": {
-            "name": "lbServices.Shop.followers"
+            "name": "lbServices.Shop"
         },
         "file": "client/lb-services.js",
-        "id": "createMany",
+        "id": "likers",
         "path": "loopback/lbServices",
         "groupId": 3,
         "type": "method",
         "handler": "ngdoc",
-        "search": "createMany undefined.method:createMany client/lb-services.js",
-        "sortOn": "createMany",
-        "left": 6,
+        "search": "likers undefined.method:likers client/lb-services.js",
+        "sortOn": "likers",
+        "left": 42,
         "level": 1,
-        "root": "lbServices.Shop.followers",
-        "right": 7
-    },
-    {
-        "params": [
-            {
-                "type": [
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    }
-                ],
-                "varName": "parameters",
-                "altName": null,
-                "description": "Request parameters.\n\n- `id` – `{*}` - PersistedModel id",
-                "optional": true,
-                "defaultValue": null
-            },
-            {
-                "type": [
-                    {
-                        "name": "function",
-                        "type": "function"
-                    },
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    },
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    }
-                ],
-                "varName": "successCb",
-                "altName": null,
-                "description": "Success callback with two arguments: `value`, `responseHeaders`.",
-                "optional": false,
-                "defaultValue": null
-            },
-            {
-                "type": [
-                    {
-                        "name": "function(Object)",
-                        "type": "function"
-                    }
-                ],
-                "varName": "errorCb",
-                "altName": null,
-                "description": "Error callback with one argument:\n`httpResponse`.",
-                "optional": true,
-                "defaultValue": null
-            }
-        ],
-        "docType": "ngdoc",
-        "ngdoc": "method",
-        "name": "destroyAll",
-        "methodOf": "lbServices.Shop.followers",
-        "description": "Deletes all followers of this model.",
-        "returns": "{Object} An empty reference that will be\npopulated with the actual data once the response is returned\nfrom the server.\n\nThis method returns no data.",
-        "parentDoc": {
-            "name": "lbServices.Shop.followers"
-        },
-        "file": "client/lb-services.js",
-        "id": "destroyAll",
-        "path": "loopback/lbServices",
-        "groupId": 3,
-        "type": "method",
-        "handler": "ngdoc",
-        "search": "destroyAll undefined.method:destroyAll client/lb-services.js",
-        "sortOn": "destroyAll",
-        "left": 8,
-        "level": 1,
-        "root": "lbServices.Shop.followers",
-        "right": 9
-    },
-    {
-        "params": [
-            {
-                "type": [
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    }
-                ],
-                "varName": "parameters",
-                "altName": null,
-                "description": "Request parameters.\n\n- `id` – `{*}` - PersistedModel id\n\n- `fk` – `{*}` - Foreign key for followers",
-                "optional": true,
-                "defaultValue": null
-            },
-            {
-                "type": [
-                    {
-                        "name": "function",
-                        "type": "function"
-                    },
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    },
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    }
-                ],
-                "varName": "successCb",
-                "altName": null,
-                "description": "Success callback with two arguments: `value`, `responseHeaders`.",
-                "optional": false,
-                "defaultValue": null
-            },
-            {
-                "type": [
-                    {
-                        "name": "function(Object)",
-                        "type": "function"
-                    }
-                ],
-                "varName": "errorCb",
-                "altName": null,
-                "description": "Error callback with one argument:\n`httpResponse`.",
-                "optional": true,
-                "defaultValue": null
-            }
-        ],
-        "docType": "ngdoc",
-        "ngdoc": "method",
-        "name": "destroyById",
-        "methodOf": "lbServices.Shop.followers",
-        "description": "Delete a related item by id for followers.",
-        "returns": "{Object} An empty reference that will be\npopulated with the actual data once the response is returned\nfrom the server.\n\nThis method returns no data.",
-        "parentDoc": {
-            "name": "lbServices.Shop.followers"
-        },
-        "file": "client/lb-services.js",
-        "id": "destroyById",
-        "path": "loopback/lbServices",
-        "groupId": 3,
-        "type": "method",
-        "handler": "ngdoc",
-        "search": "destroyById undefined.method:destroyById client/lb-services.js",
-        "sortOn": "destroyById",
-        "left": 10,
-        "level": 1,
-        "root": "lbServices.Shop.followers",
-        "right": 11
-    },
-    {
-        "params": [
-            {
-                "type": [
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    }
-                ],
-                "varName": "parameters",
-                "altName": null,
-                "description": "Request parameters.\n\n- `id` – `{*}` - PersistedModel id\n\n- `fk` – `{*}` - Foreign key for followers",
-                "optional": true,
-                "defaultValue": null
-            },
-            {
-                "type": [
-                    {
-                        "name": "function",
-                        "type": "function"
-                    },
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    },
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    }
-                ],
-                "varName": "successCb",
-                "altName": null,
-                "description": "Success callback with two arguments: `value`, `responseHeaders`.",
-                "optional": false,
-                "defaultValue": null
-            },
-            {
-                "type": [
-                    {
-                        "name": "function(Object)",
-                        "type": "function"
-                    }
-                ],
-                "varName": "errorCb",
-                "altName": null,
-                "description": "Error callback with one argument:\n`httpResponse`.",
-                "optional": true,
-                "defaultValue": null
-            }
-        ],
-        "docType": "ngdoc",
-        "ngdoc": "method",
-        "name": "findById",
-        "methodOf": "lbServices.Shop.followers",
-        "description": "Find a related item by id for followers.",
-        "returns": "{Object} An empty reference that will be\npopulated with the actual data once the response is returned\nfrom the server.\n\n<em>\n(The remote method definition does not provide any description.\nThis usually means the response is a `User` object.)\n</em>",
-        "parentDoc": {
-            "name": "lbServices.Shop.followers"
-        },
-        "file": "client/lb-services.js",
-        "id": "findById",
-        "path": "loopback/lbServices",
-        "groupId": 3,
-        "type": "method",
-        "handler": "ngdoc",
-        "search": "findById undefined.method:findById client/lb-services.js",
-        "sortOn": "findById",
-        "left": 12,
-        "level": 1,
-        "root": "lbServices.Shop.followers",
-        "right": 13
-    },
-    {
-        "params": [
-            {
-                "type": [
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    }
-                ],
-                "varName": "parameters",
-                "altName": null,
-                "description": "Request parameters.\n\n- `id` – `{*}` - PersistedModel id\n\n- `fk` – `{*}` - Foreign key for followers",
-                "optional": true,
-                "defaultValue": null
-            },
-            {
-                "type": [
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    }
-                ],
-                "varName": "postData",
-                "altName": null,
-                "description": "Request data.\n\nThis method expects a subset of model properties as request parameters.",
-                "optional": false,
-                "defaultValue": null
-            },
-            {
-                "type": [
-                    {
-                        "name": "function",
-                        "type": "function"
-                    },
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    },
-                    {
-                        "name": "Object",
-                        "type": "object"
-                    }
-                ],
-                "varName": "successCb",
-                "altName": null,
-                "description": "Success callback with two arguments: `value`, `responseHeaders`.",
-                "optional": false,
-                "defaultValue": null
-            },
-            {
-                "type": [
-                    {
-                        "name": "function(Object)",
-                        "type": "function"
-                    }
-                ],
-                "varName": "errorCb",
-                "altName": null,
-                "description": "Error callback with one argument:\n`httpResponse`.",
-                "optional": true,
-                "defaultValue": null
-            }
-        ],
-        "docType": "ngdoc",
-        "ngdoc": "method",
-        "name": "updateById",
-        "methodOf": "lbServices.Shop.followers",
-        "description": "Update a related item by id for followers.",
-        "returns": "{Object} An empty reference that will be\npopulated with the actual data once the response is returned\nfrom the server.\n\n<em>\n(The remote method definition does not provide any description.\nThis usually means the response is a `User` object.)\n</em>",
-        "parentDoc": {
-            "name": "lbServices.Shop.followers"
-        },
-        "file": "client/lb-services.js",
-        "id": "updateById",
-        "path": "loopback/lbServices",
-        "groupId": 3,
-        "type": "method",
-        "handler": "ngdoc",
-        "search": "updateById undefined.method:updateById client/lb-services.js",
-        "sortOn": "updateById",
-        "left": 14,
-        "level": 1,
-        "root": "lbServices.Shop.followers",
-        "right": 15
+        "root": "lbServices.Shop",
+        "right": 43
     },
     {
         "params": [],
@@ -5893,6 +5328,172 @@
         "level": 1,
         "root": "lbServices.Shop.reviews",
         "right": 15
+    },
+    {
+        "params": [],
+        "docType": "ngdoc",
+        "ngdoc": "object",
+        "name": "lbServices.Shop.likers",
+        "header": "lbServices.Shop.likers",
+        "object": "",
+        "description": "The object `Shop.likers` groups methods\nmanipulating `User` instances related to `Shop`.\n\nCall {@link lbServices.Shop#likers Shop.likers()}\nto query all related instances.",
+        "parentDoc": {},
+        "file": "client/lb-services.js",
+        "id": "lbServices.Shop.likers",
+        "path": "loopback/lbServices",
+        "groupId": 3,
+        "type": "object",
+        "handler": "ngdoc",
+        "search": "lbServices.Shop.likers undefined.object:lbServices.Shop.likers client/lb-services.js",
+        "sortOn": "lbServices.Shop.likers",
+        "left": 1,
+        "level": 0,
+        "root": "lbServices.Shop.likers",
+        "right": 6
+    },
+    {
+        "params": [
+            {
+                "type": [
+                    {
+                        "name": "Object",
+                        "type": "object"
+                    }
+                ],
+                "varName": "parameters",
+                "altName": null,
+                "description": "Request parameters.\n\n- `id` – `{*}` - PersistedModel id\n\n- `where` – `{object=}` - Criteria to match model instances",
+                "optional": true,
+                "defaultValue": null
+            },
+            {
+                "type": [
+                    {
+                        "name": "function",
+                        "type": "function"
+                    },
+                    {
+                        "name": "Object",
+                        "type": "object"
+                    },
+                    {
+                        "name": "Object",
+                        "type": "object"
+                    }
+                ],
+                "varName": "successCb",
+                "altName": null,
+                "description": "Success callback with two arguments: `value`, `responseHeaders`.",
+                "optional": false,
+                "defaultValue": null
+            },
+            {
+                "type": [
+                    {
+                        "name": "function(Object)",
+                        "type": "function"
+                    }
+                ],
+                "varName": "errorCb",
+                "altName": null,
+                "description": "Error callback with one argument:\n`httpResponse`.",
+                "optional": true,
+                "defaultValue": null
+            }
+        ],
+        "docType": "ngdoc",
+        "ngdoc": "method",
+        "name": "count",
+        "methodOf": "lbServices.Shop.likers",
+        "description": "Counts likers of shop.",
+        "returns": "{Object} An empty reference that will be\npopulated with the actual data once the response is returned\nfrom the server.\n\nData properties:\n\n- `count` – `{number=}` -",
+        "parentDoc": {
+            "name": "lbServices.Shop.likers"
+        },
+        "file": "client/lb-services.js",
+        "id": "count",
+        "path": "loopback/lbServices",
+        "groupId": 3,
+        "type": "method",
+        "handler": "ngdoc",
+        "search": "count undefined.method:count client/lb-services.js",
+        "sortOn": "count",
+        "left": 2,
+        "level": 1,
+        "root": "lbServices.Shop.likers",
+        "right": 3
+    },
+    {
+        "params": [
+            {
+                "type": [
+                    {
+                        "name": "Object",
+                        "type": "object"
+                    }
+                ],
+                "varName": "parameters",
+                "altName": null,
+                "description": "Request parameters.\n\n- `id` – `{*}` - PersistedModel id\n\n- `fk` – `{*}` - Foreign key for likers",
+                "optional": true,
+                "defaultValue": null
+            },
+            {
+                "type": [
+                    {
+                        "name": "function",
+                        "type": "function"
+                    },
+                    {
+                        "name": "Object",
+                        "type": "object"
+                    },
+                    {
+                        "name": "Object",
+                        "type": "object"
+                    }
+                ],
+                "varName": "successCb",
+                "altName": null,
+                "description": "Success callback with two arguments: `value`, `responseHeaders`.",
+                "optional": false,
+                "defaultValue": null
+            },
+            {
+                "type": [
+                    {
+                        "name": "function(Object)",
+                        "type": "function"
+                    }
+                ],
+                "varName": "errorCb",
+                "altName": null,
+                "description": "Error callback with one argument:\n`httpResponse`.",
+                "optional": true,
+                "defaultValue": null
+            }
+        ],
+        "docType": "ngdoc",
+        "ngdoc": "method",
+        "name": "findById",
+        "methodOf": "lbServices.Shop.likers",
+        "description": "Find a related item by id for likers.",
+        "returns": "{Object} An empty reference that will be\npopulated with the actual data once the response is returned\nfrom the server.\n\n<em>\n(The remote method definition does not provide any description.\nThis usually means the response is a `User` object.)\n</em>",
+        "parentDoc": {
+            "name": "lbServices.Shop.likers"
+        },
+        "file": "client/lb-services.js",
+        "id": "findById",
+        "path": "loopback/lbServices",
+        "groupId": 3,
+        "type": "method",
+        "handler": "ngdoc",
+        "search": "findById undefined.method:findById client/lb-services.js",
+        "sortOn": "findById",
+        "left": 4,
+        "level": 1,
+        "root": "lbServices.Shop.likers",
+        "right": 5
     },
     {
         "params": [],

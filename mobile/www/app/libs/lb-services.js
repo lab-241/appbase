@@ -984,62 +984,25 @@ module.factory(
           method: "GET"
         },
 
-        // INTERNAL. Use Shop.followers.findById() instead.
-        "::findById::shop::followers": {
+        // INTERNAL. Use Shop.likers.findById() instead.
+        "::findById::shop::likers": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/shops/:id/followers/:fk",
+          url: urlBase + "/shops/:id/likers/:fk",
           method: "GET"
         },
 
-        // INTERNAL. Use Shop.followers.destroyById() instead.
-        "::destroyById::shop::followers": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/shops/:id/followers/:fk",
-          method: "DELETE"
-        },
-
-        // INTERNAL. Use Shop.followers.updateById() instead.
-        "::updateById::shop::followers": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/shops/:id/followers/:fk",
-          method: "PUT"
-        },
-
-        // INTERNAL. Use Shop.followers() instead.
-        "::get::shop::followers": {
+        // INTERNAL. Use Shop.likers() instead.
+        "::get::shop::likers": {
           isArray: true,
-          url: urlBase + "/shops/:id/followers",
+          url: urlBase + "/shops/:id/likers",
           method: "GET"
         },
 
-        // INTERNAL. Use Shop.followers.create() instead.
-        "::create::shop::followers": {
-          url: urlBase + "/shops/:id/followers",
-          method: "POST"
-        },
-
-        // INTERNAL. Use Shop.followers.createMany() instead.
-        "::createMany::shop::followers": {
-          isArray: true,
-          url: urlBase + "/shops/:id/followers",
-          method: "POST"
-        },
-
-        // INTERNAL. Use Shop.followers.destroyAll() instead.
-        "::delete::shop::followers": {
-          url: urlBase + "/shops/:id/followers",
-          method: "DELETE"
-        },
-
-        // INTERNAL. Use Shop.followers.count() instead.
-        "::count::shop::followers": {
-          url: urlBase + "/shops/:id/followers/count",
+        // INTERNAL. Use Shop.likers.count() instead.
+        "::count::shop::likers": {
+          url: urlBase + "/shops/:id/likers/count",
           method: "GET"
         },
 
@@ -1715,33 +1678,6 @@ module.factory(
           method: "GET"
         },
 
-        // INTERNAL. Use Shop.followers.findById() instead.
-        "prototype$__findById__followers": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/shops/:id/followers/:fk",
-          method: "GET"
-        },
-
-        // INTERNAL. Use Shop.followers.destroyById() instead.
-        "prototype$__destroyById__followers": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/shops/:id/followers/:fk",
-          method: "DELETE"
-        },
-
-        // INTERNAL. Use Shop.followers.updateById() instead.
-        "prototype$__updateById__followers": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/shops/:id/followers/:fk",
-          method: "PUT"
-        },
-
         // INTERNAL. Use Shop.city() instead.
         "prototype$__get__city": {
           url: urlBase + "/shops/:id/city",
@@ -1775,28 +1711,12 @@ module.factory(
           method: "PUT"
         },
 
-        // INTERNAL. Use Shop.followers() instead.
-        "prototype$__get__followers": {
-          isArray: true,
-          url: urlBase + "/shops/:id/followers",
-          method: "GET"
-        },
-
-        // INTERNAL. Use Shop.followers.create() instead.
-        "prototype$__create__followers": {
-          url: urlBase + "/shops/:id/followers",
-          method: "POST"
-        },
-
-        // INTERNAL. Use Shop.followers.destroyAll() instead.
-        "prototype$__delete__followers": {
-          url: urlBase + "/shops/:id/followers",
-          method: "DELETE"
-        },
-
-        // INTERNAL. Use Shop.followers.count() instead.
-        "prototype$__count__followers": {
-          url: urlBase + "/shops/:id/followers/count",
+        // INTERNAL. Use Shop.likers.findById() instead.
+        "prototype$__findById__likers": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/shops/:id/likers/:fk",
           method: "GET"
         },
 
@@ -1822,6 +1742,19 @@ module.factory(
         // INTERNAL. Use Shop.reviews.count() instead.
         "prototype$__count__reviews": {
           url: urlBase + "/shops/:id/reviews/count",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Shop.likers() instead.
+        "prototype$__get__likers": {
+          isArray: true,
+          url: urlBase + "/shops/:id/likers",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Shop.likers.count() instead.
+        "prototype$__count__likers": {
+          url: urlBase + "/shops/:id/likers/count",
           method: "GET"
         },
 
@@ -2247,84 +2180,6 @@ module.factory(
           method: "POST"
         },
 
-        /**
-         * @ngdoc method
-         * @name lbServices.Shop#rate
-         * @methodOf lbServices.Shop
-         *
-         * @description
-         *
-         * Rate the shop (calculating the global note and incrementing the number of reviews)
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
-         *
-         * @param {Object} postData Request data.
-         *
-         *  - `id` – `{string}` - Shop Id
-         *
-         *  - `rating` – `{number}` - Note
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * Data properties:
-         *
-         *  - `response` – `{object=}` - 
-         */
-        "rate": {
-          url: urlBase + "/shops/:id/rate/:rating",
-          method: "POST"
-        },
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Shop#unrate
-         * @methodOf lbServices.Shop
-         *
-         * @description
-         *
-         * Unrate the shop (calculating the global note and decrementing the number of reviews)
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
-         *
-         * @param {Object} postData Request data.
-         *
-         *  - `id` – `{string}` - Shop Id
-         *
-         *  - `rating` – `{number}` - Deleted Note
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * Data properties:
-         *
-         *  - `response` – `{object=}` - 
-         */
-        "unrate": {
-          url: urlBase + "/shops/:id/unrate/:rating",
-          method: "POST"
-        },
-
         // INTERNAL. Use User.favoriteshops.findById() instead.
         "::findById::user::favoriteshops": {
           params: {
@@ -2592,307 +2447,6 @@ module.factory(
         R.manager = function() {
           var TargetResource = $injector.get("User");
           var action = TargetResource["::get::shop::manager"];
-          return action.apply(R, arguments);
-        };
-    /**
-     * @ngdoc object
-     * @name lbServices.Shop.followers
-     * @header lbServices.Shop.followers
-     * @object
-     * @description
-     *
-     * The object `Shop.followers` groups methods
-     * manipulating `User` instances related to `Shop`.
-     *
-     * Call {@link lbServices.Shop#followers Shop.followers()}
-     * to query all related instances.
-     */
-
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Shop#followers
-         * @methodOf lbServices.Shop
-         *
-         * @description
-         *
-         * Queries followers of shop.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         *  - `filter` – `{object=}` - 
-         *
-         * @param {function(Array.<Object>,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Array.<Object>} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `User` object.)
-         * </em>
-         */
-        R.followers = function() {
-          var TargetResource = $injector.get("User");
-          var action = TargetResource["::get::shop::followers"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Shop.followers#count
-         * @methodOf lbServices.Shop.followers
-         *
-         * @description
-         *
-         * Counts followers of shop.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         *  - `where` – `{object=}` - Criteria to match model instances
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * Data properties:
-         *
-         *  - `count` – `{number=}` - 
-         */
-        R.followers.count = function() {
-          var TargetResource = $injector.get("User");
-          var action = TargetResource["::count::shop::followers"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Shop.followers#create
-         * @methodOf lbServices.Shop.followers
-         *
-         * @description
-         *
-         * Creates a new instance in followers of this model.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `User` object.)
-         * </em>
-         */
-        R.followers.create = function() {
-          var TargetResource = $injector.get("User");
-          var action = TargetResource["::create::shop::followers"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Shop.followers#createMany
-         * @methodOf lbServices.Shop.followers
-         *
-         * @description
-         *
-         * Creates a new instance in followers of this model.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Array.<Object>,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Array.<Object>} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `User` object.)
-         * </em>
-         */
-        R.followers.createMany = function() {
-          var TargetResource = $injector.get("User");
-          var action = TargetResource["::createMany::shop::followers"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Shop.followers#destroyAll
-         * @methodOf lbServices.Shop.followers
-         *
-         * @description
-         *
-         * Deletes all followers of this model.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * This method returns no data.
-         */
-        R.followers.destroyAll = function() {
-          var TargetResource = $injector.get("User");
-          var action = TargetResource["::delete::shop::followers"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Shop.followers#destroyById
-         * @methodOf lbServices.Shop.followers
-         *
-         * @description
-         *
-         * Delete a related item by id for followers.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         *  - `fk` – `{*}` - Foreign key for followers
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * This method returns no data.
-         */
-        R.followers.destroyById = function() {
-          var TargetResource = $injector.get("User");
-          var action = TargetResource["::destroyById::shop::followers"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Shop.followers#findById
-         * @methodOf lbServices.Shop.followers
-         *
-         * @description
-         *
-         * Find a related item by id for followers.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         *  - `fk` – `{*}` - Foreign key for followers
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `User` object.)
-         * </em>
-         */
-        R.followers.findById = function() {
-          var TargetResource = $injector.get("User");
-          var action = TargetResource["::findById::shop::followers"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Shop.followers#updateById
-         * @methodOf lbServices.Shop.followers
-         *
-         * @description
-         *
-         * Update a related item by id for followers.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         *  - `fk` – `{*}` - Foreign key for followers
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `User` object.)
-         * </em>
-         */
-        R.followers.updateById = function() {
-          var TargetResource = $injector.get("User");
-          var action = TargetResource["::updateById::shop::followers"];
           return action.apply(R, arguments);
         };
 
@@ -3230,6 +2784,127 @@ module.factory(
         R.reviews.updateById = function() {
           var TargetResource = $injector.get("Review");
           var action = TargetResource["::updateById::shop::reviews"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name lbServices.Shop.likers
+     * @header lbServices.Shop.likers
+     * @object
+     * @description
+     *
+     * The object `Shop.likers` groups methods
+     * manipulating `User` instances related to `Shop`.
+     *
+     * Call {@link lbServices.Shop#likers Shop.likers()}
+     * to query all related instances.
+     */
+
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Shop#likers
+         * @methodOf lbServices.Shop
+         *
+         * @description
+         *
+         * Queries likers of shop.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `filter` – `{object=}` - 
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `User` object.)
+         * </em>
+         */
+        R.likers = function() {
+          var TargetResource = $injector.get("User");
+          var action = TargetResource["::get::shop::likers"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Shop.likers#count
+         * @methodOf lbServices.Shop.likers
+         *
+         * @description
+         *
+         * Counts likers of shop.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        R.likers.count = function() {
+          var TargetResource = $injector.get("User");
+          var action = TargetResource["::count::shop::likers"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Shop.likers#findById
+         * @methodOf lbServices.Shop.likers
+         *
+         * @description
+         *
+         * Find a related item by id for likers.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for likers
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `User` object.)
+         * </em>
+         */
+        R.likers.findById = function() {
+          var TargetResource = $injector.get("User");
+          var action = TargetResource["::findById::shop::likers"];
           return action.apply(R, arguments);
         };
 

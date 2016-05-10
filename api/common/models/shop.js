@@ -1,32 +1,31 @@
 
 module.exports = function(Shop) {
-  /**
-   * Increment shop user likes counter
-   * @param  {int} shopId Shop Id
-   * @return {nbLikes}
-   */
-  Shop.addLike = function(shopId, cb){
-    Shop.findById(shopId , function (err, instance){
-      instance.nbLikes = (instance.nbLikes) ? instance.nbLikes++ : 0;
-      instance.save().then(function(){
-        var response = {nbLikes : instance.nbLikes};
-        cb(null, response);
-      });
-    });
-  };
+
+  // Disable some remote endpoints for security
+  Shop.disableRemoteMethod('__link__likers', false);
+  Shop.disableRemoteMethod('__unlink__likers', false);
+  Shop.disableRemoteMethod('__create__likers', false);
+  Shop.disableRemoteMethod('__delete__likers', false);
+  Shop.disableRemoteMethod('__exists__likers', false);
+  Shop.disableRemoteMethod('__updateById__likers', false);
+  Shop.disableRemoteMethod('__destroyById__likers', false);
 
   /**
-   * Decrement shop user likes counter
+   * Update shop user likes counter
    * @param  {int} shopId Shop Id
    * @return {nbLikes}
    */
-  Shop.removeLike = function(shopId, cb){
+  Shop.setNbLikes = function(shopId, count, cb){
     Shop.findById(shopId , function (err, instance){
-      if(err) return cb(err);
-      instance.nbLikes = (instance.nbLikes) ? instance.nbLikes-- : 0;
+      if(err){
+        console.error('Update nbLikes failed', err);
+        return;
+      }
+      if(count) instance.nbLikes = count;
       instance.save().then(function(){
-        var response = {nbLikes : instance.nbLikes};
-        cb(null, response);
+        var error = null;
+        var result = {nbLikes : instance.nbLikes};
+        cb(error, result);
       });
     });
   };
@@ -37,7 +36,7 @@ module.exports = function(Shop) {
    * @param  {int} rating The rate set by user
    * @return {globalNote,nbReviews}
    */
-  Shop.rate = function(shopId, rating,cb) {
+  Shop.rate = function(shopId, rating, cb) {
     Shop.findById(shopId , function (err, instance){
       var response = {};
       if(!instance.globalNote){
@@ -78,7 +77,7 @@ module.exports = function(Shop) {
    * @param  {int} rating The rate set by user
    * @return {globalNote,nbReviews}
    */
-  Shop.unrate = function(shopId, rating,cb) {
+  Shop.unrate = function(shopId, rating, cb) {
     Shop.findById(shopId , function (err, instance){
       var response = {};
       if(!instance.globalNote || !instance.nbReviews ||
