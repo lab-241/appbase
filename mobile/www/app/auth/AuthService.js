@@ -55,5 +55,15 @@ angular
        .$promise;
     };
 
+    /**
+     * Reset User password
+     */
+     self.resetPassword = function(userEmail) {
+        return User
+        .resetPassword({
+          email: userEmail
+        })
+         .$promise;
+      };
     return self;
 });

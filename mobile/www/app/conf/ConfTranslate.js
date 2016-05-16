@@ -33,6 +33,13 @@ var translations = {
     REGISTER_FAILED: 'Register failed!',
     REGISTERING_ERROR: 'Error occurs during registering process',
 
+    // RESET
+    FORGOTTEN_PASSWORD: 'Forgotten password',
+    RESET_PASSWORD_VIEW_TITLE: 'Reset Password',
+    RESET_PASSWORD: 'Reset Password',
+    RESET_FAILED: 'Reset error',
+    RESET_ERROR: 'An error occured on password reset. Please try again.',
+
     // SHOP LIST
     SHOP_LIST_VIEW_TITLE: 'Shops',
     NO_RESULT:'No result',
@@ -91,6 +98,13 @@ var translations = {
     ALREADY_HAVE_ACCOUNT: 'Déjà inscrit',
     REGISTER_FAILED: 'Inscription en erreur',
     REGISTERING_ERROR: 'Une erreur est survenue durant l\' inscription',
+
+    // RESET
+    FORGOTTEN_PASSWORD: 'Mot de passe oublié',
+    RESET_PASSWORD_VIEW_TITLE: 'Réinitialisation de mot de passe',
+    RESET_PASSWORD: 'Réinitialiser',
+    RESET_FAILED: 'Réinitialisation en erreur',
+    RESET_ERROR: 'Une erreur est survenue durant la réinitialiation du mot de passe. Merci de réessayer ultérieurement.',
 
     //SHOP LIST
     SHOP_LIST_VIEW_TITLE: 'Liste des enseignes',

@@ -30,12 +30,23 @@ angular
     scope: $scope
   });
 
+  //-- Create reset password modal form
+  var resUrl = '\'app/auth/views/reset.html\'';
+  var resTpl = '<div ng-controller="ResetCtrl" ng-include="'+resUrl+'"></div>';
+  $scope.resetModal = $ionicModal.fromTemplate(resTpl, {
+    scope: $scope
+  });
+
   $scope.closeLogin = function(msg) {
     $scope.loginModal.hide();
   };
   $scope.closeRegister = function() {
     $scope.registerModal.hide();
   };
+  $scope.closeResetPassword = function() {
+    $scope.resetModal.hide();
+  };
+
 
   $scope.login = function() {
     if($scope.registerModal.isShown()) $scope.closeRegister();
@@ -50,6 +61,12 @@ angular
     if($scope.loginModal.isShown()) $scope.closeLogin();
     $scope.registerModal.show();
   };
+
+  $scope.resetPassword = function ()  {
+    console.log("resetPassword");
+  //  if($scope.resetModal.isShown()) $scope.closeResetPassword();
+    $scope.resetModal.show();
+  }
 
   //-- On click to about button
   $scope.about = function(){

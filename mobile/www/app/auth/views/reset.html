@@ -1,0 +1,22 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-calm">
+    <h1 class="title">{{'RESET_PASSWORD_VIEW_TITLE' | translate}}</h1>
+    <div class="buttons">
+      <button class="button icon ion-close" ng-click="closeResetPassword()"></button>
+    </div>
+  </ion-header-bar>
+  <ion-content  class="padding auth">
+    <div class="logo">
+      <img src="img/logo.png" class="logo">
+    </div>
+    <form ng-submit="doReset()">
+        <div class="list list-inset">
+          <label class="item item-input">
+            <i class="icon ion-email placeholder-icon"></i>
+            <input type="text" placeholder="{{'EMAIL' | translate}}" ng-model="credentials.resetEmail" />
+          </label>
+          <button class="button button-block button-calm" type="submit">{{'RESET_PASSWORD' | translate}}</button>
+        </div>
+    </form>
+  </ion-content>
+</ion-modal-view>
