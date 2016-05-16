@@ -5,6 +5,7 @@
     "ionic": "driftyco/ionic-bower#1.2.4",
     "angular-translate": "2.11.0",
     "angular-resource": "1.4.3",
-    "angular-mocks": "1.4.3"
+    "angular-mocks": "1.4.3",
+    "ionic-platform-web-client": "^0.7.1"
   }
 }
