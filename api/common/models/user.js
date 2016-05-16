@@ -1,3 +1,6 @@
+
+var config = require('../../server/config.json');
+
 module.exports = function(User) {
 
   function updateShopLikesCount(shopId){
@@ -11,6 +14,26 @@ module.exports = function(User) {
       Shop.setNbLikes(shopId, count);
     });
   }
+
+  /**
+   * Send user reset-password e-mail
+   * Hook called on POST /users/rest
+   */
+  User.on('resetPasswordRequest', function(info) {
+    var url = 'http://' + config.host + ':' + config.port + '/reset-password';
+    var html = 'Click <a href="' + url + '?access_token=' +
+        info.accessToken.id + '">here</a> to reset your password';
+
+    User.app.models.Email.send({
+      to: info.email,
+      from: 'noreply@appbase.ga',
+      subject: 'Password reset',
+      html: html
+    }, function(err) {
+      if (err) return console.log('> Error sending password reset email');
+      console.log('> sending password reset email to:', info.email);
+    });
+  });
 
   /**
    * Update shop likes count

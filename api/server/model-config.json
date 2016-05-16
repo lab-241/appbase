@@ -13,6 +13,9 @@
       "./mixins"
     ]
   },
+  "Email": {
+    "dataSource": "email"
+  },
   "AccessToken": {
     "dataSource": "db",
     "public": false
