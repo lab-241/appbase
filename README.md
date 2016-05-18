@@ -45,11 +45,11 @@ __AB__ = [LOOPBACK](http://loopback.io) __+__ [IONIC](http://ionicframework.com/
 
 Actually, App Base is a fullstack js ecosystem :
 
-| Need |Solution|
-|---|---|
-|REST API|[LoopBack Framework](https://strongloop.com/node-js/loopback-framework)|
-|Mobile App|[Ionic Framework](http://ionicframework.com/)|
-|Admin Dashboard|[NG-admin](https://github.com/marmelab/ng-admin)|
+| Need |Solution| AppBase repo |
+|---|---|---|
+|REST API|[LoopBack Framework](https://strongloop.com/node-js/loopback-framework)|[Appbase server](https://github.com/lab-241/appbase-server)|
+|Mobile App|[Ionic Framework](http://ionicframework.com/)|[Appbase ionic](https://github.com/lab-241/appbase-client-ionic)|
+|Admin Dashboard|[NG-admin](https://github.com/marmelab/ng-admin)|[Appbase server](https://github.com/lab-241/appbase-server)|
 
 
 ### Development quick start
