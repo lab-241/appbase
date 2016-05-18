@@ -1,0 +1,6 @@
+[submodule "appbase-client-ionic"]
+	path = appbase-client-ionic
+	url = git@github.com:lab-241/appbase-client-ionic.git
+[submodule "appbase-server"]
+	path = appbase-server
+	url = git@github.com:lab-241/appbase-server.git
