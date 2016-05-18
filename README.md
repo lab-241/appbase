@@ -35,8 +35,8 @@ __AB__ = [LOOPBACK](http://loopback.io) __+__ [IONIC](http://ionicframework.com/
 
 * Sharing items
 * Deploy documentation (manual + docker)
-* Dev with docker
-* Basic ittems filters : type, tags ...
+* Docker dev environment
+* Basic items filters : type, tags ...
 * Dedicated "ionicview" app
 * User account managment
 * Xamarin based mobile client (ios, android, windows)
@@ -70,19 +70,20 @@ npm install -g cordova ionic strongloop grunt-cli gulp bower karma-cli phantomjs
 
 __Start app components__
 
+Start loopback api
+
 ```
-$ git clone git@git.mikangali.com:lab-241/appbase
-$ cd appbase
-
-# Start loopback api
-
-$ cd api
+$ git clone git@git.mikangali.com:lab-241/appbase-server
+$ cd appbase-server
 $ npm install
 $ grunt
+```
 
-# Start ionic mobile app
+Start ionic mobile app
 
-$ cd ../mobile
+```
+$ git clone git@git.mikangali.com:lab-241/appbase-client-ionic
+$ cd appbase-client-ionic
 $ bower install
 $ ionic serve --lab
 
@@ -96,5 +97,4 @@ $ ionic run android --livereload
 
 * [Project website](http://appbase.ga)
 * [Github repo](https://github.com/lab-241/appbase)
-* [Build status](https://travis-ci.org/lab-241/appbase)
 * [Slides show](https://slides.com/mikamboo/app-base/edit)

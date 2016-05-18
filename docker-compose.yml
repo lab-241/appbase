@@ -7,7 +7,7 @@ db:
 api:
   image: mikamboo/devbox
   volumes:
-   - ./api:/app
+   - ./appbase-server:/app
   links:
    - db:db
   ports:
@@ -21,14 +21,13 @@ mobile:
   image: mikamboo/ionic-box
   privileged: true
   working_dir: /app
-  volumes: 
-    - ./mobile:/app 
+  volumes:
+    - ./appbase-client-ionic:/app
     - /dev/bus/usb:/dev/bus/usb
-  ports: 
+  ports:
     - 9222:9222
-    - 8100:8100 
-    - 35730:35729 
+    - 8100:8100
+    - 35730:35729
   command: ionic serve --lab
   working_dir: /app
   container_name: appbase-mobile
-

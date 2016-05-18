@@ -1,7 +1,7 @@
 #! /bin/sh
 
-cd api
+cd appbase-server
 grunt serve &
 
-cd ../mobile
+cd ../appbase-client-ionic
 ionic serve --lab
