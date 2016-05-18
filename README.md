@@ -1,8 +1,7 @@
 # App Base
 
-A production ready mobile app foundation.
+Your production ready mobile app foundation.
 
-[![Build Status](https://travis-ci.org/lab-241/appbase.svg?branch=master)](https://travis-ci.org/lab-241/appbase)
 [![Join the chat at https://gitter.im/lab-241/appbase](https://badges.gitter.im/lab-241/appbase.svg)](https://gitter.im/lab-241/appbase?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## What's [App Base](http://appbase.ga) ?
@@ -44,7 +43,7 @@ __AB__ = [LOOPBACK](http://loopback.io) __+__ [IONIC](http://ionicframework.com/
 
 ## Getting started
 
-Actually, App Base (v1.0) is a fullstack js ecosystem :
+Actually, App Base is a fullstack js ecosystem :
 
 | Need |Solution|
 |---|---|
