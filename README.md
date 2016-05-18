@@ -11,7 +11,7 @@ A simple, robust fullstack js base for creating real life apps !
 
 __AB__ = [LOOPBACK](http://loopback.io) __+__ [IONIC](http://ionicframework.com/)
 
-![](doc/Loopback_Ionic.png)
+![](appbase-doc/images/lb-ionic.png)
 
 ## Table of content
 
