@@ -10,7 +10,7 @@ A simple, robust fullstack js base for creating real life apps !
 
 __AB__ = [LOOPBACK](http://loopback.io) __+__ [IONIC](http://ionicframework.com/)
 
-![](appbase-doc/images/lb-ionic.png)
+![](lb-ionic.png)
 
 ## Table of content
 
@@ -39,7 +39,7 @@ __AB__ = [LOOPBACK](http://loopback.io) __+__ [IONIC](http://ionicframework.com/
 * Dedicated "ionicview" app
 * User account managment
 * Xamarin based mobile client (ios, android, windows)
-...
+
 
 ## Getting started
 
@@ -85,15 +85,13 @@ $ git clone git@git.mikangali.com:lab-241/appbase-client-ionic
 $ cd appbase-client-ionic
 $ bower install
 $ ionic serve --lab
-
-# Run ionic app on android
-
-$ ionic platform android
-$ ionic run android --livereload
 ```
+
+Read more in [documentation](https://github.com/lab-241/appbase-doc).
 
 ## Links
 
-* [Project website](http://appbase.ga)
-* [Github repo](https://github.com/lab-241/appbase)
+* [Project website](http://www.appbase.ga)
+* [Documentation](https://github.com/lab-241/appbase-doc)
 * [Slides show](https://slides.com/mikamboo/app-base/edit)
+
