@@ -2,13 +2,12 @@
   "name": "appbase",
   "version": "1.0.0",
   "description": "A production ready hybrid mobile app ecosystem",
-  "main": "server.js",
   "dependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/lab-241/appbase.git"
   },
-  "keywords": ["NodeJs", "Ionicframework", "Loopback", "Angular"],
+  "keywords": ["NodeJs", "Ionicframework", "Loopback", "Angular", "Fullstack"],
   "author": "@mikamboo <mike@mikangali.com>",
   "bugs": {
     "url": "https://github.com/lab-241/appbase/issues"
